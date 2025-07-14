@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MOFSL Financial APIs",
+    "version": "1.0.0",
+    "description": "APIs for accessing MOFSL financial services including client details, client dashboard, account status, branch details, Online/Offline Trading account modificaiton, dormant account reactivation, and account opening/modification links for different personas (individual, HUF, NRI, partnership, corporate, trust)."
+  },
+  "servers": [
+    {
+    "url": "",
+    "description": "Production server for MOFSL APIs"
+    }
+  ],
+  "paths": {
+    "http://10.167.203.119/gw/api/cbot/ClientDetails": {
+    "post": {
+      "summary": "Provides trading account details of given clinet. (ref as My details by clients)",
+      "description": "Shows account details for given client",
+      "operationId": "getClientDetails",
+      "requestBody": {
+      "required": true,
+      "description": "Form parameters containing client and user identification details.",
+      "content": {
+        "application/json": {
+        "schema": {
+          "type": "object",
+          "required": ["clientId"],
+          "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client ID of registered user",
+            "x_displayName": "Client ID"
+          }
+          }
+        }
+        }
+      }
+      },
+      "responses": {
+      "200": {
+        "description": "Client detail response with relevant user and profile data.",
+        "content": {
+        "application/json": {
+          "schema": { "type": "object", "additionalProperties": true }
+        }
+        }
+      },
+      "400": {
+        "description": "Invalid input or missing parameters."
+      },
+      "401": {
+        "description": "Unauthorized - missing or invalid token/session."
+      },
+      "500": {
+        "description": "Internal server error."
+      }
+      }
+    }
+    },
+    "http://10.167.203.119/gw/api/cbot/ClientView": {
+    "post": {
+      "summary": "Get client dashboard view or my dashboard",
+      "description": "Provides a summary of client dashboard  or my dashboard information such as portfolio, status, or alerts.",
+      "operationId": "getClientDashboard",
+      "requestBody": {
+      "required": true,
+      "description": "Payload containing the user ID of the client to retrieve dashboard info for.",
+      "content": {
+        "application/json": {
+        "schema": {
+          "type": "object",
+          "required": [ "clientId"],
+          "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client ID of registered user",
+            "x_displayName": "Client ID"
+          }
+          }
+        }
+        }
+      }
+      },
+      "responses": {
+      "200": {
+        "description": "Dashboard data containing relevant financial and account details.",
+        "content": {
+        "application/json": {
+          "schema": { "type": "object", "additionalProperties": true }
+        }
+        }
+      },
+      "400": {
+        "description": "Invalid input or missing parameters."
+      },
+      "401": {
+        "description": "Unauthorized - missing or invalid token/session."
+      },
+      "500": {
+        "description": "Internal server error."
+      }
+      }
+    }
+    },
+    "http://10.167.203.119/gw/api/cbot/eModificationDetails": {
+    "post": {
+      "summary": "This is fastest online way to modify trading account details like Email, Phone Number, Address, Bank Details, Nominee, etc.",
+      "description": "Allows online modification of trading account details like Email, Phone Number, Address, Bank Details, Nominee, etc.",
+      "operationId": "getEModificationEmail",
+      "requestBody": {
+      "required": true,
+      "description": "Includes identification parameters and e-modification or Dormant Reactivation & Status options.",
+      "content": {
+        "application/json": {
+        "schema": {
+          "type": "object",
+          "required": ["clientId"],
+          "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client ID of registered user",
+            "x_displayName": "Client ID"
+          },
+          "Type": {
+            "type": "string",
+            "description": "Type or category for e-modification request is '', and for Dormant Reactivation & Status is 'DOR'."
+          }
+          }
+        }
+        }
+      }
+      },
+      "responses": {
+      "200": {
+        "description": "Response payload with e-modification request info or email content.",
+        "content": {
+        "application/json": {
+          "schema": { "type": "object", "additionalProperties": true }
+        }
+        }
+      },
+      "400": {
+        "description": "Invalid input or missing parameters."
+      },
+      "401": {
+        "description": "Unauthorized - missing or invalid token/session."
+      },
+      "500": {
+        "description": "Internal server error."
+      }
+      }
+    }
+    },
+    "http://10.167.203.119/gw/api/cbot/BranchDetails": {
+    "post": {
+      "summary": "Get branch details",
+      "description": "Retrieves information about the branch associated with a specific user.",
+      "operationId": "getBranchDetails",
+      "requestBody": {
+      "required": true,
+      "description": "Form parameters containing user identification details.",
+      "content": {
+        "application/json": {
+        "schema": {
+          "type": "object",
+          "required": [],
+          "properties": {
+          }
+        }
+        }
+      }
+      },
+      "responses": {
+      "200": {
+        "description": "Branch details response with relevant information.",
+        "content": {
+        "application/json": {
+          "schema": { "type": "object", "additionalProperties": true }
+        }
+        }
+      },
+      "400": {
+        "description": "Invalid input or missing parameters."
+      },
+      "401": {
+        "description": "Unauthorized - missing or invalid token/session."
+      },
+      "500": {
+        "description": "Internal server error."
+      }
+      }
+    }
+    },
+    "http://10.167.203.119/gw/api/cbot/AccountStatusReq": {
+    "post": {
+      "summary": "Get account status",
+      "description": "Returns account status of a client based on PAN or account number.",
+      "operationId": "getAccountStatus",
+      "requestBody": {
+      "required": true,
+      "description": "Form parameters containing user and client identification details.",
+      "content": {
+        "application/json": {
+        "schema": {
+          "type": "object",
+          "required": ["clientId","PanOrNumber"],
+          "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client ID of registered user",
+            "x-display-name": "Client ID"
+          },
+          "PanOrNumber": {
+            "type": "string",
+            "description": "PAN or account number to verify the account.",
+            "x-display-name": "PAN or Account Number"
+          }
+          }
+        }
+        }
+      }
+      },
+      "responses": {
+      "200": {
+        "description": "Account status response with relevant information.",
+        "content": {
+        "application/json": {
+          "schema": { "type": "object", "additionalProperties": true }
+        }
+        }
+      },
+      "400": {
+        "description": "Invalid input or missing parameters."
+      },
+      "401": {
+        "description": "Unauthorized - missing or invalid token/session."
+      },
+      "500": {
+        "description": "Internal server error."
+      }
+      }
+    }
+    }
+    
+  }
+}

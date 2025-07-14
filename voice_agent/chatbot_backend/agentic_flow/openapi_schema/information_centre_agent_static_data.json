@@ -1,0 +1,22 @@
+{
+  "static_data": [
+    {
+      "name": "Motilal Oswal Market Research Portal",
+      "type": "external_link",
+      "description": "Direct URL to the Motilal Oswal stock research page.",
+      "content": "https://www.motilaloswal.com/stock-research"
+    },
+    {
+      "name": "BSE Upcoming IPOs",
+      "type": "external_link",
+      "description": "URL to BSE upcoming IPO issues page.",
+      "content": "https://www.bseindia.com/markets/PublicIssues/AcqIssueDetail.aspx?expandable=3&Type=2"
+    },
+    {
+      "name": "NSE Upcoming Tender Offers",
+      "type": "external_link",
+      "description": "URL to NSE upcoming tender offers page.",
+      "content": "https://www.nseindia.com/live_market/content/live_watch/tender_offer/tender_offer.htm"
+    }
+  ]
+}

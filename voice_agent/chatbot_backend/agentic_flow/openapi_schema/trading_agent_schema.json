@@ -1,0 +1,110 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "MOFSL Financial APIs",
+      "version": "1.0.0",
+      "description": "This API provides access to app features of Motilal Oswal Financial Services including: initiating and stopping online trading services for client accounts."
+    },
+    "servers": [
+      {
+        "url": ""
+      }
+    ],
+    "paths": {
+      "http://10.167.203.119/gw/api/cbot/Onlinetradestartstop": {
+        "post": {
+          "summary": "Start online trading for a client",
+          "description": "Initiates the online trading process for a specified client account.",
+          "operationId": "startOnlineTrading",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["clientId"],
+                  "properties": {
+                    "clientId": {
+                      "type": "string",
+                      "description": "Client ID of registered user",
+                      "x-display-name": "Client ID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Online trading initiated successfully",
+              "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request or invalid parameters"
+            },
+            "401": {
+              "description": "Unauthorized access - invalid token or session"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "http://10.167.203.119/gw/api/cbot/Onlinetradestartsto": {
+        "post": {
+          "summary": "Stop online trading for a client",
+          "description": "Terminates the online trading service for a specified client account.",
+          "operationId": "stopOnlineTrading",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["clientId"],
+                  "properties": {
+                    "clientId": {
+                      "type": "string",
+                      "description": "Client ID of registered user",
+                      "x-display-name": "Client ID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Online trading stopped successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request or invalid parameters"
+            },
+            "401": {
+              "description": "Unauthorized access - invalid token or session"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      }
+    }
+  }
+  

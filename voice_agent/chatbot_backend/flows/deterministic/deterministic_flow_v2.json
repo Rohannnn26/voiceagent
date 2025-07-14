@@ -1,0 +1,1208 @@
+{
+    "initial_client":{
+        "action":"initial",
+        "response_text": "Welcome to your Mo Gini assistant. How can I help you today?",
+        "available_choices":[
+        {
+            "id": "ledger_report",
+            "text": "Ledger Report"
+            },
+        {
+            "id": "profit_and_loss_statement",
+            "text": "Profit and loss statement"
+            },
+        {
+            "id": "my_details",
+            "text": "My details"
+            },
+        {
+            "id": "dp_statement",
+            "text": "DP Statement"
+            },
+        {
+            "id" : "brokerage_report",
+            "text" : "Brokerage Report"
+            },
+        {
+            "id" : "itr_statement",
+            "text" : "ITR Statement"
+            },
+        {
+            "id" : "available_margin",
+            "text" : "Available Margin"
+            },
+        {
+            "id" : "my_dashboard",
+            "text" : "My Dashboard"
+            },
+        {
+            "id" : "tds_certificate",
+            "text" : "TDS Certificate"
+            },
+        {
+            "id" : "stt_ctt_certificate",
+            "text" : "STT/CTT Certificate"
+            },
+        {
+            "id" : "markets_research_client",
+            "text" : "Market Research"
+            },
+        {
+            "id" : "emodification",
+            "text" : "E-modification"
+            },
+        {
+            "id" : "upcoming_buyback",
+            "text" : "Upcoming Buyback"
+            },
+        {
+            "id" : "mf_status",
+            "text" : "Mutual Fund Status"
+            },
+        {
+            "id" : "fund_payout_status",
+            "text" : "Fund Payout Status"
+            },
+        {
+            "id" : "margin_shortage",
+            "text" : "Margin Shortage Penalty"
+            },
+        {
+            "id" : "rta_statement",
+            "text" : "RTA Statement"
+            },
+        {
+            "id" : "dormant_status",
+            "text" : "Dormant Reactivation & Status"
+            },
+        {
+            "id" : "fund_transfer_status",
+            "text" : "Funds Transfer Status"
+            },
+        {
+            "id" : "stop_online_trade",
+            "text" : "Stop Online Trading"
+            },
+        {
+            "id" : "start_online_trade",
+            "text" : "Start Online Trading"
+            },
+        {
+            "id" : "grandfather_pnl",
+            "text" : "Grandfather Profit and Loss statement"
+            },
+        {
+            "id" : "sauda_details",
+            "text" : "Sauda Detail"
+
+            },
+        {
+            "id" : "ipo",
+            "text" : "IPO"
+            },
+        {
+            "id" : "digi_cmr",
+            "text" : "DIGI CMR Report"
+            },
+        {
+            "id" : "contract_note",
+            "text" : "Contract Note"
+            },
+        {
+            "id" : "dis_drf_status",
+            "text" : "DIS/DRF Status"
+            },
+        {
+            "id" : "segment_addition",
+            "text" : "Segment Addition"
+            }
+                     
+        ]
+    },
+    "initial_partner":{
+        "action":"initial",
+        "response_text": "Welcome to your Mo Gini assistant. How can I help you today?",
+        "available_choices":[
+        {
+            "id": "profit_and_loss_statement",
+            "text": "Profit and loss statement"
+            },
+        {
+            "id": "ledger_report",
+            "text": "Ledger Report"
+            },
+        {
+            "id": "my_details",
+            "text": "My details"
+            },
+        {
+            "id": "dp_statement",
+            "text": "DP Statement"
+            },
+        {
+            "id" : "brokerage_report",
+            "text" : "Brokerage Report"
+            },
+        {
+            "id" : "itr_statement",
+            "text" : "ITR Statement"
+            },
+        {
+            "id" : "grandfather_pnl",
+            "text" : "Grandfather Profit and Loss statement"
+            },
+        {
+            "id" : "available_margin",
+            "text" : "Available Margin"
+            },
+        {
+            "id" : "my_dashboard",
+            "text" : "Client Dashboard"
+            },
+        {
+            "id" : "tds_certificate",
+            "text" : "TDS Certificate"
+            },
+        {
+            "id" : "stt_ctt_certificate",
+            "text" : "STT/CTT Certificate"
+            },
+        {
+            "id" : "markets_research_partner",
+            "text" : "Market Research"
+            },
+        {
+            "id" : "emodification",
+            "text" : "E-modification"
+            },
+        {
+            "id" : "upcoming_buyback",
+            "text" : "Upcoming Buyback"
+            },
+        {
+            "id" : "mf_status",
+            "text" : "Mutual Fund Status"
+            },
+        {
+            "id" : "fund_payout_status",
+            "text" : "Fund Payout Status"
+            },
+        {
+            "id" : "fund_transfer_status",
+            "text" : "Funds Transfer Status"
+            },
+        {
+            "id" : "margin_shortage",
+            "text" : "Margin Shortage Penalty"
+            },
+        {
+            "id" : "faq",
+            "text" : "FAQ"
+            },
+        {
+            "id" : "new_account_opening",
+            "text" : "New Account Opening"
+            },
+        {
+            "id" : "sauda_details",
+            "text" : "Sauda Detail"
+
+            },
+        {
+            "id" : "ipo",
+            "text" : "IPO"
+            },
+        {
+            "id" : "digi_cmr",
+            "text" : "DIGI CMR Report"
+            },
+        {
+            "id" : "acount_modification_status",
+            "text" : "Account Status"
+            },
+        {
+            "id" : "acount_modification_status",
+            "text" : "Modification Status"
+            },
+        {
+            "id" : "contract_note",
+            "text" : "Contract Note"
+            },
+        {
+            "id" : "dis_drf_status",
+            "text" : "DIS/DRF Status"
+            }   
+        ]
+    },
+
+    "digi_cmr" :{
+      "action" : "midapi",
+      "endpoint" :""
+    },
+
+    "dp_ids_cmr" : {
+      "action" :"option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+      
+    },
+
+    "sauda_details": {
+        "action": "option",
+        "response_text": "",
+        "available_choices": [
+          {
+            "id": "previous_fy",
+            "text": "Previous FY"
+          }
+        ]
+    },
+    "ipo": {
+        "action":"endapi",
+        "endpoint": ""
+
+    },
+    "available_margin":{
+        "action": "endapi",
+        "endpoint": "available_margin"
+    },
+
+    "brokerage_report" : {
+      "action" : "endapi",
+      "endpoint" : "brokerage_report"
+
+    },
+    "my_dashboard":{
+        "action": "endapi",
+        "endpoint": "my_dashboard"
+    },
+    "tds_certificate":{
+        "action": "endapi",
+        "endpoint": "tds_certificate"
+    },
+    
+    
+    "ledger_report": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Combine",
+          "text": "Combine"
+        },
+        {
+            "id": "MTF",
+            "text": "MTF"
+          }
+      ]
+    },
+    "ledger_summary": {
+      "action": "endapi",
+      "endpoint": "ledger_summary"
+    },
+    "Combine": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Voucher",
+          "text": "Voucher Date Wise"
+        }, 
+        {
+          "id": "Effective",
+          "text": "Effective Date wise"
+        }
+      ]
+    },
+    "MTF": {
+        "action": "midapi",
+        "endpoint": ""
+    },
+    
+    "Voucher": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "3_month",
+          "text": "3 Months (Note:Current FY)"
+        },
+        {
+          "id": "6_month",
+          "text": "6 Months (Note:Current FY)"
+        },
+        {
+          "id": "current_fy",
+          "text": "Current FY"
+        },
+        {
+          "id": "previous_fy",
+          "text": "Previous FY"
+        }
+      ]
+    },
+    "Effective": {
+      "action": "option",
+      "available_choices": [
+        {
+          "id": "3_month",
+          "text": "3 Months (Note:Current FY)"
+        },
+        {
+          "id": "6_month",
+          "text": "6 Months (Note:Current FY)"
+        },
+        {
+          "id": "current_fy",
+          "text": "Current FY"
+        },
+        {
+          "id": "previous_fy",
+          "text": "Previous FY"
+        }
+      ]
+    },
+    "choose_date":{
+        "action": "user_input_date",
+        "response_text":"",
+        "available_choices":[
+            {"id":"start_date",
+            "text" : "Start Date"
+            },
+            {"id":"end_date",
+            "text" : "End Date"
+            }
+        ]
+    },
+    "previous_fy": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
+    "current_fy": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
+    "6_month": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
+    "3_month": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
+    "Link":{
+      "action":"endapi",
+      "endpoint" : " "
+    },
+    "Email":{
+      "action":"endapi",
+      "endpoint" : ""
+    },
+
+    "profit_and_loss_statement":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "current_fy",
+            "text": "Current FY"
+            },
+        {
+            "id": "previous_fy",
+            "text": "Previous FY"
+            }
+        ]
+    },
+    "my_details":{
+        "action": "endapi",
+        "endpoint": "my_details"
+    },
+    
+    "itr_statement":{
+        "action": "option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "current_fy_itr",
+            "text": "Current FY"
+            },
+        {
+            "id": "previous_fy_itr",
+            "text": "Previous FY"
+            }
+        ]
+    },
+    "current_fy_itr":{
+     "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
+    "previous_fy_itr": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
+    
+    "dp_statement":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "holding_statement",
+            "text": "Holding Statement"
+            },
+        {
+            "id": "transaction_statement",
+            "text": "Transaction Statement"
+            }
+        ]
+    },
+    "holding_statement":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "total_holdings",
+            "text": "Total Holdings"
+            },
+        {
+            "id": "dp_holdings",
+            "text": "DP Holdings"
+            }
+        ]
+    },
+    "total_holdings":{
+        "action":"endapi",
+        "endpoint" :""
+    },
+    "dp_holdings":{
+      "action" : "midapi",
+      "endpoint" :""
+    },
+    "transaction_statement":{
+      "action" : "midapi",
+      "endpoint" :""
+    },
+    "dp_ids" : {
+      "action" :"option",
+      "response_text":"",
+      "available_choices" :[
+        {
+          "id": "6_month",
+          "text": "6 Months (Note:Current FY)"
+        },
+        {
+          "id": "current_fy",
+          "text": "Current FY"
+        },
+        {
+          "id": "previous_fy",
+          "text": "Previous FY"
+        }
+      ]
+    },
+    "grandfather_pnl":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "current_fy",
+            "text": "Current FY"
+            },
+        {
+            "id": "previous_fy",
+            "text": "Previous FY"
+            }
+        ]
+    },
+    "stt_ctt_certificate":{
+        "action": "option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "current_fy_stt_ctt",
+            "text": "Current FY"
+            },
+        {
+            "id": "previous_fy_stt_ctt",
+            "text": "Previous FY"
+            }
+        ]
+    },
+    "current_fy_stt_ctt":{
+      "action":"endapi",
+      "endpoint" : ""
+    },
+    
+    "previous_fy_stt_ctt":{
+      "action":"endapi",
+      "endpoint" : ""
+    },
+    "markets_research_client":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "advisor",
+            "text": "Advisor"
+            },
+        {
+            "id": "markets_research",
+            "text": "Markets Research"
+            }
+        ]
+    },
+    "markets_research_partner":{
+        "action":"endapi",
+        "endpoint" : "markets_research_partner"
+    },
+    "advisor":{
+            "action":"endapi",
+            "endpoint" : "advisor"
+    },
+    "markets_research":{
+            "action":"endapi",
+            "endpoint" : "markets_research_client"
+    },
+    "emodification":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "email_and_mobile",
+            "text": "Email and Mobile"
+            },
+        {
+            "id": "address",
+            "text": "Address"
+            },
+        {
+            "id": "bank",
+            "text": "Bank"
+            },
+        {
+            "id": "nominee",
+            "text": "Nominee/Income Range"
+            }
+        ]
+    
+    },
+    "email_and_mobile":{
+            "action":"endapi",
+            "endpoint" : "emodification"
+    },
+    "address":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "address_online",
+            "text": "Online"
+            },
+        {
+            "id": "address_physical",
+            "text": "Physical"
+            }
+        ]
+    
+    },
+    "address_online":{
+          "action":"endapi",
+          "endpoint" : "emodification"
+    },
+    "address_physical":{
+          "action":"option",
+          "response_text":"",
+          "available_choices":[
+        {
+            "id": "address_physical_form",
+            "text": "Address Modification form"
+            },
+        {
+            "id": "document_list_address",
+            "text": "List of document for address proof"
+            }
+        ]
+    },
+    "address_physical_form":{
+          "action":"endapi",
+          "endpoint" : "address_physical_form"
+    },
+    "document_list_address":{
+          "action":"endapi",
+          "endpoint" : "document_list_address"
+    },
+    "bank":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "bank_online",
+            "text": "Online"
+            },
+        {
+            "id": "bank_physical",
+            "text": "Physical"
+            }
+        ]
+    },
+    "bank_online":{
+          "action":"endapi",
+          "endpoint" : "emodification"
+    },
+    "bank_physical":{
+          "action":"option",
+          "response_text":"",
+          "available_choices":[
+        {
+            "id": "address_physical_form",
+            "text": "Bank modification form"
+            },
+        {
+            "id": "document_list_bank",
+            "text": "List of document for bank proof"
+            }
+        ]
+    },
+    "document_list_bank":{
+          "action":"endapi",
+          "endpoint" : "document_list_bank"
+    },
+    "nominee":{
+          "action":"endapi",
+          "endpoint" : "emodification"
+    },
+    "upcoming_buyback":{
+        "action":"option",
+          "response_text":"",
+          "available_choices":[
+        {
+            "id": "upcoming_bse",
+            "text": "BSE"
+            },
+        {
+            "id": "upcoming_nse",
+            "text": "NSE"
+            }
+        ]
+    },
+    "upcoming_bse":{
+          "action":"endapi",
+          "endpoint" : "upcoming_bse"
+    },
+    "upcoming_nse":{
+          "action":"endapi",
+          "endpoint" : "upcoming_nse"
+    },
+    "mf_status":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "sip",
+            "text": "SIP"
+            },
+        {
+            "id": "xsip",
+            "text": "XSIP"
+            },
+        {
+            "id": "isip",
+            "text": "ISIP"
+            },
+        {
+            "id": "fp",
+            "text": "Lumpsum"
+            },
+        {
+            "id": "mn",
+            "text": "Mandate"
+            }
+        ]
+    
+    },
+    "sip":{
+          "action":"endapi",
+          "endpoint" : "mf_status"
+    },
+    "isip":{
+          "action":"endapi",
+          "endpoint" : "mf_status"
+    },
+    "xsip":{
+          "action":"endapi",
+          "endpoint" : "mf_status"
+    },
+    "fp":{
+          "action":"endapi",
+          "endpoint" : "mf_status"
+    },
+    "mn":{
+          "action":"endapi",
+          "endpoint" : "mf_status"
+    },
+    "fund_payout_status":{
+          "action":"endapi",
+          "endpoint" : "fund_payout_status"
+    },
+    "margin_shortage":{
+        "action": "option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "current_fy",
+            "text": "Current FY"
+            },
+        {
+            "id": "previous_fy",
+            "text": "Previous FY"
+            }
+        ]
+    },
+    "current_margin_shortage":{
+      "action":"endapi",
+      "endpoint" : "margin_shortage"
+    },
+    
+    "previous_margin_shortage":{
+      "action":"endapi",
+      "endpoint" : "margin_shortage"
+    },
+
+    "rta_statement":{
+      "action":"endapi",
+      "endpoint" : "rta_statement"
+    },
+    "dormant_status":{
+        "action":"endapi",
+        "endpoint" : "emodification"
+    },
+    "faq":{
+        "action":"endapi",
+        "endpoint" : "faq"
+    },
+    "fund_transfer_status":{
+      "action":"endapi",
+      "endpoint" : "fund_transfer_status"
+    },
+    "new_account_opening":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "individuals_acc",
+            "text": "Individuals"
+            },
+        {
+            "id": "huf_acc",
+            "text": "HUF"
+            },
+        {
+            "id": "nri_acc",
+            "text": "NRI"
+            },
+        {
+            "id": "partnership_acc",
+            "text": "Partnership"
+            },
+        {
+            "id": "proprietary_corporate_acc",
+            "text": "Proprietary / Corporate"
+            },
+        {
+            "id": "registered_trust_acc",
+            "text": "Registered trust"
+            },
+        {
+            "id": "non_registered_trust_acc",
+            "text": "Non registered trust"
+            },
+        {
+            "id": "reactivation_of_account_acc",
+            "text": "Reactivation of account"
+            },
+        {
+            "id": "new_form_request_acc",
+            "text": "New Form Request"
+            }
+        ]
+    },
+    
+    "individuals_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "individuals_acc_physical",
+            "text": "Physical"
+            },
+        {
+            "id": "individuals_acc_online",
+            "text": "Online"
+            }
+          ]
+    },
+    "individuals_acc_physical":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "individuals_acc_physical_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "individuals_acc_physical_sample_form",
+            "text": "Sample Form"
+            },
+        {
+            "id": "individuals_acc_physical_ppt",
+            "text": "Process with PPT"
+            }
+          ]
+    },
+    "individuals_acc_online":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "individuals_acc_physical_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "individuals_acc_physical_sample_form":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "individuals_acc_physical_ppt":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "huf_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "huf_acc_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "huf_acc_sample_form",
+            "text": "Sample Form"
+            }
+          ]
+    },
+    "huf_acc_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "huf_acc_sample_form":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "nri_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "nri_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "nri_sample_form",
+            "text": "Sample Form"
+            },
+        {
+            "id": "nri_ppt",
+            "text": "Process with PPT"
+            }
+          ]
+    },
+    "nri_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "nri_sample_form":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "nri_ppt":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "partnership_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "partnership_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "partnership_sample",
+            "text": "Sample Form"
+            },
+        {
+            "id": "partnership_ppt",
+            "text": "Process with PPT"
+            }
+          ]
+    },
+    "partnership_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "partnership_sample":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "partnership_ppt":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "proprietary_corporate_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "corporate_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "corporate_sample",
+            "text": "Sample Form"
+            },
+        {
+            "id": "corporate_ppt",
+            "text": "Process with PPT"
+            }
+          ]
+    },
+    "corporate_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "corporate_sample":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "corporate_ppt":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "registered_trust_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "registered_trust_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "registered_trust_sample",
+            "text": "Sample Form"
+            },
+        {
+            "id": "registered_trust_ppt",
+            "text": "Process with PPT"
+            }
+          ]
+    },
+    "registered_trust_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "registered_trust_sample":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "registered_trust_ppt":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "non_registered_trust_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "non_registered_trust_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "non_registered_trust_sample",
+            "text": "Sample Form"
+            }
+          ]
+    },
+    "non_registered_trust_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "non_registered_trust_sample":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "reactivation_of_account_acc":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "reactivation_checklist",
+            "text": "Checklist"
+            },
+        {
+            "id": "reactivation_sample",
+            "text": "Sample Form"
+            },
+        {
+            "id": "reactivation_dormant",
+            "text": "Process with PPT"
+            }
+          ]
+    },
+    "reactivation_checklist":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "reactivation_sample":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "reactivation_dormant":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "new_form_request_acc":{
+        "action":"endapi",
+        "endpoint" : "new_account_opening"
+    },
+    "stop_online_trade":{
+        "action":"endapi",
+        "endpoint" : "stop_online_trade"
+    },
+    "start_online_trade":{
+        "action":"endapi",
+        "endpoint" : "start_online_trade"
+    },
+    "parse_mtf_las_response":{
+        "action":"endapi",
+        "endpoint" : "parse_mtf_las_response"
+    },
+    "acount_modification_status":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "acount_modification_status_online",
+            "text": "Online"
+            },
+        {
+            "id": "acount_modification_status_physical",
+            "text": "Physical"
+            }
+        ]
+    },
+    "acount_modification_status_online":{
+        "action":"endapi",
+        "endpoint" : "acount_modification_status_online"
+    },
+    "acount_modification_status_physical":{
+        "action":"endapi",
+        "endpoint" : "acount_modification_status_physical"
+    },
+    "contract_note":{
+        "action":"endapi",
+        "endpoint" : "contract_note"
+    },
+    "dis_drf_status":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "disStatus",
+            "text": "DIS"
+            },
+        {
+            "id": "drfStatus",
+            "text": "DRF"
+            }
+        ]
+    },
+    "disStatus":{
+        "action":"endapi",
+        "endpoint" : "dis_drf_status"  
+    },
+    "drfStatus":{
+        "action":"endapi",
+        "endpoint" : "dis_drf_status"
+    },
+    "segment_addition":{
+        "action":"endapi",
+        "endpoint" : "segment_addition"
+    }
+}

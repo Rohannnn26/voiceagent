@@ -1,0 +1,17 @@
+fastapi==0.115.12
+uvicorn==0.34.3
+langgraph==0.4.7
+langchain_community==0.3.24
+dotenv==0.9.9
+redis==5.0.4
+boto3==1.38.27
+langchain_aws==0.2.24
+langgraph-checkpoint-postgres==2.0.21
+psycopg[binary]==3.2.9
+psycopg2-binary==2.9.10
+langfuse==3.0.3
+# pydantic==2.11.3
+# pydantic_core==2.33.1
+streamlit==1.45.1
+nanoid==2.0.0
+    

@@ -1,0 +1,27 @@
+[
+    {
+        "user_id": "user_1",
+        "session_id": "session_1",
+        "steps": ["home", "ledger_report", "ledger_statement","combine","voucher_date_wise", "back", "back"]
+    },
+    {
+        "user_id": "user_1",
+        "session_id": "session_1",
+        "steps": ["mtf", "ledger_report", "ledger_statement","combine","voucher_date_wise", "back", "back"]
+    },
+    {
+        "user_id": "user_1",
+        "session_id": "session_1_2",
+        "steps": ["mtf", "home", "ledger_report", "ledger_statement","combine","voucher_date_wise", "back", "back", "home"]
+    },
+    {
+        "user_id": "user_2",
+        "session_id": "session_2",
+        "steps": ["mtf", "profit_and_loss_statement", "back", "my_details"]
+    },
+    {
+        "user_id": "user_3",
+        "session_id": "session_3",
+        "steps": ["current_fy", "back", "dp_statement"]
+    }
+]

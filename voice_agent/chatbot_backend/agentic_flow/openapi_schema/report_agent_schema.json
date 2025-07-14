@@ -1,0 +1,687 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MOFSL Financial APIs",
+    "version": "1.0.0",
+    "description": "Provides access to ledger, P&L, brokerage, ITR, DigiCMR, Sauda details, Contract Note,  Securities Transaction Tax (STT), Registrar Transafer Agent,  ledger balance summary, MTF/LAS status and TDS certificates for clients."
+  },
+  "servers": [
+    {
+      "url": ""
+    }
+  ],
+  "paths": {
+    "http://10.167.203.119/gw/api/cbot/ledgerstatement": {
+      "post": {
+        "summary": "Get ledger statement",
+        "description": "Fetches detailed client information, including profile data and status, based on system-defined criteria and user-specified parameters.",
+        "operationId": "getLedgerStatement",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "from_Date", "to_Date", "exchange_Seg", "date_Type","return_Type"],
+                "properties": {
+                  "clientid": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "from_Date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Start date for the ledger report in mm/dd/yyyy format.",
+                    "x-display-name": "Start Date"
+                  },
+                  "to_Date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "End date for the ledger report in mm/dd/yyyy format.",
+                    "x-display-name": "End Date"
+                  },
+                  "exchange_Seg": {
+                    "type": "string",
+                    "enum": [
+                      "Combine",
+                      "MTF"
+                    ],
+                    "description": " Choose a segment (Combine, MTF) and how you want to filter data — either by Voucher datewise or Effective datewise. Note: 'LAS' segment supports only 'Voucher datewise' type. ",
+                   "x-display-name": "exchange segment "
+                  },
+                  "date_Type": {
+                    "type": "string",
+                    "enum": [
+                      "Voucher",
+                      "Effective"
+                    ],
+                    "description": " Choose a date type (Voucher, Effective)",
+                   "x-display-name": "date type"
+                  },
+                  "Return_Type": {
+                    "type": "string",
+                    "enum": ["Link", "Email"],
+                    "description": "Method of report delivery — Download Link or email. ",
+                    "x-display-name": "Delivery"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with ledger report.",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "additionalProperties": true }
+              }
+            }
+          },
+          "400": { "description": "Invalid input or missing parameters." },
+          "401": { "description": "Unauthorized - missing or invalid token/session." },
+          "500": { "description": "Internal server error." }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/capitalgainloss": {
+      "post": {
+        "summary": "Get P&L statement",
+        "description": "Generates the client's Profit and Loss Statement based on the specified date range and chosen return method.",
+        "operationId": "getPnLStatement",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "from_Date", "to_Date", "return_Type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "from_Date": {
+                    "type": "string",
+                    "description": "Start date for the Capital Gain Loss statement in mm/dd/yyyy format.",
+                    "x-display-name": "Start Date"
+                  },
+                  "toDate": {
+                    "type": "string",
+                    "description": "End date for the report in mm/dd/yyyy format",
+                    "x-display-name": "End Date"
+                  },
+                  "return_Type": {
+                    "type": "string",
+                    "enum": ["Link", "Email"],
+                    "description": "Defines output mode: online Download Link or email delivery.",
+                    "x-display-name": "Report Delivery Mode"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "P&L statement delivered as per return type.",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "additionalProperties": true }
+              }
+            }
+          },
+          "400": { "description": "Missing or incorrect input parameters." },
+          "401": { "description": "Unauthorized access." },
+          "500": { "description": "Unexpected server error." }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/BrokerageDetails": {
+      "post": {
+        "summary": "Get brokerage report",
+        "description": "Retrieves the client's incurred brokerage charges and displays them in markdown format.",
+        "operationId": "getBrokerageReport",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "ReturnType"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "ReturnType": {
+                    "type": "string",
+                    "default" : "Link", 
+                    "description": "HTML-formatted brokerage details in string form."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Brokerage report link successfully generated.",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "additionalProperties": true }
+              }
+            }
+          },
+          "400": { "description": "Missing or invalid parameters." },
+          "401": { "description": "Unauthorized access due to invalid session or token." },
+          "500": { "description": "Internal server error." }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/ITRStatement": {
+      "post": {
+        "summary": "Get ITR statement",
+        "description": "Generates the client's ITR Statement using a combination of system-defined and user-selected parameters",
+        "operationId": "getITRStatement",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "FromDate", "ToDate", "ReturnType"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "FromDate": {
+                    "type": "string",
+                    "description": "Start date for the ITR report in mm/dd/yyyy format.",
+                    "x-display-name": "Start Date"
+                  },
+                  "ToDate": {
+                    "type": "string",
+                    "description": "End date for the ITR report in mm/dd/yyyy format.",
+                    "x-display-name": "End Date"
+                  },
+                  "ReturnType": {
+                    "type": "string",
+                    "enum": ["Link", "Email"],
+                    "description": "Method of report delivery — Download Link or email. ",
+                    "x-display-name": "Delivery"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ITR statement fetched successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": { "description": "Invalid or incomplete input parameters." },
+          "401": { "description": "Unauthorized access — session or token failure." },
+          "500": { "description": "Server error while fetching ITR data." }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/getSOAMFLink": {
+      "post": {
+        "summary": "Provides Registrar and Transfer Agent aka RTA, Statement of Application aka SoA of mutual fund Lnk",
+        "description": "Fetches the RTA: Registrar and Transfer Agent Statement of Account for Mutual Funds (SOA MF) via session and token-based authentication.",
+        "operationId": "getRtaStatement",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "RTA SOA MF link returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or incomplete input."
+          },
+          "401": {
+            "description": "Unauthorized request."
+          },
+          "500": {
+            "description": "Server error retrieving the RTA statement."
+          }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/SaudaDetails": {
+      "post": {
+        "summary": "Sauda details",
+        "description": "Fetches the client's contract note summary aka sauda details for the specified date range.",
+        "operationId": "getSaudaDetails",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [ "clientId", "from_Date", "to_Date", "return_Type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "from_Date": {
+                    "type": "string",
+                    "description": "Start date for the report in mm/dd/yyyy format.",
+                    "x-display-name": "From Date"
+                  },
+                  "to_Date": {
+                    "type": "string",
+                    "description": "End date for the report range in mm/dd/yyyy format.",
+                    "x-display-name": "To Date"
+                  },
+                  "return_Type": {
+                    "type": "string",
+                    "enum": ["Link", "Email"],
+                    "description": "Return type specifying output format or delivery mode.",
+                    "x-display-name": "Report Delivery Mode"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sauda details returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "additionalProperties": true }
+              }
+            }
+          },
+          "400": { "description": "Invalid or incomplete input." },
+          "401": { "description": "Unauthorized request." },
+          "500": { "description": "Backend error retrieving Sauda details." }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/GrandFatherGainLossDetailsReport": {
+      "post": {
+        "summary": "Get Grandfather Gain/Loss Report",
+        "description": "Generates a Gain/Loss report for the client's grandfather based on the specified date range.",
+        "operationId": "getGrandfatherPnL",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "from_Date","to_Date","return_Type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "from_Date": {
+                    "type": "string",
+                    "description": "Start date for the report range in mm/dd/yyyy format.",
+                    "x-display-name": "From Date"
+                  },
+                  "to_Date": {
+                    "type": "string",
+                    "description": "End date for the report range in mm/dd/yyyy format.",
+                    "x-display-name": "To Date"
+                  },
+                  "return_Type": {
+                    "type": "string",
+                    "enum": ["Link"],
+                    "description": "Return type for the report, Fixed to 'Link'. no need to ask back use",
+                    "x-display-name": "Report Download Link"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Grandfather Gain/Loss report link returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or incomplete input."
+          },
+          "401": {
+            "description": "Unauthorized request."
+          },
+          "500": {
+            "description": "Server error retrieving the report."
+          }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/STTCertificate": {
+      "post": {
+        "summary": "Get STT certificate",
+        "description": "Retrieves the Securities Transaction Tax (STT)  certificate for the specified date range.",
+        "operationId": "getSTTCertificate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "From_Date", "To_Date", "Return_Type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "From_Date": {
+                    "type": "string",
+                    "description": "Start date for the report range in mm/dd/yyyy format.",
+                    "x-display-name": "From Date"
+                  },
+                  "To_Date": {
+                    "type": "string",
+                    "description": "End date for the report range in mm/dd/yyyy format.",
+                    "x-display-name": "To Date"
+                  },
+                  "Return_Type": {
+                    "type": "string",
+                    "enum": ["Link"],
+                    "description": "Specifies delivery method. Currently supports only 'Link'.",
+                    "x-display-name": "Delivery Type"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Certificate successfully generated.",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "additionalProperties": true }
+              }
+            }
+          },
+          "400": { "description": "Invalid input parameters." },
+          "401": { "description": "Unauthorized session or token." },
+          "500": { "description": "Server error generating certificate." }
+        }
+      }
+    },
+
+    "http://10.167.203.119/gw/api/cbot/GetSaticLinkOrFile": {
+      "post": {
+        "summary": "Get TDS Certificate Link",
+        "description": "Fetches the download link for the TDS Certificate using user credentials and authentication headers.",
+        "operationId": "getTdsCertificate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "linkType"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "linkType": {
+                    "type": "string",
+                    "enum": ["tdscertificate"],
+                    "description": "Static value indicating the link type. Must be 'tdscertificate'.",
+                    "x-display-name": "Link Type"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TDS Certificate link returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or incomplete input."
+          },
+          "401": {
+            "description": "Unauthorized request."
+          },
+          "500": {
+            "description": "Server error retrieving the TDS certificate link."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/LedgerBalanceSummary": {
+      "post": {
+        "summary": "Get Ledger Balance Summary",
+        "description": "Retrieves the ledger balance summary for a client.",
+        "operationId": "getLedgerSummary",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of the user taken from <customer_context> section of system prompt; if missing then ask back to user.",
+                    "x-display-name": "Client ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response containing the ledger balance summary (typically HTML content inside JSON).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request – invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized – invalid session or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/CheckClientMTFLAS": {
+      "post": {
+        "summary": "Check if Client is MTF/LAS ",
+        "description": "Checks whether the client is enabled for Margin Trading Facility (MTF) or Loan Against Securities (LAS).",
+        "operationId": "checkClientMTFLAS",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["ClientId", "Type"],
+                "properties": {
+                  "ClientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "Type": {
+                    "type": "string",
+                    "description": "Request type to determine MTF or LAS check."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with MTF/LAS status ('YES' or 'NO').",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": ["YES", "NO"]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request – invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized – invalid session or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/ContractNote": {
+      "post": {
+        "summary": "Get contract note",
+        "description": "Retrieves contract notes for a specified date range. The date range cannot exceed one month.",
+        "operationId": "getContractNote",
+        "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+          "schema": {
+            "type": "object",
+            "required": ["clientId", "from_Date", "to_Date", "return_Type"],
+            "properties": {
+            "clientId": {
+              "type": "string",
+              "description": "Client ID of the user taken from <customer_context> section of system prompt; if missing then ask back to user.",
+              "x-display-name": "Client ID"
+            },
+            "from_Date": {
+              "type": "string",
+              "description": "Start date for the report range in mm/dd/yyyy format. Date range cannot exceed one month from the current date in system prompt.",
+              "x-display-name": "From Date"
+            },
+            "to_Date": {
+              "type": "string",
+              "description": "End date for the report range in mm/dd/yyyy format. Must not be more than one month after FROM_DATE.",
+              "x-display-name": "To Date"
+            },
+            "return_Type": {
+              "type": "string",
+              "enum": ["Link"],
+              "description": "Format of the response (currently only supports 'Link')",
+              "x-display-name": "Return Type"
+            }
+            }
+          }
+          }
+        }
+        },
+        "responses": {
+        "200": {
+          "description": "Contract notes successfully retrieved",
+          "content": {
+          "application/json": {
+            "schema": {
+            "type": "object",
+            "additionalProperties": true
+            }
+          }
+          }
+        },
+        "400": {
+          "description": "Bad request or invalid parameters"
+        },
+        "401": {
+          "description": "Unauthorized access - invalid token or session"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+        }
+      }
+      }           
+    }
+}

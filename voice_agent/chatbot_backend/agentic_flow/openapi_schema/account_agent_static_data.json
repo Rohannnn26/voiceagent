@@ -1,0 +1,111 @@
+{
+    "static_data": [
+        {
+            "name": "Offline Account Details Modification",
+            "type": "document_link",
+            "description": "Link of offline account details modification form",
+            "content": "https://mofsl.co/pdf/ModificationFormVersion_1_8.pdf"
+        },
+        {
+            "name": "Bank Details Modification Proofs",
+            "type": "document_requirements",
+            "description": "Required proofs for bank details modification",
+            "content": [
+                "Bank Statement/Passbook (latest 3 months)",
+                "Cancelled cheque with printed name (no signature needed if original)"
+            ]
+        },
+        {
+            "name": "Address Modification Proofs",
+            "type": "document_requirements",
+            "description": "Required proofs for address modification",
+            "content": [
+                "Passport/Voters Identity Card",
+                "Bank Account Statement/Passbook (latest 3 months)",
+                "Latest utility bills (telephone/electricity/gas)",
+                "Driving license"
+            ]
+        },
+        {
+            "name":"Online Account Opening for Individuals",
+            "type": "document_link",
+            "description": "Link to online account opening for individuals",
+            "content": "https://www.motilaloswal.com/open-demat-account"
+        },
+        {
+            "name": "Offline Account Opening Forms",
+            "type": "document_collection",
+            "description": "Offline account opening forms for different account types",
+            "account_types": [
+                {
+                    "name": "Individual",
+                    "id": "ind",
+                    "description": "Documents required for opening an individual account or reactivating a dormant account",
+                    "documents": {
+
+                        "opening_checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_individual_account.pdf",
+                        "opening_sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Sample_fill_of_individual_form.pdf",
+                        "opening_additional_docs": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/MO_KYC_punching.pdf",
+                        "reactivation_sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Sample_fill_of_individual_form.pdf",
+                        "reactivation_checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_individual_account.pdf",
+                        "reactivation_dormat_docs":"https://ftp.motilaloswal.com/emailer/CSE/Dormant%20physical.zip"
+                    }
+                },
+                {
+                    "name": "HUF",
+                    "id": "huf",
+                    "description": "Documents required for opening a Hindu Undivided Family (HUF) account",
+                    "documents": {
+                        "checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_HUF_account.pdf",
+                        "sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/HUF_sample_form_version_5-1.pdf"
+                    }
+                },
+                {
+                    "name": "Corporate",
+                    "id": "corp",
+                    "description": "Documents required for opening a corporate account",
+                    "documents": {
+                        "checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_corporate_account.pdf",
+                        "sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Company_sample_form_version_5-1.pdf"
+                    }
+                },
+                {
+                    "name": "Registered Trust",
+                    "id": "registered_trust",
+                    "description": "Documents required for opening a registered trust account",
+                    "documents": {
+                        "checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_registered_trust_account.pdf",
+                        "sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Registered_society_sample_form_version_5-1.pdf"
+                    }
+                },
+                {
+                    "name": "Non Registered Trust",
+                    "id": "non_registered_trust",
+                    "description": "Documents required for opening a non registered trust account",
+                    "documents": {
+                        "checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_unregistered_trust_account.pdf",
+                        "sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Unregistered_trust_sample_form_version_5-1.pdf"
+                    }
+                },
+                {
+                    "name": "NRI",
+                    "id": "nri",
+                    "description": "Documents required for opening a Non-Resident Indian (NRI) account",
+                    "documents": {
+                        "checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_NRI.pdf",
+                        "sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/NRI_sample_form.pdf"
+                    }
+                },
+                {
+                    "name":"Partnership",
+                    "id": "partnership",
+                    "description": "Documents required for opening a partnership firm account",
+                    "documents": {
+                        "checklist": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/Checklist_for_individual_account.pdf",
+                        "sample_form": "https://onlinetrade.motilaloswal.com/emailers/Customer_service/Form/PARTNERship_sample_form_version_5-1.pdf"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "MOFSL Financial APIs",
+      "version": "1.0.0",
+      "description": "This API provides access to Motilal Oswal Financial Services features including: retrieving market research links, accessing BSE upcoming IPO information, and NSE tender offers data, active IPO list for clients."
+    },
+    "servers": [
+      {
+        "url": ""
+      }
+    ],
+    "paths": {
+      "http://10.167.203.119/gw/api/cbot/ActiveIPO": {
+      "post": {
+        "summary": "Get active IPO list",
+        "description": "Returns the list of active IPOs available for a given client.",
+        "operationId": "getActiveIPO",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  }
+                },
+                "required": ["clientId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with active IPOs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - missing or invalid token/session."
+          },
+          "500": {
+            "description": "Internal server error."
+            }
+          }
+        }
+      }
+    }
+  }
+  

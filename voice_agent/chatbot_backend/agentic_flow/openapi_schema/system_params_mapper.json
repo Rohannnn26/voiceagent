@@ -1,0 +1,100 @@
+{
+    "http://10.167.203.119/gw/api/cbot/ledgerstatement": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/LedgerBalanceSummary": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/CapitalGainLoss": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/BrokerageDetails": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/ITRStatement": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/getSOAMFLink": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/SaudaDetails": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/GrandFatherGainLossDetailsReport": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/STTCertificate": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/GetSaticLinkOrFile": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/MF_ORDERSTATUS": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/MarginShortage" : {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/MarginShortagePenalty": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/CordysFundPayoutStatus": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/FundsTransfer": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/ClientDetails": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/ClientView": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/eModificationDetails" : {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/DPStatement": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/CollateralHolding": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/GetClientWiseDPId": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/DPRequestStatus": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/ClientCMRReport": {
+            "user_id": "userId",
+            "role": "role"
+    },
+    "http://10.167.203.119/gw/api/cbot/ActiveIPO": {
+            "user_id": "userId",
+            "role": "role"
+    }
+
+    
+}

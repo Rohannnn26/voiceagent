@@ -1,0 +1,377 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MOFSL Financial APIs - Unified Schema",
+    "version": "1.0.0",
+    "description": "Unified API schema for Holdings, DP Statement, DIS/DRF Status, Change Advisor Request, DIGI CMR Report and DPID retrieval endpoints."
+  },
+  "servers": [
+    {
+      "url": "https://mofsl.co"
+    }
+  ],
+  "paths": {
+    "http://10.167.203.119/gw/api/cbot/DPStatement": {
+      "post": {
+        "summary": "Get DP Statement",
+        "description": "Fetches the Depository Participant (DP) statement using client session and date range parameters. Requires DPID, which can be obtained by calling https://mofsl.co/api/One/GetClientWiseDPId if unknown.",
+        "operationId": "getDPStatement",
+        "x-dependencies": [
+          {
+            "parameter": "DPID",
+            "fromOperationId": "getClientwiseDPID",
+            "field": "dp_id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [ "clientId", "from_Date", "to_Date", "statementType", "dpId", "return_Type" ],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "from_Date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Start date for the ledger report in mm/dd/yyyy format.",
+                    "x-display-name": "Start Date"
+                  },
+                  "to_Date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "End date for the ledger report in mm/dd/yyyy format.",
+                    "x-display-name": "End Date"
+                  },
+                  "statementType": {
+                    "type": "string",
+                    "enum": ["H", "T"],
+                    "description": "'H' = Holdings statement, 'T' = Transaction statement. Users may request a 'Holding' or 'Transaction' report, which should map to these values.",
+                    "x-aliases": {
+                      "H": ["Holding", "Holdings", "Holding statement", "DP holding", "DP holdings"],
+                      "T": ["Transaction", "Txn", "Transaction statement", "Dp Transaction", "DP transactions"]
+                    }
+                  },
+                  "dpId": {
+                    "type": "string",
+                    "description": "Depository Participant ID. If unknown, it can be retrieved using the getClientwiseDPID endpoint (https://mofsl.co/api/One/GetClientWiseDPId). "
+                  },
+                  "return_Type": {
+                    "type": "string",
+                    "enum": ["Link", "Email"],
+                    "description": "Method of report delivery — Download Link or email. ",
+                    "x-display-name": "Delivery"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response containing the DP statement.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request – invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized – invalid session or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/CollateralHolding": {
+      "post": {
+        "summary": "Get Total Holdings",
+        "description": "Fetches the total holdings for the client across all accounts. Commonly requested when a user asks for 'total holding' ",
+        "operationId": "getTotalHoldings",
+        "x-intent-aliases": ["total holding", "total holdings", "overall holdings"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "return_type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "return_type": {
+                    "type": "string",
+                    "enum": ["Link"],
+                    "description": "Specifies how the statement should be delivered. Currently only 'Link' is supported. Automatically selected if user asks for report, statement, or download."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with total holdings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters."
+          },
+          "401": {
+            "description": "Unauthorized access – invalid or missing session ID or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/GetClientWiseDPId": {
+      "post": {
+        "summary": "Get Clientwise DP ID",
+        "description": "Retrieves all DP IDs linked to the given client ID and user credentials.",
+        "operationId": "getClientwiseDPID",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of DP IDs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request. Check parameters."
+          },
+          "401": {
+            "description": "Unauthorized. Missing or invalid credentials."
+          },
+          "500": {
+            "description": "Server error while processing the request."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/DPRequestStatus": {
+      "post": {
+        "summary": "Get DIS/DRF Status",
+        "description": "Retrieves the status of the Delivery Instruction Slip (DIS) and Demat Request Form (DRF) for a client.",
+        "operationId": "getDPRequestStatus",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "requestType"],
+                "properties": {
+                  "clientid": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "requestType": {
+                    "type": "string",
+                    "enum": ["disStatus", "drfStatus"],
+                    "description": "Type of request based on user i.e DIS or DRF."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response containing DIS/DRF status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request – invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized – invalid session or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/api/One/DPRequestStatus": {
+      "post": {
+        "summary": "Get Change Advisor Request",
+        "description": "Retrieves the of the change advisor request for a client.",
+        "operationId": "getChangeAdvisorRequest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": ["clientid", "segment", "type", "reason"],
+                "properties": {
+                  "clientid": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "segment": {
+                    "type": "string",
+                    "enum": ["EQUITY", "COMMODITY"],
+                    "description": "Segment type for the request: EQUITY or COMMODITY."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the request, e.g., 'ChangeAdvisor'."
+                  },
+                  "reason": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Optional reason for advisor change. Set to empty string if not provided."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response indicating advisor request status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request – invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized – invalid session or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/ClientCMRReport": {
+      "post": {
+        "summary": "Get DIGI CMR Report",
+        "description": "Retrieves the DIGI CMR Report for a client, delivered either as a link or via email based on the return type.",
+        "operationId": "getDigicmrReport",
+        "x-dependencies": [
+          {
+            "parameter": "dpid",
+            "fromOperationId": "getClientwiseDPID",
+            "field": "dp_id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [ "clientId", "dpId", "return_Type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "dpId": {
+                    "type": "string",
+                    "description": "Depository Participant ID. If unknown, it can be retrieved using the getClientwiseDPID endpoint (https://mofsl.co/api/One/GetClientWiseDPId). if reponse have multiple dp ids then ask back to user which one to consider"
+                  },
+                  "return_Type": {
+                    "type": "string",
+                    "enum": ["Link", "Email"],
+                    "description": "Defines how the report is delivered: Link or Email."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response containing the CMR report delivery link or confirmation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request – invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized – invalid session or token."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+    
+  }
+}

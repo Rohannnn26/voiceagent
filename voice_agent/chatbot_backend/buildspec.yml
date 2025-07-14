@@ -1,0 +1,72 @@
+version: 0.2
+phases:
+ install: # Install AWS cli, kubectl & Helm
+  commands:
+   - echo ************Installing pre-requisites**************                   
+   - GET_ENVIRONMENT=$BRANCH_NAME
+   - COMMITID=$CODEBUILD_RESOLVED_SOURCE_VERSION
+   - REPOSITORY_URI=${AWS_ACCOUNTID}.dkr.ecr.${REGION}.amazonaws.com/${ECR_NAME}
+   - echo Generating login credentials to AWS ECR…
+   - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin ${AWS_ACCOUNTID}.dkr.ecr.${REGION}.amazonaws.com
+   - echo Installing required linux packages…
+   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+   - rm -rf /etc/apt/sources.list.d/sbt*
+   - apt-get -y update
+   - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
+   - chmod +x kubectl
+   - mv ./kubectl /usr/local/bin/kubectl
+   - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+   - chmod 700 get_helm.sh
+   - ./get_helm.sh
+ pre_build: ## Adding kubeconfig MOFSL EKS clusters
+  commands:
+   - echo **********Update KUBEconfig ************
+   - eval $(aws sts assume-role --role-arn arn:aws:iam::$AWS_ACCOUNTID:role/adf-codebuild-role --role-session-name admin | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
+   - aws sts get-caller-identity
+#   - echo $AWS_ACCESS_KEY_ID
+#   - echo $AWS_SECRET_ACCESS_KEY
+#   - echo $AWS_SESSION_TOKEN
+  #  - aws eks update-kubeconfig --name ${EKS_NAME} --region ${REGION}
+  #  - kubectl version --short   
+ build: # Build Docker image
+  commands:
+   - echo ********* Building Docker Image *********
+   - COMMIT_HASH=$(echo ${COMMITID} | cut -c 1-7 )
+   - IMAGE_TAG=${COMMIT_HASH:=latest}
+   - |
+     if [ "$GET_ENVIRONMENT" = "dev" ] ; then   
+      sed -i 's/{environment}/"dev"/g' Dockerfile
+     fi
+   - |
+     if [ "$GET_ENVIRONMENT" = "uat" ] ; then           
+      sed -i 's/{environment}/"uat"/g' Dockerfile
+     fi
+   - |
+     if [ "$GET_ENVIRONMENT" = "prod" ] ; then           
+      sed -i 's/{environment}/"prod"/g' Dockerfile
+     fi 
+   - docker build -t $REPOSITORY_URI:chatbot-api-$COMMIT_HASH -f chatbot_backend/Dockerfile .
+ post_build: # Push the Docker image to the ECR
+  commands:
+   - echo ****** Pushing to ECR *********
+   - docker push $REPOSITORY_URI:chatbot-api-$IMAGE_TAG
+   - echo Rollout new version
+   - echo kubectl set image deployment/$DEPLOYMENT_NAME $REPOSITORY_URI:chatbot-api-$IMAGE_TAG
+  #  - |
+  #    if [ "$GET_ENVIRONMENT" = "dev" ] ; then
+  #     sed -i 's/IMAGE_TAG/'"${IMAGE_TAG}"'/g' deployments/dev/deployment.yaml
+  #     sed -i 's/ACCOUNT_ID/'"${AWS_ACCOUNTID}"'/g' deployments/dev/deployment.yaml
+  #     kubectl apply -f deployments/dev/deployment.yaml
+  #    fi
+  #  - |
+  #    if [ "$GET_ENVIRONMENT" = "prod" ] ; then
+  #     sed -i 's/IMAGE_TAG/'"${IMAGE_TAG}"'/g' deployments/prod/deployment.yaml
+  #     sed -i 's/ACCOUNT_ID/'"${AWS_ACCOUNTID}"'/g' deployments/prod/deployment.yaml
+  #     kubectl apply -f deployments/prod/deployment.yaml
+  #    fi
+
+cache:
+  paths:
+    # Debian package caches, so we don't need to keep redownloading debian packages
+    - /var/cache/apt/**/*
+    - /var/lib/apt/lists/**/*

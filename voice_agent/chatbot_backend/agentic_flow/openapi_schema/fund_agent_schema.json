@@ -1,0 +1,280 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MOFSL Financial APIs",
+    "version": "1.0.0",
+    "description": "Provides access to fund payout status, Fund Transfer Status, Mutual Fund Status, available margin status, and Margin Shortage Penalty for clients."
+  },
+  "servers": [
+    {
+      "url": ""
+    }
+  ],
+  "paths": {
+    "http://10.167.203.119/gw/api/cbot/FundsTransfer": {
+      "post": {
+        "summary": "Get Fund Transfer Status",
+        "description": "Returns the current status of a fund transfer request for the specified user and client.",
+        "operationId": "getFundTransferStatus",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fund transfer status returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or incomplete input."
+          },
+          "401": {
+            "description": "Unauthorized request."
+          },
+          "500": {
+            "description": "Server error retrieving fund transfer status."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/CordysFundPayoutStatus": {
+      "post": {
+        "summary": "Get fund payout status",
+        "description": "Returns the payout status of funds for a specified user.",
+        "operationId": "getFundPayoutStatus",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  }
+                },
+                "required": ["clientId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with fund payout status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - missing or invalid token/session."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/MarginShortage": {
+      "post": {
+        "summary": "Get available margin status",
+        "description": "Returns margin shortage or availability status for a client, filtered by role and segment.",
+        "operationId": "getAvailableMargin",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "Segment": {
+                    "type": "string",
+                    "enum": ["E"],
+                    "description": "Segment filter, take by default 'E' for Equity.",
+                    "x-display-name": "Segment"
+                  }
+                },
+                "required": ["clientId", "Segment"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with margin availability information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - missing or invalid token/session."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "http://10.167.203.119/gw/api/cbot/MarginShortagePenalty": {
+      "post": {
+        "summary": "Get Margin Shortage Penalty Report",
+        "description": "Returns the margin shortage penalty report link for the specified user and date range.",
+        "operationId": "getMarginShortage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "From_Date", "To_Date", "Return_Type"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "From_Date": {
+                    "type": "string",
+                    "description": "Start date for the report in mm/dd/yyyy format.",
+                    "x-display-name": "From Date"
+                  },
+                  "To_Date": {
+                    "type": "string",
+                    "description": "End date for the report in mm/dd/yyyy format.",
+                    "x-display-name": "To Date"
+                  },
+                  "Return_Type": {
+                    "type": "string",
+                    "enum": ["Link"],
+                    "description": "Return type. Must be 'Link'.",
+                    "x-display-name": "Delivery Type"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Margin shortage penalty report link returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or incomplete input."
+          },
+          "401": {
+            "description": "Unauthorized request."
+          },
+          "500": {
+            "description": "Server error retrieving the margin shortage report."
+          }
+        }
+      }
+    },
+     "http://10.167.203.119/gw/api/cbot/MF_ORDERSTATUS": {
+      "post": {
+        "summary": "Get Mutual Fund Order Status",
+        "description": "Retrieves the current status of mutual fund (MF) order for the specified user and client account.",
+        "operationId": "getMfOrderStatus",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["clientId", "OrderType"],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Client ID of registered user",
+                    "x-display-name": "Client ID"
+                  },
+                  "OrderType": {
+                    "type": "string",
+                    "enum": ["SIP", "XSIP", "ISIP", "FP", "MN"],
+                    "description": "Type of mutual fund order.",
+                    "x-display-name": "Mutual Fund Type",
+                    "default": "SIP"
+
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mutual fund order status returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or incomplete input."
+          },
+          "401": {
+            "description": "Unauthorized request."
+          },
+          "500": {
+            "description": "Server error retrieving order status."
+          }
+        }
+      }
+    }
+  }
+}
