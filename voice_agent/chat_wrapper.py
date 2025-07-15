@@ -5,16 +5,24 @@ import httpx
 
 BASE_URL = "http://localhost:8000"  # Update if running elsewhere
 
+# Generate session info once per voice agent instance
+SESSION_ID = str(uuid.uuid4())
+TOKEN = str(uuid.uuid4())
+
 HEADERS = {
     "user-id": "NAGSYA5",
-    "session-id": str(uuid.uuid4()),  # Dummy session ID for testing
+    "session-id": SESSION_ID,  # Persistent session for conversation context
     "client-id": "NAGSYA5",
     "role": "CLIENT",
-    "token": str(uuid.uuid4()),  # Dummy token for testing
+    "token": TOKEN,  # Persistent token
 }
 
 def generate_request_id():
     return str(uuid.uuid4())
+
+def get_current_session_id():
+    """Get the current session ID"""
+    return SESSION_ID
 
 async def run_chat(user_message: str) -> str:
     payload = {

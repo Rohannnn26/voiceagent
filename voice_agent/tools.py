@@ -34,22 +34,9 @@ async def query_chatbot_backend(question: str, status_callback=None, **kwargs) -
     logger.info(f"[query_chatbot_backend] Arguments received - question: '{question}', kwargs: {kwargs}")
     
     try:
-        # Send initial status update
-        if status_callback:
-            await status_callback("🔄 Processing your request through our advanced financial system...")
-        
         from chat_wrapper import run_chat
         logger.info(f"[query_chatbot_backend] Calling backend with question: '{question}'")
-        
-        # Send progress update
-        if status_callback:
-            await status_callback("🔍 Analyzing your query and accessing relevant financial data...")
-        
         response = await run_chat(question)
-        
-        # Send completion update
-        if status_callback:
-            await status_callback("✅ Analysis complete, preparing your response...")
         
         # Log full response details
         logger.info(f"[query_chatbot_backend] Backend returned {len(response)} characters")
@@ -62,11 +49,6 @@ async def query_chatbot_backend(question: str, status_callback=None, **kwargs) -
         error_msg = f"Backend query failed: {e}"
         logger.error(f"[query_chatbot_backend] Error occurred: {error_msg}")
         logger.error(f"[query_chatbot_backend] Exception details: {type(e).__name__}: {str(e)}")
-        
-        # Send error status update
-        if status_callback:
-            await status_callback("❌ An error occurred while processing your request. Please try again.")
-        
         return {"error": error_msg}
 
 # ── Tool Schemas ─────────────────────────────
@@ -116,12 +98,13 @@ FUNCTION_SCHEMAS = [
     {
         "type": "function",
         "name": "query_chatbot_backend",
-        "description": (
+        "description": ("""
             "Query the advanced chatbot backend for complex financial questions, account details, "
             "trading information, reports, portfolio analysis, and other sophisticated queries that "
             "require the full agentic workflow with access to financial systems and databases. "
             "Use this tool for questions about account details, trading history, portfolio reports, "
             "IPO information, ledger queries, and other complex financial operations."
+            """
         ),
         "parameters": {
             "type": "object",

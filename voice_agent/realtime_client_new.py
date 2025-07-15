@@ -144,12 +144,7 @@ class RealtimeClient:
                 try:
                     # Handle async tools - only backend tool is async now
                     if name in ["query_chatbot_backend"]:
-                        # Create a status callback for real-time updates
-                        async def status_callback(message: str):
-                            await self.send_immediate_response(message)
-                        
-                        # Add the callback to the arguments
-                        result = await TOOLS[name](status_callback=status_callback, **args)
+                        result = await TOOLS[name](**args)
                     else:
                         result = TOOLS[name](**args)
                 except Exception as e:
