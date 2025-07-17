@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "https://mofsl.co"
+      "url": ""
     }
   ],
   "paths": {
-    "http://10.167.203.119/gw/api/cbot/DPStatement": {
+    "DPStatement": {
       "post": {
         "summary": "Get DP Statement",
         "description": "Fetches the Depository Participant (DP) statement using client session and date range parameters. Requires DPID, which can be obtained by calling https://mofsl.co/api/One/GetClientWiseDPId if unknown.",
@@ -96,7 +96,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/CollateralHolding": {
+    "CollateralHolding": {
       "post": {
         "summary": "Get Total Holdings",
         "description": "Fetches the total holdings for the client across all accounts. Commonly requested when a user asks for 'total holding' ",
@@ -149,7 +149,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/GetClientWiseDPId": {
+    "GetClientWiseDPId": {
       "post": {
         "summary": "Get Clientwise DP ID",
         "description": "Retrieves all DP IDs linked to the given client ID and user credentials.",
@@ -196,7 +196,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/DPRequestStatus": {
+    "DPRequestStatus": {
       "post": {
         "summary": "Get DIS/DRF Status",
         "description": "Retrieves the status of the Delivery Instruction Slip (DIS) and Demat Request Form (DRF) for a client.",
@@ -248,7 +248,7 @@
         }
       }
     },
-    "/api/One/DPRequestStatus": {
+    "StoreRMChangeRequest": {
       "post": {
         "summary": "Get Change Advisor Request",
         "description": "Retrieves the of the change advisor request for a client.",
@@ -256,12 +256,12 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["clientid", "segment", "type", "reason"],
+                "required": ["clientId", "segment", "type", "reason"],
                 "properties": {
-                  "clientid": {
+                  "clientId": {
                     "type": "string",
                     "description": "Client ID of registered user",
                     "x-display-name": "Client ID"
@@ -273,7 +273,8 @@
                   },
                   "type": {
                     "type": "string",
-                    "description": "Type of the request, e.g., 'ChangeAdvisor'."
+                    "enum": ["primary","secondary", "both"],
+                    "description": "Type of the request, e.g., 'primary','secondary','both'."
                   },
                   "reason": {
                     "type": "string",
@@ -309,7 +310,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/ClientCMRReport": {
+    "ClientCMRReport": {
       "post": {
         "summary": "Get DIGI CMR Report",
         "description": "Retrieves the DIGI CMR Report for a client, delivered either as a link or via email based on the return type.",

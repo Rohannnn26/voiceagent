@@ -1,7 +1,7 @@
 {
     "initial_client":{
         "action":"initial",
-        "response_text": "Welcome to your Mo Gini assistant. How can I help you today?",
+        "response_text": "Welcome to your Mo Genie assistant. How can I help you today?",
         "available_choices":[
         {
             "id": "ledger_report",
@@ -115,6 +115,10 @@
         {
             "id" : "segment_addition",
             "text" : "Segment Addition"
+            },
+        {
+            "id" : "advisor_request",
+            "text" : "Advisor Request"
             }
                      
         ]
@@ -263,6 +267,10 @@
           {
             "id": "previous_fy",
             "text": "Previous FY"
+          },
+          {
+            "id":"choose_date",
+            "text":"Enter Period"
           }
         ]
     },
@@ -347,6 +355,10 @@
         {
           "id": "previous_fy",
           "text": "Previous FY"
+        },
+        {
+            "id":"choose_date",
+            "text":"Enter Period"
         }
       ]
     },
@@ -368,21 +380,14 @@
         {
           "id": "previous_fy",
           "text": "Previous FY"
+        },
+        {
+            "id":"choose_date",
+            "text":"Enter Period"
         }
       ]
     },
-    "choose_date":{
-        "action": "user_input_date",
-        "response_text":"",
-        "available_choices":[
-            {"id":"start_date",
-            "text" : "Start Date"
-            },
-            {"id":"end_date",
-            "text" : "End Date"
-            }
-        ]
-    },
+
     "previous_fy": {
       "action": "option",
       "response_text":"",
@@ -439,6 +444,20 @@
         }
       ]
     },
+    "choose_date": {
+      "action": "option",
+      "response_text":"",
+      "available_choices": [
+        {
+          "id": "Link",
+          "text": "View and Download"
+        },
+        {
+          "id": "Email",
+          "text": "Email"
+        }
+      ]
+    },
     "Link":{
       "action":"endapi",
       "endpoint" : " "
@@ -459,6 +478,10 @@
         {
             "id": "previous_fy",
             "text": "Previous FY"
+            },
+        {
+            "id": "choose_date",
+            "text": "Enter Period"
             }
         ]
     },
@@ -565,6 +588,10 @@
         {
           "id": "previous_fy",
           "text": "Previous FY"
+        },
+        {
+            "id":"choose_date",
+            "text":"Enter Period"
         }
       ]
     },
@@ -579,6 +606,10 @@
         {
             "id": "previous_fy",
             "text": "Previous FY"
+            },
+        {
+            "id": "choose_date",
+            "text": "Enter Period"
             }
         ]
     },
@@ -823,18 +854,14 @@
         {
             "id": "previous_fy",
             "text": "Previous FY"
+            },
+        {    
+            "id": "choose_date",
+            "text": "Enter Period"
             }
         ]
     },
-    "current_margin_shortage":{
-      "action":"endapi",
-      "endpoint" : "margin_shortage"
-    },
     
-    "previous_margin_shortage":{
-      "action":"endapi",
-      "endpoint" : "margin_shortage"
-    },
 
     "rta_statement":{
       "action":"endapi",
@@ -1204,5 +1231,43 @@
     "segment_addition":{
         "action":"endapi",
         "endpoint" : "segment_addition"
+    },
+    "advisor_request":{
+        "action":"midapi",
+        "endpoint" : "advisor_request"
+    },
+    "equity":{
+        "action":"endapi",
+        "endpoint" : "advisor_request"
+    },
+    "commodity":{
+        "action":"option",
+        "response_text":"",
+        "available_choices":[
+        {
+            "id": "primary",
+            "text": "Primary"
+            },
+        {
+            "id": "secondary",
+            "text": "Secondary"
+            },
+        {
+            "id":"both",
+            "text": "Both"
+            }    
+        ]
+    },
+    "primary":{
+        "action":"endapi",
+        "endpoint" : "advisor_request"
+    },
+    "secondary":{
+        "action":"endapi",
+        "endpoint" : "advisor_request"
+    },
+    "both":{
+        "action":"endapi",
+        "endpoint" : "advisor_request"
     }
 }

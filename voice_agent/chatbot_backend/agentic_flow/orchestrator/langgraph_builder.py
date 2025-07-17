@@ -53,7 +53,16 @@ from agentic_flow.orchestrator.final_response_node import (
     )
 
 from agentic_flow.orchestrator.leave_node import leave_node
-from agentic_flow.orchestrator.tool_node import create_tool_node_with_fallback
+from agentic_flow.orchestrator.tool_node import (
+    create_tool_node_with_fallback, 
+    fake_tool_node, 
+    information_fake_tool_node,
+    report_fake_tool_node,
+    account_fake_tool_node,
+    fund_fake_tool_node,
+    trading_fake_tool_node,
+    dp_fake_tool_node
+    )
 
 from app.schemas.request_models import SupervisorState
 
@@ -141,6 +150,15 @@ def create_langgraph_supervisor() -> StateGraph:
     graph_builder.add_node("dp_human_node", dp_human_node)
     # Leave Node for returning to the main assistant
     graph_builder.add_node("leave_node", leave_node)
+    # Fake tool nodes for each agent
+    graph_builder.add_node("fake_tool_node", fake_tool_node)
+    graph_builder.add_node("report_fake_tool_node", report_fake_tool_node)
+    graph_builder.add_node("account_fake_tool_node", account_fake_tool_node)
+    graph_builder.add_node("fund_fake_tool_node", fund_fake_tool_node)
+    graph_builder.add_node("trading_fake_tool_node", trading_fake_tool_node)
+    graph_builder.add_node("dp_fake_tool_node", dp_fake_tool_node)
+    graph_builder.add_node("information_fake_tool_node", information_fake_tool_node)
+
 
     # Final response node for FAQ handling
     graph_builder.add_node("information_final_response_node", information_final_response_node)
@@ -165,34 +183,41 @@ def create_langgraph_supervisor() -> StateGraph:
     graph_builder.add_conditional_edges("ReportAgent", report_dynamic_router)
     graph_builder.add_edge("ReportAgent_tools", "ReportAgent")
     graph_builder.add_edge("report_human_node", "ReportAgent")
+    graph_builder.add_edge("report_fake_tool_node", "ReportAgent")
 
     # Add edges for the Account Agent
     graph_builder.add_conditional_edges("AccountAgent", account_dynamic_router)
     graph_builder.add_edge("AccountAgent_tools", "AccountAgent")
     graph_builder.add_edge("account_human_node", "AccountAgent")
+    graph_builder.add_edge("account_fake_tool_node", "AccountAgent")
 
     # Add edges for the Fund Agent
     graph_builder.add_conditional_edges("FundAgent", fund_dynamic_router)
     graph_builder.add_edge("FundAgent_tools", "FundAgent")
     graph_builder.add_edge("fund_human_node", "FundAgent")
+    graph_builder.add_edge("fund_fake_tool_node", "FundAgent")
 
     # Add edges for the Trading Agent
     graph_builder.add_conditional_edges("TradingAgent", trading_dynamic_router)
     graph_builder.add_edge("TradingAgent_tools", "TradingAgent")
     graph_builder.add_edge("trading_human_node", "TradingAgent")
+    graph_builder.add_edge("trading_fake_tool_node", "TradingAgent")
 
     # Add edges for the Information Centre Agent
     graph_builder.add_conditional_edges("InformationCentreAgent", information_dynamic_router)
     graph_builder.add_edge("InformationAgent_tools", "InformationCentreAgent")
     graph_builder.add_edge("information_human_node", "InformationCentreAgent")
+    graph_builder.add_edge("information_fake_tool_node", "InformationCentreAgent")
 
     # Add edges for the DP Agent
     graph_builder.add_conditional_edges("DPAgent", dp_dynamic_router)
     graph_builder.add_edge("DPAgent_tools", "DPAgent")
     graph_builder.add_edge("dp_human_node", "DPAgent")
+    graph_builder.add_edge("dp_fake_tool_node", "DPAgent")
 
     # Add edges for the Leave Node
     graph_builder.add_edge("leave_node", "supervisor")
+    graph_builder.add_edge("fake_tool_node", "supervisor")
     
     # ----------------------------
     # Entry Point

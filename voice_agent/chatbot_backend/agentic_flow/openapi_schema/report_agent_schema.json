@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "http://10.167.203.119/gw/api/cbot/ledgerstatement": {
+    "ledgerstatement": {
       "post": {
         "summary": "Get ledger statement",
         "description": "Fetches detailed client information, including profile data and status, based on system-defined criteria and user-specified parameters.",
@@ -85,7 +85,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/capitalgainloss": {
+    "capitalgainloss": {
       "post": {
         "summary": "Get P&L statement",
         "description": "Generates the client's Profit and Loss Statement based on the specified date range and chosen return method.",
@@ -108,7 +108,7 @@
                     "description": "Start date for the Capital Gain Loss statement in mm/dd/yyyy format.",
                     "x-display-name": "Start Date"
                   },
-                  "toDate": {
+                  "to_Date": {
                     "type": "string",
                     "description": "End date for the report in mm/dd/yyyy format",
                     "x-display-name": "End Date"
@@ -140,7 +140,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/BrokerageDetails": {
+    "BrokerageDetails": {
       "post": {
         "summary": "Get brokerage report",
         "description": "Retrieves the client's incurred brokerage charges and displays them in markdown format.",
@@ -151,14 +151,14 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["clientId", "ReturnType"],
+                "required": ["clientId", "Return_Type"],
                 "properties": {
                   "clientId": {
                     "type": "string",
                     "description": "Client ID of registered user",
                     "x-display-name": "Client ID"
                   },
-                  "ReturnType": {
+                  "Return_Type": {
                     "type": "string",
                     "default" : "Link", 
                     "description": "HTML-formatted brokerage details in string form."
@@ -184,7 +184,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/ITRStatement": {
+    "ITRStatement": {
       "post": {
         "summary": "Get ITR statement",
         "description": "Generates the client's ITR Statement using a combination of system-defined and user-selected parameters",
@@ -195,24 +195,24 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["clientId", "FromDate", "ToDate", "ReturnType"],
+                "required": ["clientId", "From_Date", "To_Date", "Return_Type"],
                 "properties": {
                   "clientId": {
                     "type": "string",
                     "description": "Client ID of registered user",
                     "x-display-name": "Client ID"
                   },
-                  "FromDate": {
+                  "From_Date": {
                     "type": "string",
                     "description": "Start date for the ITR report in mm/dd/yyyy format.",
                     "x-display-name": "Start Date"
                   },
-                  "ToDate": {
+                  "To_Date": {
                     "type": "string",
                     "description": "End date for the ITR report in mm/dd/yyyy format.",
                     "x-display-name": "End Date"
                   },
-                  "ReturnType": {
+                  "Return_Type": {
                     "type": "string",
                     "enum": ["Link", "Email"],
                     "description": "Method of report delivery — Download Link or email. ",
@@ -242,7 +242,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/getSOAMFLink": {
+    "getSOAMFLink": {
       "post": {
         "summary": "Provides Registrar and Transfer Agent aka RTA, Statement of Application aka SoA of mutual fund Lnk",
         "description": "Fetches the RTA: Registrar and Transfer Agent Statement of Account for Mutual Funds (SOA MF) via session and token-based authentication.",
@@ -290,7 +290,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/SaudaDetails": {
+    "SaudaDetails": {
       "post": {
         "summary": "Sauda details",
         "description": "Fetches the client's contract note summary aka sauda details for the specified date range.",
@@ -345,7 +345,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/GrandFatherGainLossDetailsReport": {
+    "GrandFatherGainLossDetailsReport": {
       "post": {
         "summary": "Get Grandfather Gain/Loss Report",
         "description": "Generates a Gain/Loss report for the client's grandfather based on the specified date range.",
@@ -409,7 +409,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/STTCertificate": {
+    "STTCertificate": {
       "post": {
         "summary": "Get STT certificate",
         "description": "Retrieves the Securities Transaction Tax (STT)  certificate for the specified date range.",
@@ -420,19 +420,19 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["clientId", "From_Date", "To_Date", "Return_Type"],
+                "required": ["clientId", "from_Date", "to_Date", "Return_Type"],
                 "properties": {
                   "clientId": {
                     "type": "string",
                     "description": "Client ID of registered user",
                     "x-display-name": "Client ID"
                   },
-                  "From_Date": {
+                  "from_Date": {
                     "type": "string",
                     "description": "Start date for the report range in mm/dd/yyyy format.",
                     "x-display-name": "From Date"
                   },
-                  "To_Date": {
+                  "to_Date": {
                     "type": "string",
                     "description": "End date for the report range in mm/dd/yyyy format.",
                     "x-display-name": "To Date"
@@ -464,7 +464,7 @@
       }
     },
 
-    "http://10.167.203.119/gw/api/cbot/GetSaticLinkOrFile": {
+    "GetSaticLinkOrFile": {
       "post": {
         "summary": "Get TDS Certificate Link",
         "description": "Fetches the download link for the TDS Certificate using user credentials and authentication headers.",
@@ -517,7 +517,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/LedgerBalanceSummary": {
+    "LedgerBalanceSummary": {
       "post": {
         "summary": "Get Ledger Balance Summary",
         "description": "Retrieves the ledger balance summary for a client.",
@@ -532,7 +532,7 @@
                 "properties": {
                   "clientId": {
                     "type": "string",
-                    "description": "Client ID of the user taken from <customer_context> section of system prompt; if missing then ask back to user.",
+                    "description": "Client ID of registered user",
                     "x-display-name": "Client ID"
                   }
                 }
@@ -564,7 +564,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/CheckClientMTFLAS": {
+    "CheckClientMTFLAS": {
       "post": {
         "summary": "Check if Client is MTF/LAS ",
         "description": "Checks whether the client is enabled for Margin Trading Facility (MTF) or Loan Against Securities (LAS).",
@@ -620,7 +620,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/ContractNote": {
+    "ContractNote": {
       "post": {
         "summary": "Get contract note",
         "description": "Retrieves contract notes for a specified date range. The date range cannot exceed one month.",
@@ -635,7 +635,7 @@
             "properties": {
             "clientId": {
               "type": "string",
-              "description": "Client ID of the user taken from <customer_context> section of system prompt; if missing then ask back to user.",
+              "description": "Client ID of registered user",
               "x-display-name": "Client ID"
             },
             "from_Date": {
@@ -645,7 +645,7 @@
             },
             "to_Date": {
               "type": "string",
-              "description": "End date for the report range in mm/dd/yyyy format. Must not be more than one month after FROM_DATE.",
+              "description": "End date for the report range in mm/dd/yyyy format. Must not be more than one month after from_Date.",
               "x-display-name": "To Date"
             },
             "return_Type": {

@@ -11,7 +11,7 @@
       }
     ],
     "paths": {
-      "http://10.167.203.119/gw/api/cbot/Onlinetradestartstop": {
+      "Onlinetradestartstop": {
         "post": {
           "summary": "Start online trading for a client",
           "description": "Initiates the online trading process for a specified client account.",
@@ -58,7 +58,7 @@
           }
         }
       },
-      "http://10.167.203.119/gw/api/cbot/Onlinetradestartsto": {
+      "Onlinetradestartsto": {
         "post": {
           "summary": "Stop online trading for a client",
           "description": "Terminates the online trading service for a specified client account.",

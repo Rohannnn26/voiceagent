@@ -52,7 +52,7 @@ class RealtimeClient:
             "input_audio_transcription": {
                 "model": "whisper-1"
             },
-            "temperature": 0.6,
+            "temperature": 1,
             "tools": FUNCTION_SCHEMAS,
             "tool_choice": "auto"
         }
@@ -141,12 +141,29 @@ class RealtimeClient:
                 args = json.loads(fc["arguments"])
 
                 logger.info(f"Function call requested: {name} with args {args}")
+                
+                # Special handling for backend tool - make it non-blocking
+                if name in ["query_chatbot_backend"]:
+                    logger.info(f"🔄 Backend tool detected - sending status and running async")
+                    
+                    # Send immediate status message
+                    await self.send_event({
+                        "type": "conversation.item.create",
+                        "item": {
+                            "type": "message",
+                            "role": "assistant",
+                            "content": [{"type": "text", "text": "give current status and tell the user that its gonna take a while"}]
+                        }
+                    })
+                    await self.send_event({"type": "response.create"})
+                    
+                    # Run backend tool in background without blocking
+                    asyncio.create_task(self._execute_backend_tool_async(call_id, args))
+                    return  # Exit early, don't block on tool execution
+                
                 try:
-                    # Handle async tools - only backend tool is async now
-                    if name in ["query_chatbot_backend"]:
-                        result = await TOOLS[name](**args)
-                    else:
-                        result = TOOLS[name](**args)
+                    # Handle other tools normally (synchronously)
+                    result = TOOLS[name](**args)
                 except Exception as e:
                     result = {"error": str(e)}
                     logger.exception(f"Tool {name} failed")
@@ -180,8 +197,6 @@ class RealtimeClient:
 
         elif event_type == "conversation.item.truncated":
             logger.info(f"Conversation item truncated: {event}")
-
-    
 
     async def send_text(self, text):
         logger.info(f"📤 USER TEXT INPUT: '{text}'")
@@ -271,6 +286,28 @@ class RealtimeClient:
                 "type": "message",
                 "role": "assistant",
                 "content": [{"type": "text", "text": message}]
+            }
+        })
+        await self.send_event({"type": "response.create"})
+
+    async def _execute_backend_tool_async(self, call_id: str, args: dict):
+        """Execute backend tool asynchronously and send result when complete"""
+        try:
+            logger.info(f"🔄 Starting non-blocking backend execution with args: {args}")
+            result = await TOOLS["query_chatbot_backend"](**args)
+            logger.info(f"✅ Backend tool completed successfully")
+        except Exception as e:
+            result = {"error": str(e)}
+            logger.exception(f"❌ Backend tool failed")
+        
+        # Send the tool result when ready
+        logger.info(f"📤 Sending backend tool result")
+        await self.send_event({
+            "type": "conversation.item.create",
+            "item": {
+                "type": "function_call_output",
+                "call_id": call_id,
+                "output": json.dumps(result)
             }
         })
         await self.send_event({"type": "response.create"})

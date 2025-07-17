@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-uat-api
+  namespace: chatbot
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: chatbot-uat-api
+  template:
+    metadata:
+      labels:
+        app: chatbot-uat-api
+    spec:
+      nodeSelector:
+        aws-nodepool: chatbot-api
+      containers:
+        - name: chatbot-api
+          image: ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/mofsl-chatbot-uat-api-ecr-repo:chatbot-api-IMAGE_TAG
+          ports:
+            - containerPort: 8000

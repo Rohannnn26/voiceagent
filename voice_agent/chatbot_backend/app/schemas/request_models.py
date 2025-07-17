@@ -53,135 +53,48 @@ class FAQResponseSchema(BaseModel):
     confidence: Literal["High", "Medium", "Low"] = Field(..., description="The confidence level of the response")
     source_ids: List[str] = Field(..., description="List of source document identifiers used to generate the answer")
 
-# Report agent output schema
-# class AgentOutput(BaseModel):
-#     """
-#     STRUCTURED SCHEMA FOR AI ASSISTANT RESPONSES — USED TO DRIVE UI RENDERING AND DIALOG FLOW CONTROL.
-
-#     FIELDS:
-#         message (str): A polished, user-facing response from the assistant.
-#             - If a Markdown link is included (e.g., [View Report](https://...)), only the link text should be displayed to the user.
-#             - If no link is included, display the full message content written in natural, friendly language.
-#             - The assistant will never expose technical details, raw payloads, or internal API logic.
-#             - The tone is always professional, clear, and helpful — tailored for a financial services customer environment.
-
-#         status (Literal): Indicates the assistant's current interaction stage:
-
-#             - "awaiting_clarification": Assistant is asking the user to provide missing or unclear input.
-#             - "awaiting_confirmation": All inputs are ready, and the assistant is asking for final confirmation before proceeding.
-#             - "result": Final message after performing the requested action (e.g., returning a report link or outcome).
-#             - "out_of_scope": The assistant could not match the user’s request to any known operation.
-#     """
-
-#     message: str = Field(
-#         ...,
-#         description=(
-#             "Polished, user-facing message written in a professional and friendly tone. "
-#             "If a Markdown link is present (e.g., [Download Report](https://...)), show only the link to the user. "
-#             "If no link is present, render the full text response. "
-#             "Message content avoids all technical, backend, or system-specific details — it focuses on natural, helpful communication."
-#         )
-#     )
-
-#     status: Literal[
-#         "awaiting_clarification",
-#         "awaiting_confirmation",
-#         "result",
-#         "out_of_scope"
-#     ] = Field(
-#         ...,
-#         description=(
-#             "'awaiting_clarification': Missing required input(s); assistant is prompting the user.\n"
-#             "'awaiting_confirmation': All details are collected; assistant is confirming intent.\n"
-#             "'result': Final outcome message, including any returned data or report links.\n"
-#             "'out_of_scope': Request was not mapped to any supported capability or operation."
-#         )
-#     )
-
-# class AgentOutput(BaseModel):
-#     """
-#     You are a financial services assistant that provides responses using a structured output format.
-#     When responding to user queries, you must format your response according to the AgentOutput schema which controls 
-#     how the UI displays your messages and manages conversation flow.
-
-#     Always adhere to these guidelines:
-
-#     1. Structure each response with two components:
-#         - message: A clear, professional, and friendly response written in natural language
-#         - status: The appropriate conversation stage from the allowed options
-    
-#     2. Status field requirements:
-#         - Use "awaiting_clarification" when you need more information to proceed
-#         - Use "awaiting_confirmation" when all inputs are ready and you need final approval
-#         - Use "result" when providing a final outcome or report
-#         - Use "out_of_scope" only when the request doesn't match any supported capability
-    
-#     3. Message formatting rules:
-#         - Write in a warm, professional tone appropriate for financial services
-#         - Present information in well-organized, readable structures with proper spacing
-#         - Use plain language that non-technical customers can understand
-#         - Never expose API parameters, technical notation, or system details
-#         - Replace technical symbols in api parameters (|, &) with natural words ("or", "and")
-#         - Use complete sentences and natural descriptive labels
-#         - For report links, use standard Markdown format: [View Report](https://link)
-    
-#     4. When awaiting clarification:
-#         - Clearly explain what information is needed and why
-#         - Provide examples where helpful
-#         - Present options in user-friendly formats and readable structures with proper spacing
-    
-#     """
-
-#     message: str = Field(
-#         ...,
-#         description=(
-#             "Polished, user-facing message written in a professional and friendly tone. "
-#             "If a Markdown link is present (e.g., [Download Report](https://...)), show only the link to the user. "
-#             "If no link is present, render the full text response. "
-#             "Message content avoids all technical, backend, or system-specific details — it focuses on natural, helpful communication."
-#         )
-#     )
-
-#     status: Literal[
-#         "awaiting_clarification",
-#         "awaiting_confirmation",
-#         "result",
-#         "out_of_scope"
-#     ] = Field(
-#         ...,
-#         description=(
-#         " 'awaiting_clarification' : when you need more information to proceed \n"
-#         " 'awaiting_confirmation' :  when all inputs are ready and you need final approval \n"
-#         " 'result' : when providing a final outcome or report \n"
-#         " 'out_of_scope' : only when the request doesn't match any supported capability " 
-#         )
-#     )
 
 class AskBackToUser(BaseModel):
     """
-    Tool to get clarity / Confirmation from Customer.
+    Tool to ask the customer for clarification or confirmation.
+
+    Used when the agent needs more information from the customer
+    to proceed confidently with the conversation.
+
+    The message must be written in markdown and be short, polite, and mobile-friendly.
     """
-    
+
     interrupt_message: str = Field(
-        description="Message to show to the user when requesting input or confirmation. Since the response is viewed on a mobile screen, it should be concise and straight to the point."
+        ...,
+        title="Markdown-formatted ask-back message",
+        description=(
+            "Customer-facing message asking for clarification or confirmation.\n"
+            "- Must be in **markdown format** (use markdown like bold, lists, newlines).\n"
+            "- Keep it concise, friendly, and clear for mobile screens.\n"
+            "Focus on a direct, polite question to the user."
+        ),
+        example="**Could you please clarify** which product you're referring to?"
     )
 
 class AgentOutput(BaseModel):
-    """A tool to mark the current task as completed and/or to escalate control of the dialog to the supervisor agent,
-    who can re-route the dialog based on the user's need."""
+    """A tool to mark the current task as completed and/or to escalate control of the dialog
+    to the supervisor agent, who can re-route the dialog based on the user's need.
+    
+    Contains:
+    - message: Customer-facing reply in markdown format.
+    - status: Control decision signal (fulfilled or escalation)."""
 
     message: str = Field(
         ...,
-        description="""
-            REPLY TO THE CUSTOMER IN MARKDOWN FORMAT.
-            Organize the information in a logical, easy-to-follow structure.
-            Avoid technical terminology such as API names or parameter names.
-            Prioritize mobile readability, as it is an important consideration.
-            For HTML content, especially tables:
-            - Convert simple HTML elements to markdown (e.g., <br> to newlines, <h1> to #).
-            - For complex HTML tables, either convert them to markdown tables using the | syntax or, if too complex, simplify the structure for clarity.
-            Replace HTML escape characters with appropriate symbols, and ensure all content remains readable—even if formatting isn't perfect.
-        """
+        title="Customer-facing reply (markdown)",
+        description=(
+            "REPLY TO THE CUSTOMER IN MARKDOWN FORMAT.\n"
+            "- Organize the information clearly and logically.\n"
+            "- Use plain language; avoid technical jargon, API names, or parameter names.\n"
+            "- Prioritize readability on mobile screens.\n"
+            "- Format using basic markdown (e.g., bold, lists, newlines).\n"
+            "The message must NOT include HTML, raw JSON, or system/internal terms."
+        )
     )
 
     status: Literal[

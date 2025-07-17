@@ -10,7 +10,7 @@ from langgraph.types import Command
 from agentic_flow.utility import generate_request_id, langfuse
 import traceback
 from langfuse.langchain import CallbackHandler
-
+from agentic_flow.utility.state_utils import generate_remove_messages
 # Initialize the logger
 log = Logger()
 
@@ -150,15 +150,31 @@ def communicate(payload, graph):
 
     except Exception as e:
         # Log the exception details and return a failure response
-        error_stack = traceback.format_exc()
-        log.error(f"Exception occurred during communication: {str(e)}\nStack trace: {error_stack}")
+        snapshot_state = graph.get_state(config)
+        log.info(f"Snapshot Data in except part : {len(snapshot_state.values.get('messages', {}))}")
+        last_message_first_exp = snapshot_state.values.get("messages", {})[-1]
+        log.info(f"Last message in except state: {last_message_first_exp}, type: {type(last_message_first_exp)}")
+
         payload_json = snapshot_state.values.get("payload", {})
         new_request_id=""
         if 'interaction' in payload_json:
             new_request_id = payload_json.request_id
+        
+        tool_message_text =  "This query response has been completed."
+        msg = snapshot_state.values.get("messages")
+        remove_instructions = generate_remove_messages(msg, tool_message_text)
+        log.info(f"Messages to remove: {len(remove_instructions)}")
+
+        # Apply the RemoveMessage instructions
+        graph.update_state(config, values={"messages": remove_instructions})
+        
+        recover_snapshot_state = graph.get_state(config)
+        log.info(f"Snapshot Data in recover part : {len(recover_snapshot_state.values.get('messages', {}))}")
+        last_message_recover = recover_snapshot_state.values.get("messages", {})[-1]
+        log.info(f"Last message in recover state: {last_message_recover}, type: {type(last_message_recover)}")
         return {
             "status": "Failure",
-            "message": f"An error occurred: {str(e)}",
+            "message": f"I sincerely apologize for not able to fulfill your request.",
             "action": "result",
             "request_id" : new_request_id
         }

@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "http://10.167.203.119/gw/api/cbot/FundsTransfer": {
+    "FundsTransfer": {
       "post": {
         "summary": "Get Fund Transfer Status",
         "description": "Returns the current status of a fund transfer request for the specified user and client.",
@@ -58,7 +58,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/CordysFundPayoutStatus": {
+    "CordysFundPayoutStatus": {
       "post": {
         "summary": "Get fund payout status",
         "description": "Returns the payout status of funds for a specified user.",
@@ -105,7 +105,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/MarginShortage": {
+    "MarginShortage": {
       "post": {
         "summary": "Get available margin status",
         "description": "Returns margin shortage or availability status for a client, filtered by role and segment.",
@@ -158,7 +158,7 @@
         }
       }
     },
-    "http://10.167.203.119/gw/api/cbot/MarginShortagePenalty": {
+    "MarginShortagePenalty": {
       "post": {
         "summary": "Get Margin Shortage Penalty Report",
         "description": "Returns the margin shortage penalty report link for the specified user and date range.",
@@ -169,19 +169,19 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["clientId", "From_Date", "To_Date", "Return_Type"],
+                "required": ["clientId", "from_Date", "to_Date", "Return_Type"],
                 "properties": {
                   "clientId": {
                     "type": "string",
                     "description": "Client ID of registered user",
                     "x-display-name": "Client ID"
                   },
-                  "From_Date": {
+                  "from_Date": {
                     "type": "string",
                     "description": "Start date for the report in mm/dd/yyyy format.",
                     "x-display-name": "From Date"
                   },
-                  "To_Date": {
+                  "to_Date": {
                     "type": "string",
                     "description": "End date for the report in mm/dd/yyyy format.",
                     "x-display-name": "To Date"
@@ -221,7 +221,7 @@
         }
       }
     },
-     "http://10.167.203.119/gw/api/cbot/MF_ORDERSTATUS": {
+     "MF_ORDERSTATUS": {
       "post": {
         "summary": "Get Mutual Fund Order Status",
         "description": "Retrieves the current status of mutual fund (MF) order for the specified user and client account.",

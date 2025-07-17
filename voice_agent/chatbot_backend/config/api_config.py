@@ -49,7 +49,8 @@ from integrations.external_api_wrapper import (
     get_contract_note,
     get_dis_drf_status,
     get_ledger_summary,
-    get_segment_addition
+    get_segment_addition,
+    get_change_advisor_request
 )
 
 PRIMARY_API_MAP = {
@@ -220,8 +221,11 @@ PRIMARY_API_MAP = {
     "dormant_status": (
         get_emodification,
         ["user_id", "client_id", "role", "token", "session_id","type"]
+    ),
+    "advisor_request": (
+        get_change_advisor_request,
+        ["user_id", "client_id", "role", "token", "session_id","segment","type", "reason"]
     )
-    
 
 }
 
@@ -243,4 +247,7 @@ MID_STAGE_API_MAP = {
         get_clientwise_dpid,
         ["user_id", "client_id", "role", "token", "session_id"],
     ),
+    "advisor_request" : (
+        get_change_advisor_request,
+        ["user_id", "client_id", "role", "token", "session_id","segment","type","reason"])
 }

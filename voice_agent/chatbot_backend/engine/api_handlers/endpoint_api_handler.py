@@ -17,13 +17,15 @@ from engine.api_handlers.api_helpers import (
     extract_parameters,
     enrich_payload_with_type,
     transform_dp_ids_to_options,
-    mtf_las_transform
+    mtf_las_transform,
+    advisor_change_transform
+
 )
 
 log = Logger()  # Initialize logger instance
 
 
-def handle_primary_api(api_payloads: dict, user_data: dict, client_id: Optional[str]) -> dict:
+def handle_primary_api(api_payloads: dict, user_data: dict, client_id: Optional[str], reason:Optional[str]) -> dict:
     """
     Handles execution of primary API endpoints.
 
@@ -62,6 +64,9 @@ def handle_primary_api(api_payloads: dict, user_data: dict, client_id: Optional[
         # If client_id is missing in extracted args, use the fallback client_id
         if not final_args.get("client_id") and client_id:
             final_args["client_id"] = client_id
+        # Pass reason if available and not already present
+        if reason is not None and not final_args.get("reason"):
+            final_args["reason"] = reason
 
         log.debug(f"Calling endpoint '{endpoint}' with args: {final_args}")
         response = func(final_args)  # Call the actual function
@@ -80,7 +85,7 @@ def handle_primary_api(api_payloads: dict, user_data: dict, client_id: Optional[
         return {"status": "Error", "action": "result", "message": "Server error, try again later."}
 
 
-def handle_mid_stage_api(click_id: str, api_payloads: dict, client_id: Optional[str]) -> dict:
+def handle_mid_stage_api(click_id: str, api_payloads: dict, client_id: Optional[str], reason: Optional[str] = None) -> dict:
     """
     Executes mid-stage API based on click ID logic and transforms the response.
 
@@ -108,6 +113,9 @@ def handle_mid_stage_api(click_id: str, api_payloads: dict, client_id: Optional[
         # Use fallback client_id if not already in arguments
         if not final_args.get("client_id") and client_id:
             final_args["client_id"] = client_id
+        # Pass reason if available and not already present
+        if reason is not None and not final_args.get("reason"):
+            final_args["reason"] = reason
 
         log.debug(f"Calling mid-stage endpoint '{click_id}' with args: {final_args}")
         raw_response = func(final_args)
@@ -116,12 +124,16 @@ def handle_mid_stage_api(click_id: str, api_payloads: dict, client_id: Optional[
         raw_message = raw_response.get("Data")
         log.info(f"Raw response from mid-stage API '{click_id}': {raw_response}")
         # Transform raw DP ID response to a chatbot-friendly options list
+        
         if isinstance(raw_message, list) and raw_message:
+            log.info(f"{raw_message[0].get('Message', '').lower()}")    
             if raw_message[0].get("Message", "").lower() in ["yes", "no","YES", "NO","Yes", "No"]:
                 return mtf_las_transform(raw_response)
-        log.debug(f"Transforming API response: {raw_response}")
-
-        return transform_dp_ids_to_options(raw_response, click_id)
+            elif raw_message[0].get("Message", "").lower() in ["equity","commodity","both"]:
+                return advisor_change_transform(raw_response)
+            else:
+                log.debug(f"Transforming API response: {raw_response}")
+                return transform_dp_ids_to_options(raw_response, click_id)
 
     except Exception as e:
         log.critical(f"Error in mid-stage call '{click_id}': {str(e)}", exc_info=True)

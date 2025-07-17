@@ -12,22 +12,6 @@ from monitoring.logger.logger import Logger
 log = Logger()
 
 
-def extract_agent_output(last_message):
-    """Extract agent output from AIMessage if valid."""
-    if not (isinstance(last_message, AIMessage) and hasattr(last_message, "tool_calls")):
-        log.info("Last message is not a valid AIMessage with tool calls.")
-        return None
-    
-    for call in last_message.tool_calls:
-        if (
-            call.get("name") == "AgentOutput"
-            and isinstance(call.get("args"), dict)
-            and call["args"].get("status") == "result"
-        ):
-            return call["args"].get("message", "")
-    
-    return None
-
 def validate_adjacent_tool_message(messages, id, expected_tool_name):
     """
     Validate if the adjacent message is a ToolMessage with a specific tool name.
@@ -138,61 +122,14 @@ def assisatnce_pass_signal(tool_response: dict) -> bool:
     reason = tool_response.get("reason", "")
     
     # Define criteria for passing the assistance guard
-    result = intent_type != "Other"
+    # result = intent_type != "Other"
+    result = intent_type not in ["Other", "Apology"]
     if not result:
         log.info(f"Assistance guard failed due to intent type being 'Other' or empty. with reason: {reason}")
     
     log.info(f"Assistance guard result: {'Pass' if result else 'Fail'}")
     return result
 
-def information_final_response_node(state: SupervisorState):
-    """Process messages for FAQ grounding with improved modularity."""
-    log.info("Starting FAQ grounding messages extraction...")
-    # log.info(f"State keys: {list(state.keys())}")
-
-    query = state.get("payload", Payload).interaction.input.text
-    messages = state.get("messages", [])
-    
-    # Get the last message
-    id = 1
-    response_text = extract_agent_output(messages[-id])
-    log.info(f"Extracted response text from last message: {'Found' if response_text else 'Not found'}")
-
-    # for FAQ grounding if RAG data retrive and context summury happend then only we can validate the grounding
-    if response_text and validate_adjacent_tool_message(messages, id, "faq_knowledge_base"):
-        log.info("FAQ adjacent message is from the FAQ knowledge base.")
-        rag_data = extract_message_content(messages, id)
-        tool_call = state["messages"][-1].tool_calls[0]
-        log.info("Proceeding with contextual grounding validation")
-        
-        result = validate_contextual_grounding(
-            query=query,
-            response=response_text,
-            chunk=rag_data,
-            dialogue_history=""
-        )
-        log.info(f"Grounding validation result: {result.tool_calls[0]['args']}")
-        flag = grounding_pass_signal(result.tool_calls[0]['args'])
-        if flag:
-            content = ("This query response has been completed.")
-            log.info("Grounding validation passed successfully")
-            # Create a ToolMessage with the content and tool call ID
-            messages.append(ToolMessage(content=content, tool_call_id=tool_call["id"]))
-            return Command(
-                            # update the message history
-                            update={"messages": messages }
-                        )
-            
-        else:
-            content = (result.tool_calls[0]['args'].get("issues", ""))
-            log.info(f"Grounding validation failed with issues: {content}")
-            messages.append(ToolMessage(content=content, tool_call_id=tool_call["id"]))
-            return Command(
-                    # update the message history
-                    update={"messages": messages},
-                    # control flow
-                    goto="InformationCentreAgent"
-                )
 
 def assistance_final_response_node(state: SupervisorState):
     """
@@ -213,16 +150,22 @@ def assistance_final_response_node(state: SupervisorState):
         result = guard_simple_response(last_message.content)
         log.info(f"Assistance guard check result: {result.tool_calls[0]['args']}")
         flag = assisatnce_pass_signal(result.tool_calls[0]['args'])
-        if flag:
+        log.info(f"Assistance guard check result: {flag}")
+        regex_flag = get_regex_output_guard(last_message.content)
+        log.info(f"Regex guard check result: {regex_flag}")
+        ban_flag = get_ban_words_guard(last_message.content)
+        log.info(f"Ban words guard check result: {ban_flag}")
+        if flag and regex_flag is True and ban_flag is True:
+            log.info("Assistance guard check passed successfully.")
             return Command(
                 # End flow
                 goto=END
             )
         else:
-            content = ("I apologize, This query appears to be outside of my scope.")
+            content = ("I sincerely apologize for not able to fulfill your request.")
             log.info(f"Assistance guard check failed with reason: {content}")
             messages.append(AIMessage(content=content))
-            log.info("Returning to main assistant for further assistance.")
+            log.info("Appending failure message to messages history.")
             response = {
                 "message": content,
                 "status": "result",
@@ -278,8 +221,9 @@ def process_final_response(state: SupervisorState, goto_target: str) -> Command:
                 messages.append(ToolMessage(content=str(ban_flag), tool_call_id=tool_call_id))
                 return Command(update={"messages": messages}, goto=goto_target)
             log.info("Regex and ban words validation passed successfully")
+        id = 1
         # Proceed with API grounding validation if the tool call is from API
-        if validate_adjacent_tool_message(messages, 1, "request_post"):
+        if validate_adjacent_tool_message(messages, id, "request_post"):
             log.info("API tool call message found - proceeding with API grounding validation")
             message_text = tool_call["args"].get("message", "")
             api_tool_call_data = extract_message_content(messages, 1)
@@ -300,6 +244,36 @@ def process_final_response(state: SupervisorState, goto_target: str) -> Command:
             # If API grounding validation passes, append a completion message
             log.info("API grounding validation passed successfully")
 
+        # for FAQ grounding if RAG data retrive and context summury happend then only we can validate the grounding
+        if validate_adjacent_tool_message(messages, id, "faq_knowledge_base"):
+            log.info("FAQ adjacent message is from the FAQ knowledge base.")
+            query = state.get("payload", Payload).interaction.input.text
+            message_text = tool_call["args"].get("message", "")
+            rag_data = extract_message_content(messages, id)
+            tool_call = state["messages"][-1].tool_calls[0]
+            log.info("Proceeding with contextual grounding validation")
+            
+            result = validate_contextual_grounding(
+                query=query,
+                response=message_text,
+                # Use the extracted RAG data for grounding validation
+                chunk=rag_data,
+                dialogue_history=""
+            )
+            log.info(f"Grounding validation result: {result.tool_calls[0]['args']}")
+            flag = grounding_pass_signal(result.tool_calls[0]['args'])
+            if flag is not True:
+                content = (result.tool_calls[0]['args'].get("issues", ""))
+                log.info(f"Grounding validation failed with issues: {content}")
+                messages.append(ToolMessage(content=content, tool_call_id=tool_call["id"]))
+                return Command(
+                        # update the message history
+                        update={"messages": messages},
+                        # control flow
+                        goto=goto_target
+                    )
+            log.info("Grounding validation passed successfully")
+
         # Append a completion message to the messages
         content = ("This query response has been completed.")
         log.info("Final response processing completed successfully")
@@ -308,7 +282,11 @@ def process_final_response(state: SupervisorState, goto_target: str) -> Command:
     
     # Fallback if message structure is not as expected
     log.info("No valid tool call found in the last message.")
-    return Command(goto=END)
+    response = {
+        "message": "I apologize, This query appears to be outside of my scope.",
+        "status": "result"
+    }
+    return Command(update={"response" : response}, goto=END)
 
 
 def report_final_response_node(state: SupervisorState) -> Command:
@@ -349,3 +327,9 @@ def fund_final_response_node(state: SupervisorState) -> Command:
     """
     log.info("Starting fund response check...")
     return process_final_response(state, goto_target="FundAgent")
+
+def information_final_response_node(state: SupervisorState):
+    """ Process final response for Information Centre flow.
+    """
+    log.info("Starting FAQ grounding messages extraction...")
+    return process_final_response(state, goto_target="InformationCentreAgent")

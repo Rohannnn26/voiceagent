@@ -112,6 +112,9 @@ class InformationCentreAgent(BaseModel):
                 - Common troubleshooting and how-to questions
 
         WHEN TO USE THIS AGENT:
+            - User asks "How do I..." or "How to..." questions
+            - User asks "Where do I..." or "Where to..." questions  
+            - User asks "What are the steps..." or procedural questions
             - User mentions corporate actions, IPOs, buybacks, or market events
             - User requests research reports or market insights
             - User has general questions about processes or platform usage
@@ -182,7 +185,6 @@ class DPAgent(BaseModel):
         - “What is my DPID?”
         - “I want to check my securities in DP”
         - "give me my DIGI CMR report"
-        - "What is my DIS status?"
         - "What is my DRF status?"
         - "What is my DP holdings?"
         - "change my advisor request"

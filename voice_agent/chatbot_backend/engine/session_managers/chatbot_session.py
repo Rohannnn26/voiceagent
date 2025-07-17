@@ -164,6 +164,43 @@ class PayloadSessionManager:
         else:
             log.error(f"Client ID not found in Redis for session: {session_id}")
             return None
+    
+    def add_reason_for_advisor_change(self, session_id: str, reason: str) -> None:
+
+        """
+        Store the reason for advisor change in the session data.
+        
+        Args:
+            session_id (str): Unique identifier for the session.
+            reason (str): Reason for the advisor change.
+        """
+        redis_key = f"{session_id}_reason"
+        reason_data = {
+            "reason": reason,
+            "last_updated": datetime.utcnow().isoformat()
+        }
+        self.store.save(redis_key, reason_data)
+        log.info(f"Reason for advisor change added: {reason}")
+
+    def get_reason_for_advisor_change(self, session_id: str) -> Optional[str]:
+        """
+        Retrieve the reason for advisor change from the session data.
+        
+        Args:
+            session_id (str): Unique identifier for the session.
+
+        Returns:
+            Optional[str]: The reason for the advisor change if it exists, else None.
+        """
+        redis_key = f"{session_id}_reason"
+        reason_data = self.store.load(redis_key)
+        log.info(f"Reason data fetched from Redis: {reason_data}")
+
+        if reason_data and "reason" in reason_data:
+            return reason_data["reason"]
+        else:
+            log.error(f"Reason for advisor change not found in Redis for session: {session_id}")
+            return None
 
     def build_api_schema_for_session(self, session_id: str, click_id: str) -> None:
         """
@@ -276,12 +313,24 @@ class ApiPayloadUploader:
 
     def update_date_range(self):
         """
-        Update from_date and to_date based on click_id preset.
+        Update from_date and to_date based on click_id preset or user input (choose_date).
         """
         if self.click_id in {"3_month", "6_month", "current_fy", "previous_fy","current_fy_itr","previous_fy_itr","current_fy_stt_ctt","previous_fy_stt_ctt","current_margin_shortage","previous_margin_shortage"}:
             from_date, to_date = date_range(self.click_id)
             self.manager.add_or_update_api_paylods(self.session_id, "from_date", from_date)
             self.manager.add_or_update_api_paylods(self.session_id, "to_date", to_date)
+        # Handle custom date range from user input (choose_date)
+        elif self.click_id == "choose_date":
+            # Try to get from_date and to_date from user_data['interaction']['input']
+            input_data = self.user_data.get('interaction', {}).get('input', {}).get('text', '')
+            log.info(f"Input data for date range: {input_data}")
+            if not input_data:
+                log.error("No date range input provided by user!")
+                return
+            from_date, to_date = [date.strip() for date in input_data.split('to')]
+            if from_date and to_date:
+                self.manager.add_or_update_api_paylods(self.session_id, "from_date", from_date)
+                self.manager.add_or_update_api_paylods(self.session_id, "to_date", to_date)
     
     def dis_drf_status(self):
         """Update dis_drf_status based on click_id."""
@@ -289,7 +338,7 @@ class ApiPayloadUploader:
         if self.click_id == "drfStatus":
             self.manager.add_or_update_api_paylods(self.session_id, "request_type", "drfStatus")
             self.manager.add_or_update_api_paylods(self.session_id, "ref_no", "2")
-            log.info(f"segment-type for click id: {self.click_id} is 'drfStatus'.")
+            log.info(f"segment-type_drf for click id: {self.click_id} is 'drfStatus'.")
         elif self.click_id == "disStatus":
             self.manager.add_or_update_api_paylods(self.session_id, "request_type", "disStatus")
             self.manager.add_or_update_api_paylods(self.session_id, "ref_no", "1")
@@ -316,7 +365,7 @@ class ApiPayloadUploader:
     
     def add_dp_id(self): 
         payloads_session_data = self.manager.get_api_paylods (self.session_id)   
-        if "dp_id" in payloads_session_data and "dp_ids" == self.click_id:
+        if "dp_id" in payloads_session_data and self.click_id in ["dp_ids","dp_ids_cmr"]:
             dp_id = self.user_data.get("interaction", {}).get("input", {}).get("text")
             if not dp_id:
                 log.error("Unable to get the DP ID from user!")
@@ -401,20 +450,43 @@ class ApiPayloadUploader:
         if self.click_id in order_map:
             order_value = order_map[self.click_id]
             self.manager.add_or_update_api_paylods(self.session_id, "order_type", order_value)
-            log.info(f"Segment type for click id: {self.click_id} is '{order_value}'.")
+            log.info(f"Order type for click id: {self.click_id} is '{order_value}'.")
         else:
             log.info(f"No segment mapping found for click id: {self.click_id}")
 
     def segment_type(self):
-        """Update emod_type based on click_id."""
+        """Update segment advisor change request based on click_id."""
 
-        if self.click_id == "equity":
-            self.manager.add_or_update_api_paylods(self.session_id, "segmenttype", "Equity")
-            log.info(f"segment-type for click id: {self.click_id} is 'DOR'.")
+        if self.click_id == "advisor_request":
+            self.manager.add_or_update_api_paylods(self.session_id, "segment", "")
+            self.manager.add_or_update_api_paylods(self.session_id, "reason", "")
+            log.info(f" {self.click_id}")
+        elif self.click_id == "equity":
+            self.manager.add_or_update_api_paylods(self.session_id, "segment", "Equity")
+            log.info(f"segment-type for click id: {self.click_id} is 'Equity'.")
         elif self.click_id == "commodity":
-            self.manager.add_or_update_api_paylods(self.session_id, "segmenttype", "Commodity")
+            self.manager.add_or_update_api_paylods(self.session_id, "segment", "Commodity")
             log.info(f"segment-type for click id: {self.click_id} is 'Commodity'.")
+    
+    def advisor_type(self):
+        """Update advisor type based on click_id."""
 
+        if self.click_id == "advisor_request":
+            self.manager.add_or_update_api_paylods(self.session_id, "type", "active")
+            log.info(f" {self.click_id}")
+        elif self.click_id == "equity":
+            self.manager.add_or_update_api_paylods(self.session_id, "type", "")
+            log.info(f"advisor-type for click id: {self.click_id} is 'Equity'.")
+        elif self.click_id == "primary":
+            self.manager.add_or_update_api_paylods(self.session_id, "type", "primary")
+            log.info(f"for segment commodity advisor-type for click id: {self.click_id} is 'primary'.")
+        elif self.click_id == "secondary":
+            self.manager.add_or_update_api_paylods(self.session_id, "type", "secondary")
+            log.info(f"for segment commodity advisor-type for click id: {self.click_id} is 'secondary'.")
+        elif self.click_id == "both":
+            self.manager.add_or_update_api_paylods(self.session_id, "type", "both")
+            log.info(f"for segment commodity advisor-type for click id: {self.click_id} is 'both'.")
+ 
 
 
     def run_all_updates(self):
@@ -432,4 +504,5 @@ class ApiPayloadUploader:
         self.emod_type()
         self.account_opening_partner()
         self.segment_type()
+        self.advisor_type()
         self.date_type()

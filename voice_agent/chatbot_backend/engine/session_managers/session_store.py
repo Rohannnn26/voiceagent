@@ -5,7 +5,7 @@ import redis
 from engine.session_managers.redis_client import RedisConnector
 from datetime import timedelta
 from typing import Optional
-from config.config import ENV
+from config.config import env
 from monitoring.logger.logger import Logger
 
 # Initialize logger
@@ -28,7 +28,7 @@ class RedisSessionStore:
         """
         log.info(f"Initializing RedisSessionStore.")
         self.redis = redis.from_url(url)  # Connect to Redis using the given URL
-        #self.redis = RedisConnector(env=ENV).get_client()
+        # self.redis = RedisConnector(env=env).get_client()
         self.ttl = timedelta(minutes=ttl_minutes)  # Default TTL for session expiration
         log.info("RedisSessionStore initialized successfully.")
 

@@ -50,7 +50,16 @@ class ChatbotNavigator:
             "id": f"client_id_{click_id}",
             "text": "Please enter the Client ID."
         }
-    
+    def get_reason_for_advisor_change(self, click_id: str) -> Dict:
+        """
+        Prompts user to enter a reason for advisor change when required by node.
+        """
+        log.info("Reason for Advisor Change Ask...!")
+        return {
+            "action": "input",
+            "id": f"reason_{click_id}",
+            "text": "Please enter the reason for advisor change."
+        }
 
     def initialize(self, sess: str, uid: str, rl: str) -> Dict:
         """
@@ -94,11 +103,12 @@ class ChatbotNavigator:
         # Ask for client ID if required for partner roles at specific nodes
         if rl in PARTNER_IDS and click_id in PARTNER_RQD_CLIENT_ID:
             return self.get_client_id_input_state(click_id)
-        
+        elif click_id in ["equity", "primary", "secondary", "both"]:
+            return self.get_reason_for_advisor_change(click_id)
         # Handle custom click IDs via special dispatch logic
         click_id = self.chatbot_special_navigator_handler.dispatch_special_handlers(sess, user_data, click_id)
         if click_id is None:
-            return {"error": "Invalid input..!", "success": False}
+            return {"Data": "Invalid client id input..!", 'action': 'result', 'Status': 'Failure'}
         log.info(f"CURRENT ID : {click_id}")
         # Proceed only if the click_id maps to a valid node
         if click_id in self.flow_data:
@@ -112,15 +122,18 @@ class ChatbotNavigator:
                     self.session_manager.create_or_update_session(sess, uid, rl, next_state)
                     payloads = self.payload_session_manager.get_api_paylods(sess)
                     client_id = self.payload_session_manager.get_client_id_for_partner(sess)
+                    reason = self.payload_session_manager.get_reason_for_advisor_change(sess)
                     summary_result = handle_primary_api(
                         {**payloads, "api_endpoint": "ledger_summary"},
                         user_data,
-                        client_id
+                        client_id,
+                        reason
                     )
                     fund_transfer_result = handle_primary_api(
                         {**payloads, "api_endpoint": "fund_transfer_link"},
                         user_data,
-                        client_id
+                        client_id,
+                        reason
                     )
                     merged = dict(next_state)
                     merged["ledger_summary"] = summary_result
@@ -134,19 +147,21 @@ class ChatbotNavigator:
                 # Intermediate API call stage (e.g., dependent step)
                 payloads = self.payload_session_manager.get_api_paylods(sess)
                 client_id = self.payload_session_manager.get_client_id_for_partner(sess)
+                reason = self.payload_session_manager.get_reason_for_advisor_change(sess)
                 self.session_manager.create_or_update_session(sess, uid, rl, next_state)
-                return handle_mid_stage_api(click_id, payloads, client_id)
+                return handle_mid_stage_api(click_id, payloads, client_id, reason)
             elif action == "endapi":
                 # Final API call step to return output to user
                 log.info(f"END API CALL INITIATED")
                 payloads = self.payload_session_manager.get_api_paylods(sess)
 
                 client_id = self.payload_session_manager.get_client_id_for_partner(sess)
+                reason = self.payload_session_manager.get_reason_for_advisor_change(sess)
                 
 
                 # log.info(client_id)
                 
-                return handle_primary_api(payloads, user_data, client_id)
+                return handle_primary_api(payloads, user_data, client_id, reason)
 
         # Handle invalid click or expired session scenario
-        return {"error": "Invalid click or expired session."}
+        return {"Data": "Invalid data or expired session.", 'action': 'result', 'Status': 'Failure'}

@@ -1,9 +1,11 @@
 from langgraph.graph import END
 from langgraph.prebuilt import tools_condition
-
+from langgraph.types import Command
 from agentic_flow.tools.assistant_tool import agents_tools
+from agentic_flow.tools.react_tool import react_tools, information_centre_tools
 from app.schemas.request_models import SupervisorState
 from monitoring.logger.logger import Logger
+from agentic_flow.utility import get_tool_name
 
 # Initialize logger
 log = Logger()
@@ -21,9 +23,11 @@ def route_primary_assistant( state: SupervisorState ):
             assistant_name = tool_calls[0]["name"]
             log.info(f"Primary Router state Routed to : {assistant_name}.")
             return assistant_name
-        log.info("Primary Router state has no matching Tool on registry.")
-        return "supervisor_tools"
-    raise ValueError("Invalid route")
+        else:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "fake_tool_node"
+    log.info("Primary Router state has no Tool calls, routing to final response node.")
+    return "assistance_final_response_node"
 
 # Dynamic Router functions for Report agents
 def report_dynamic_router(state):
@@ -43,6 +47,9 @@ def report_dynamic_router(state):
         if tool_calls[0]["name"] == "AskBackToUser":
             log.info("Report Dynamic Router state has AskBackToUser Tool.")
             return "report_human_node"
+        if tool_calls[0]["name"] not in [get_tool_name(tool) for tool in react_tools]:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "report_fake_tool_node"
         return "ReportAgent_tools"
     else:
         return "report_final_response_node"
@@ -65,6 +72,9 @@ def account_dynamic_router(state):
         if tool_calls[0]["name"] == "AskBackToUser":
             log.info("Account Dynamic Router state has AskBackToUser Tool.")
             return "account_human_node"
+        if tool_calls[0]["name"] not in [get_tool_name(tool) for tool in react_tools]:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "account_fake_tool_node"
         return "AccountAgent_tools"
     else:
         return "account_final_response_node"
@@ -87,6 +97,9 @@ def fund_dynamic_router(state):
         if tool_calls[0]["name"] == "AskBackToUser":
             log.info("Fund Dynamic Router state has AskBackToUser Tool.")
             return "fund_human_node"
+        if tool_calls[0]["name"] not in [get_tool_name(tool) for tool in react_tools]:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "fund_fake_tool_node"
         return "FundAgent_tools"
     else:
         return "fund_final_response_node"
@@ -109,6 +122,9 @@ def information_dynamic_router(state):
         if tool_calls[0]["name"] == "AskBackToUser":
             log.info("Information Dynamic Router state has AskBackToUser Tool.")
             return "information_human_node"
+        if tool_calls[0]["name"] not in [get_tool_name(tool) for tool in information_centre_tools]:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "information_fake_tool_node"
         return "InformationAgent_tools"
     else:
         return "information_final_response_node"
@@ -131,6 +147,9 @@ def trading_dynamic_router(state):
         if tool_calls[0]["name"] == "AskBackToUser":
             log.info("Trading Dynamic Router state has AskBackToUser Tool.")
             return "trading_human_node"
+        if tool_calls[0]["name"] not in [get_tool_name(tool) for tool in react_tools]:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "trading_fake_tool_node"
         return "TradingAgent_tools"
     else:
         return "trading_final_response_node"
@@ -153,6 +172,9 @@ def dp_dynamic_router(state):
         if tool_calls[0]["name"] == "AskBackToUser":
             log.info("DP Dynamic Router state has AskBackToUser Tool.")
             return "dp_human_node"
+        if tool_calls[0]["name"] not in [get_tool_name(tool) for tool in react_tools]:
+            log.info("Detected Fake Tool call, routing to fake_tool_node.")
+            return "dp_fake_tool_node"
         return "DPAgent_tools"
     else:
         return "dp_final_response_node"

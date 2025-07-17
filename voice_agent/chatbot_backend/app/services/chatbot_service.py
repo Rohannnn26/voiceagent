@@ -16,21 +16,12 @@ from engine.session_managers.chatbot_session import ChatbotSessionManager, Paylo
 from engine.data_loaders.json_loader import load_json
 from agentic_flow.main import communicate
 from agentic_flow.orchestrator.langgraph_builder import create_langgraph_supervisor
+from agentic_flow.utility import classify_id_type
 
 from langgraph.checkpoint.memory import MemorySaver
 from monitoring.logger.logger import Logger
 
-# Import PostgreSQL dependencies
-import psycopg
-from psycopg import Connection
-from langgraph.checkpoint.postgres import PostgresSaver
-from langfuse import Langfuse
-from config.config import LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANFUSE_HOST
-langfuse = Langfuse(
-  public_key=LANGFUSE_PUBLIC_KEY,
-  secret_key=LANGFUSE_SECRET_KEY,
-  host=LANFUSE_HOST
-)
+from agentic_flow.utility import langfuse
 
 # Initialize logger
 log = Logger()
@@ -67,8 +58,25 @@ def get_chatbot_response(payload):
         dict or str: Response from the corresponding chatbot processing engine.
     """
     log.info("Received chatbot payload: %s", payload)
-
+    log.info("Starting to classify payload ID type.")        
+               
     try:
+        # with psycopg.connect(DB_URI, **connection_kwargs) as conn:
+        #     checkpointer = PostgresSaver(conn)
+        #     checkpointer.setup()
+
+        #     # Compile graph with fresh connection
+        graph = create_langgraph_supervisor()
+        compiled_graph = graph.compile(checkpointer=checkpointer)
+            
+        id_response = classify_id_type(payload, compiled_graph)
+        log.info("Finished classifying payload ID type.")
+        
+        if isinstance(id_response, dict):
+            log.info(f"Returning options response from classify_id_type.{id_response}")
+            return id_response
+
+            
         flow_type = payload.interaction.type
 
         if not flow_type:
@@ -76,6 +84,8 @@ def get_chatbot_response(payload):
 
         # Handle deterministic flow
         if flow_type == "DETERMINISTIC_FLOW":
+            input = payload.dict()
+            log.info(f"Handling deterministic flow with input: {input.get('interaction', {}).get('input', {}).get('text')}")
             with langfuse.start_as_current_span(name="WMChatBot Deterministic") as span:
                 span.update_trace(
                     user_id=payload.user_id,
@@ -84,15 +94,16 @@ def get_chatbot_response(payload):
                     tags=[]
                 )
             
-                log.info(f"Invoking graph with interrupt resume command")
+                log.info(f"button based flow started ..")
                 response = engine.handle_input(payload.dict())
-                log.info(f"Interrupt resume completed successfully")
+                log.info(f"button based flow completed successfully")
 
                 span.update_trace(output={"response": response})
 
             log.info("Handled via deterministic flow.")
             return response
-
+        
+        
         # Handle agentic (LangGraph) flow with scoped Postgres connection
         else:
             # with psycopg.connect(DB_URI, **connection_kwargs) as conn:
@@ -103,10 +114,12 @@ def get_chatbot_response(payload):
             #     graph = create_langgraph_supervisor()
             #     compiled_graph = graph.compile(checkpointer=checkpointer)
 
-                # log.info("PostgreSQL connection established for LangGraph execution.")
-            response = communicate(payload, compiled_graph)
-            log.info("Handled via agentic (LangGraph) flow.")
-            return response
+            #     log.info("PostgreSQL connection established for LangGraph execution.")
+                response = communicate(payload, compiled_graph)
+                log.info("Handled via agentic (LangGraph) flow.")
+                return response
+
+        
 
     except Exception as e:
         log.exception("Error processing chatbot response: %s", str(e))

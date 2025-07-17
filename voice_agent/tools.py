@@ -66,29 +66,39 @@ FUNCTION_SCHEMAS = [
     {
     "type": "function",
     "name": "faq_knowledge_base",
-    "description": (
-                """Search and return answers from Motilal Oswal's internal FAQ knowledge base
-                about wealth management, trading, demat procedures, regulations, and account-related issues.
+    "description": """
+        Search Motilal Oswal's comprehensive FAQ knowledge base for general policies, procedures, and regulatory information.
 
-                This tool searches the AWS knowledge base for answers about wealth management, stock market trading,
-                financial regulations, account procedures, and platform features. Use it for questions about
-                financial policies, trading rules, and account management.
+        **USE THIS TOOL FOR:**
+        - General policy questions and procedures
+        - Regulatory and compliance information (SEBI, KRA, NSDL guidelines)
+        - Standard processes and documentation requirements
+        - Platform features and functionality explanations
+        - Financial terms and definitions
+        - Common troubleshooting issues
 
-                TYPICAL FAQ EXAMPLES:
-                - What is SPEED-e of NSDL?
-                - Are existing client details mandatory to mention on given modification form?
-                - Can a demat account be opened if a trading or commodity account exists?
-                - Do I need to give documents if I am KRA registered?
-                - What is Physical Settlement in EQ-Derivatives?
-                - Why does the session get expired?
-                """
-    ),
+        **TYPICAL EXAMPLES:**
+        - "What is SPEED-e of NSDL?" - Regulatory process queries
+        - "Are existing client details mandatory on modification forms?" - Documentation requirements  
+        - "Can I open demat account if trading account exists?" - Account opening policies
+        - "Do I need documents if KRA registered?" - Compliance requirements
+        - "What is Physical Settlement in EQ-Derivatives?" - Trading mechanism explanations
+        - "Why does session get expired?" - Platform functionality issues
+        - "What are the charges for..." - Fee structure queries
+        - "How to reset password?" - General platform guidance
+        - "What documents needed for account opening?" - Standard procedures
+
+        **DON'T USE FOR:**
+        - Personalized account information (use backend tool instead)
+        - Specific reports or statements (use backend tool instead)
+        - Account modifications or transactions (use backend tool instead)
+        """,
     "parameters": {
         "type": "object",
         "properties": {
             "question": {
                 "type": "string",
-                "description": "Customer's question about financial services or policies"
+                "description": "Customer's general question about policies, procedures, or regulations"
             }
         },
         "required": ["question"]
@@ -98,20 +108,69 @@ FUNCTION_SCHEMAS = [
     {
         "type": "function",
         "name": "query_chatbot_backend",
-        "description": ("""
-            "Query the advanced chatbot backend for complex financial questions, account details, "
-            "trading information, reports, portfolio analysis, and other sophisticated queries that "
-            "require the full agentic workflow with access to financial systems and databases. "
-            "Use this tool for questions about account details, trading history, portfolio reports, "
-            "IPO information, ledger queries, and other complex financial operations."
-            """
-        ),
+        "description": """
+        Connect to Motilal Oswal's comprehensive backend system with 6 specialized departments for personalized client services:
+
+        🏢 **SPECIALIZED DEPARTMENTS AVAILABLE:**
+
+        📊 **REPORTS & STATEMENTS DEPARTMENT:**
+        - Financial reports: P&L statements, ledger reports, brokerage statements
+        - Trade documents: Contract notes, sauda details, trading history
+        - Tax documents: ITR reports, STT certificates, TDS certificates  
+        - Mutual fund reports: RTA statements, order status
+        - Digital reports: DIGI CMR (Client Master Report)
+
+        👤 **ACCOUNT SERVICES DEPARTMENT:**
+        - Client profile and dashboard information
+        - Account status and modification tracking
+        - Branch details and contact information
+        - Dormant account reactivation assistance
+        - Profile updates: email, phone, address, bank details, nominee changes
+        - Account opening forms for Individual/HUF/NRI/Partnership/Corporate/Trust
+
+        💰 **FUNDS & MARGIN DEPARTMENT:**
+        - Fund transfer status and payout tracking
+        - Margin availability and shortage penalty reports
+        - Mutual fund order status and SIP processing
+        - Payment-related queries and transactions
+
+        📈 **TRADING DESK:**
+        - Online trading activation and deactivation
+        - Trading account management and settings
+        - Trading-related technical support
+
+        🏦 **DP (DEPOSITORY PARTICIPANT) SERVICES:**
+        - DP statements and holdings reports
+        - DPID (Depository Participant ID) information
+        - DIS/DRF status checking
+        - Advisor change requests
+        - Demat account operations
+
+        📰 **INFORMATION & RESEARCH CENTER:**
+        - Corporate actions and market events
+        - IPO information and investment opportunities  
+        - Market research reports and analysis
+        - General platform guidance and troubleshooting
+
+        **USE THIS TOOL FOR:**
+        - Any personalized account information or transactions
+        - Report generation and downloads
+        - Account modifications and updates
+        - Trading and investment services
+        - Market research and corporate action updates
+        - Complex queries requiring backend system access
+
+        **EXAMPLES:**
+        "Show my account balance", "Generate P&L report", "Check trading status", 
+        "Update my phone number", "IPO applications", "Margin shortfall details",
+        "DP holdings report", "Corporate action updates"
+        """,
         "parameters": {
             "type": "object",
             "properties": {
                 "question": {
                     "type": "string",
-                    "description": "The user's question that requires advanced processing by the chatbot backend"
+                    "description": "The client's specific question or request that requires backend system access"
                 }
             },
             "required": ["question"]

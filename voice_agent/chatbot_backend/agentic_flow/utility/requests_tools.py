@@ -129,3 +129,12 @@ def create_output_formatter_tool():
         ),
         func=format_output,
     )
+
+def get_tool_name(tool_obj):
+    if hasattr(tool_obj, 'name'):
+        return tool_obj.name  # for LangChain tools
+    elif hasattr(tool_obj, '__name__'):
+        return tool_obj.__name__  # for normal functions
+    elif hasattr(tool_obj, '__class__'):
+        return tool_obj.__class__.__name__  # for Pydantic classes
+    return str(tool_obj)  # fallback

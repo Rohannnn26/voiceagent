@@ -14,4 +14,3 @@ langfuse==3.0.3
 # pydantic_core==2.33.1
 streamlit==1.45.1
 nanoid==2.0.0
-    

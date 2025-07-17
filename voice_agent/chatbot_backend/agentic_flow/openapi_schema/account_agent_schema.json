@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "http://10.167.203.119/gw/api/cbot/ClientDetails": {
+    "ClientDetails": {
     "post": {
       "summary": "Provides trading account details of given clinet. (ref as My details by clients)",
       "description": "Shows account details for given client",
@@ -57,7 +57,7 @@
       }
     }
     },
-    "http://10.167.203.119/gw/api/cbot/ClientView": {
+    "ClientView": {
     "post": {
       "summary": "Get client dashboard view or my dashboard",
       "description": "Provides a summary of client dashboard  or my dashboard information such as portfolio, status, or alerts.",
@@ -102,7 +102,7 @@
       }
     }
     },
-    "http://10.167.203.119/gw/api/cbot/eModificationDetails": {
+    "eModificationDetails": {
     "post": {
       "summary": "This is fastest online way to modify trading account details like Email, Phone Number, Address, Bank Details, Nominee, etc.",
       "description": "Allows online modification of trading account details like Email, Phone Number, Address, Bank Details, Nominee, etc.",
@@ -151,7 +151,7 @@
       }
     }
     },
-    "http://10.167.203.119/gw/api/cbot/BranchDetails": {
+    "BranchDetails": {
     "post": {
       "summary": "Get branch details",
       "description": "Retrieves information about the branch associated with a specific user.",
@@ -191,7 +191,7 @@
       }
     }
     },
-    "http://10.167.203.119/gw/api/cbot/AccountStatusReq": {
+    "AccountStatusReq": {
     "post": {
       "summary": "Get account status",
       "description": "Returns account status of a client based on PAN or account number.",

@@ -11,7 +11,7 @@
       }
     ],
     "paths": {
-      "http://10.167.203.119/gw/api/cbot/ActiveIPO": {
+      "ActiveIPO": {
       "post": {
         "summary": "Get active IPO list",
         "description": "Returns the list of active IPOs available for a given client.",

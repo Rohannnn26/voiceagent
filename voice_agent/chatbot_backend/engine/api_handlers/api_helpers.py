@@ -42,7 +42,7 @@ def enrich_payload_with_type(click_id: str, args: dict) -> dict:
     Returns:
         dict: Modified argument dictionary with type enrichment.
     """
-    if click_id in {"MTF","Equity","Commodity"}:
+    if click_id in {"MTF"}:
         args["type"] = click_id
         
     return args
@@ -112,14 +112,14 @@ def mtf_las_transform(response: Dict[str, Any]) -> Dict[str, Any]:
         #log.debug(f"Extracted DP IDs: {dp_ids}")
         if mtf_las_msg.lower() == "no":
             return {
-            "message": "You are not MTF client",
+            "response_text": "You are not MTF client",
         }
         elif mtf_las_msg.lower() == "yes":
             log.info(f"API Helper: {mtf_las_msg.lower()}")
             
             return {
             "action": "option",
-            "message": "",
+            "response_text": "",
             "available_choices": [
         {
           "id": "Voucher",
@@ -144,9 +144,48 @@ def advisor_change_transform(response: Dict[str, Any]) -> Dict[str, Any]:
         log.error("Invalid input: Expected Equity or Commodity in message")
         return {"status": "Error", "message": "Invalid response format"}
 
-    mtf_las_msg = response.get("Data",{}).get("Message",{})
+    advisor_msg = response.get("Data",{})[0].get("Message", "")
+    log.info(f"API Helper: {advisor_msg}")
     #mtf_las_type = response.get("type")
+
+    if not advisor_msg:
+        log.warning("Missing 'advisor_message' in API response")
+        return {"status": "Error", "message": "No advisor_msg found in response"}
     
-    if not mtf_las_msg:
-        log.warning("Missing 'mtf_message' in API response")
-        return {"status": "Error", "message": "No mts_msg found in response"}
+    if advisor_msg.lower() == "equity":
+        return {
+            "action": "option",
+            "response_text": "",
+            "available_choices": [
+                {
+                    "id": "equity",
+                    "text": "Equity"
+                }
+            ],
+        }
+    elif advisor_msg.lower() == "commodity":
+        return {
+            "action": "option",
+            "response_text": "",
+            "available_choices": [
+                {
+                    "id": "commodity",
+                    "text": "Commodity"
+                }
+            ],
+        }
+    elif advisor_msg.lower() == "both":
+        return {
+            "action": "option",
+            "response_text": "",
+            "available_choices": [
+                {
+                    "id": "equity",
+                    "text": "Equity"
+                },
+                {
+                    "id": "commodity",
+                    "text": "Commodity"
+                }
+            ],
+        }

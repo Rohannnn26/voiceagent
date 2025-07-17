@@ -15,10 +15,7 @@ class RedisConnector:
     """
     # Initialize the Redis client based on the environment configuration
     def __init__(self, env="dev"):
-        config = REDIS_CONFIG.get(env)
-        if not config:
-            log.error(f"Invalid Redis environment: {env}. Available options are {list(REDIS_CONFIG.keys())}.")
-            raise ValueError(f"Invalid Redis environment: {env}")
+        config = REDIS_CONFIG
         self.redis = self._connect(config)
         log.info(f"Connected to Redis at {config['host']} in {env} environment.")
 

@@ -8,7 +8,7 @@ import traceback
 
 from app.schemas.request_models import AgentOutput, AskBackToUser
 from config.config import SYSTEM_PARAMS_MAPPER_PATH
-from agentic_flow.utility import load_json_file
+from agentic_flow.utility import load_json_file, update_system_param_mapper
 from config.config import (
     AWS_KB_ID,
     AWS_KB_RETRIVAL_CONFIG,
@@ -31,7 +31,7 @@ def request_post(text: str, state: Annotated[dict, InjectedState]):
 
     def _get_post_tool_data(url: str, state: dict):
         """Extracts the necessary data for POST requests from the state."""
-        system_params_mapper = load_json_file(SYSTEM_PARAMS_MAPPER_PATH)
+        system_params_mapper = update_system_param_mapper(SYSTEM_PARAMS_MAPPER_PATH)
 
         if not system_params_mapper:
             log.error("Failed to load system parameters mapper from JSON file.")

@@ -18,7 +18,7 @@ class RealtimeClient:
 
     Possible events: https://platform.openai.com/docs/api-reference/realtime-client-events
     """
-    def __init__(self, instructions, voice="ash"):
+    def __init__(self, instructions, voice="echo"):
         # WebSocket Configuration
         resource = os.getenv('AZURE_RTOPENAI_RESOURCE')
         deployment = os.getenv('AZURE_RTOPENAI_DEPLOYMENT')

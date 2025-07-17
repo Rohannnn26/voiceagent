@@ -3,16 +3,11 @@ import requests
 from typing import Dict
 import requests
 from functools import wraps
-from config.config import BASE_URL
+from config.config import BASE_URL_CONFIG , env
 from monitoring.logger.logger import Logger
-from langfuse import observe, Langfuse
+from langfuse import observe
 log = Logger()
-from config.config import LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANFUSE_HOST
-langfuse = Langfuse(
-  public_key=LANGFUSE_PUBLIC_KEY,
-  secret_key=LANGFUSE_SECRET_KEY,
-  host=LANFUSE_HOST
-)
+from agentic_flow.utility import langfuse
 
 # Error-Handling Decorator 
 def api_error_handler(func):
@@ -24,35 +19,38 @@ def api_error_handler(func):
         try:
             return func(*args, **kwargs)
         except requests.RequestException as e:
+            log.error(f"Request error in {func.__name__}: {str(e)}")
             return {"error": str(e)}
         except Exception as e:
+            log.error(f"Unexpected error in {func.__name__}: {str(e)}")
             return {"error": f"An unexpected error occurred: {str(e)}"}
     return wrapper
 
 
-@api_error_handler
-@observe(name="register_token")
-def get_register_token(params: dict) -> dict:
+# @api_error_handler
+# @observe(name="register_token")
+# def get_register_token(params: dict) -> dict:
     
 
-    url = f"{BASE_URL}/cbot/RegisterToken"
-
-    headers = {
-        'Content-Type': 'application/json',
-    }
+#     url = f"{BASE_URL_CONFIG}/RegisterToken"
 
 
-    #payload = f"userid={params['user_id']}&sessionId=''&token={params['token']}&source=desktop&device=D&platform=test"
-    payload = {
-        "userId": params['user_id'],
-        "sessionId": "",
-        "token": params['token'],
-        "source": "desktop",
-        "device": "D",
-        "platform": "test"
-    }
-    response = requests.request("POST", url, headers=headers, json=payload)
-    return response.json()
+#     headers = {
+#         'Content-Type': 'application/json',
+#     }
+
+
+#     #payload = f"userid={params['user_id']}&sessionId=''&token={params['token']}&source=desktop&device=D&platform=test"
+#     payload = {
+#         "userId": params['user_id'],
+#         "sessionId": "",
+#         "token": params['token'],
+#         "source": "desktop",
+#         "device": "D",
+#         "platform": "test"
+#     }
+#     response = requests.request("POST", url, headers=headers, json=payload)
+#     return response.json()
 
 
 # Client Details API Wrapper
@@ -70,7 +68,7 @@ def get_client_details(params: dict) -> dict:
         token (str): Authorization token used to validate the request.
     """
 
-    url = f"{BASE_URL}/cbot/clientdetails"
+    url = f"{BASE_URL_CONFIG}/clientdetails"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -110,7 +108,7 @@ def get_ledger_statement(params: dict) -> dict:
             - return_type (str): ('View & Download', 'Email')
     """
 
-    url = f"{BASE_URL}/cbot/ledgerstatement"
+    url = f"{BASE_URL_CONFIG}/ledgerstatement"
 
     headers = {
         'sessionid': params['session_id'],
@@ -150,7 +148,7 @@ def get_brokerage_statement(params:dict) ->dict:
         token (str): Authorization token used to validate the request.
         return_type(str) : The return type refers to view & download or Email. I.e it can only be 2 values  ('View & Download','Email')
     """
-    url = f"{BASE_URL}/cbot/BrokerageDetails"
+    url = f"{BASE_URL_CONFIG}/BrokerageDetails"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -163,7 +161,7 @@ def get_brokerage_statement(params:dict) ->dict:
         "userId": params['user_id'],
         "clientId": params['client_id'],
         "role": params['role'],
-        "ReturnType": "Link"
+        "Return_Type": "Link"
     }
 
     response = requests.post(url, headers=headers, json=payload)
@@ -188,7 +186,7 @@ def get_pnl_statement(params:dict)->dict:
         token (str): Authorization token used to validate the request.
         return_type(str) : The return type refers to view & download or Email. I.e it can only be 2 values  ('View & Download','Email')
     """
-    url = f"{BASE_URL}/cbot/capitalgainloss"
+    url = f"{BASE_URL_CONFIG}/capitalgainloss"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -225,7 +223,7 @@ def get_itr_statement(params:dict)->dict:
                         from date is automatically set based on period range. 
         to_date(str) : to date will be the current date when the user / client will be interacting on
         token (str): Authorization token used to validate the request. """
-    url = f"{BASE_URL}/cbot/ITRStatement"
+    url = f"{BASE_URL_CONFIG}/ITRStatement"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -238,9 +236,9 @@ def get_itr_statement(params:dict)->dict:
         "userId": params['user_id'],
         "clientId": params['client_id'],
         "role": params['role'],
-        "FromDate": params['from_date'],
-        "ToDate": params['to_date'],
-        "ReturnType": params['return_type'],
+        "from_Date": params['from_date'],
+        "to_Date": params['to_date'],
+        "Return_Type": params['return_type'],
         "StatementType": "ITR"
     }
 
@@ -252,7 +250,7 @@ def get_itr_statement(params:dict)->dict:
 @observe(name="MTF_LAS_Response")
 def parse_mtf_response(params: dict) -> Dict:
     
-    url = f"{BASE_URL}/cbot/CheckClientMTFLAS"
+    url = f"{BASE_URL_CONFIG}/CheckClientMTFLAS"
 
     headers = {
         'sessionid': params['session_id'],
@@ -276,7 +274,7 @@ def get_clientwise_dpid(params:dict)->Dict:
     """
 
     """
-    url = f"{BASE_URL}/cbot/GetClientWiseDPId"
+    url = f"{BASE_URL_CONFIG}/GetClientWiseDPId"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -298,7 +296,7 @@ def get_dpstatement(params:dict) -> Dict:
     """
     
     """
-    url = f"{BASE_URL}/cbot/DPStatement"
+    url = f"{BASE_URL_CONFIG}/DPStatement"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -327,7 +325,7 @@ def get_ledger_summary(params:dict) -> Dict:
     """
     
     """
-    url = f"{BASE_URL}/cbot/LedgerBalanceSummary"
+    url = f"{BASE_URL_CONFIG}/LedgerBalanceSummary"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -350,7 +348,7 @@ def get_segment_addition(params:dict) -> Dict:
     """
     
     """
-    url = f"{BASE_URL}/cbot/SegmentAdditionalLink"
+    url = f"{BASE_URL_CONFIG}/SegmentAdditionalLink"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -363,7 +361,7 @@ def get_segment_addition(params:dict) -> Dict:
         "userId": params['user_id'],
         "clientId": params['client_id'],
         "role": params['role'],
-        "returnType": "Link"
+        "return_Type": "Link"
     }
     response = requests.request("POST", url, headers=headers, json=payload)
     return response.json()
@@ -374,7 +372,7 @@ def get_totalholdings(params:dict) -> Dict:
     """
     
     """
-    url = f"{BASE_URL}/cbot/CollateralHolding"
+    url = f"{BASE_URL_CONFIG}/CollateralHolding"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -395,7 +393,7 @@ def get_totalholdings(params:dict) -> Dict:
 @api_error_handler
 @observe(name="Valid_Client_Code")
 def valid_clientcode(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/ValidClientCode"
+    url = f"{BASE_URL_CONFIG}/ValidClientCode"
     
     
     headers = {
@@ -417,7 +415,7 @@ def valid_clientcode(params:dict) -> dict:
 @api_error_handler
 @observe(name="Branch_Details")
 def get_branch_details(params:dict) -> Dict:
-    url = f"{BASE_URL}/cbot/BranchDetails"
+    url = f"{BASE_URL_CONFIG}/BranchDetails"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -436,7 +434,7 @@ def get_branch_details(params:dict) -> Dict:
 @api_error_handler
 @observe(name="My_Dashboard")
 def get_my_dashboard(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/ClientView"
+    url = f"{BASE_URL_CONFIG}/ClientView"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -454,7 +452,7 @@ def get_my_dashboard(params:dict) -> dict:
 @api_error_handler
 @observe(name="Available_Margin")
 def get_available_margin(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/MarginShortage"
+    url = f"{BASE_URL_CONFIG}/MarginShortage"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -473,7 +471,7 @@ def get_available_margin(params:dict) -> dict:
 @api_error_handler
 @observe(name="TDS_Certificate")
 def get_tds_certificate(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/GetSaticLinkOrFile"
+    url = f"{BASE_URL_CONFIG}/GetSaticLinkOrFile"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -491,7 +489,7 @@ def get_tds_certificate(params:dict) -> dict:
 @api_error_handler
 @observe(name="STT_CTT_Certificate")
 def get_stt_ctt_certificate (params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/STTCertificate"
+    url = f"{BASE_URL_CONFIG}/STTCertificate"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -501,8 +499,8 @@ def get_stt_ctt_certificate (params:dict) -> dict:
         "userId": params['user_id'],
         "clientId": params['client_id'],
         "role": params['role'],
-        "From_Date": params['from_date'],
-        "To_Date": params['to_date'],
+        "from_Date": params['from_date'],
+        "to_Date": params['to_date'],
         "Return_Type": "Link"
     }
     response = requests.request("POST", url, headers=headers, json=payload)
@@ -511,7 +509,7 @@ def get_stt_ctt_certificate (params:dict) -> dict:
 @api_error_handler
 @observe(name="Client_CMR_Report")
 def get_digicmr_report(params:dict)-> dict:
-    url = f"{BASE_URL}/cbot/ClientCMRReport"
+    url = f"{BASE_URL_CONFIG}/ClientCMRReport"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -532,7 +530,7 @@ def get_digicmr_report(params:dict)-> dict:
 @api_error_handler
 @observe(name="Sauda_Details")
 def get_sauda_details(params: dict) -> dict:
-    url = f"{BASE_URL}/cbot/SaudaDetails"  
+    url = f"{BASE_URL_CONFIG}/SaudaDetails"  
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -557,7 +555,7 @@ def get_sauda_details(params: dict) -> dict:
 @api_error_handler
 @observe(name="Active_IPO")
 def get_ipo(params: dict) -> dict:
-    url = f"{BASE_URL}/cbot/ActiveIPO"
+    url = f"{BASE_URL_CONFIG}/ActiveIPO"
 
     headers = {
         'sessionid': f"{params['session_id']}",
@@ -601,7 +599,7 @@ def get_faq(params:dict = None) -> Dict:
 @api_error_handler
 @observe(name="eModification_Details")
 def get_emodification(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/eModificationDetails"
+    url = f"{BASE_URL_CONFIG}/eModificationDetails"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -680,7 +678,7 @@ def get_upcoming_nse(params:dict = None) -> Dict:
 @api_error_handler
 @observe(name="MF_Order_Status")
 def get_mf_status (params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/MF_ORDERSTATUS"
+    url = f"{BASE_URL_CONFIG}/MF_ORDERSTATUS"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -698,7 +696,7 @@ def get_mf_status (params:dict) -> dict:
 @api_error_handler
 @observe(name="Fund_Payout_Status")
 def get_fund_payout_status(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/CordysFundPayoutStatus"
+    url = f"{BASE_URL_CONFIG}/CordysFundPayoutStatus"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -715,7 +713,7 @@ def get_fund_payout_status(params:dict) -> dict:
 @api_error_handler
 @observe(name="Account_Status_Partner")
 def get_account_status_partner(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/AccountStatusReq"
+    url = f"{BASE_URL_CONFIG}/AccountStatusReq"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -733,7 +731,7 @@ def get_account_status_partner(params:dict) -> dict:
 @api_error_handler
 @observe(name="Margin_Shortage_Penalty")
 def get_margin_shortage(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/MarginShortagePenalty"
+    url = f"{BASE_URL_CONFIG}/MarginShortagePenalty"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -743,8 +741,8 @@ def get_margin_shortage(params:dict) -> dict:
         "userId": params['user_id'],
         "clientId": params['client_id'],
         "role": params['role'],
-        "From_Date": params['from_date'],
-        "To_Date": params['to_date'],
+        "from_Date": params['from_date'],
+        "to_Date": params['to_date'],
         "Return_Type": "Link"
     }
     response = requests.request("POST", url, headers=headers, json=payload)
@@ -753,7 +751,7 @@ def get_margin_shortage(params:dict) -> dict:
 @api_error_handler
 @observe(name="RTA_Statement")
 def get_rta_statement(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/getSOAMFLink"
+    url = f"{BASE_URL_CONFIG}/getSOAMFLink"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -770,7 +768,7 @@ def get_rta_statement(params:dict) -> dict:
 @api_error_handler
 @observe(name="Funds_Transfer_Status")
 def get_fund_transfer_status(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/FundsTransfer"
+    url = f"{BASE_URL_CONFIG}/FundsTransfer"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -787,7 +785,7 @@ def get_fund_transfer_status(params:dict) -> dict:
 @api_error_handler
 @observe(name="Funds_Transfer_Link")
 def fund_transfer_link(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/FundsTransferLink"
+    url = f"{BASE_URL_CONFIG}/FundsTransferLink"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -845,7 +843,7 @@ def get_new_account_opening_individual(params: dict) -> Dict:
 @api_error_handler
 @observe(name="Stop_Online_Trade")
 def get_stop_online_trade(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/Onlinetradestartstop"
+    url = f"{BASE_URL_CONFIG}/Onlinetradestartstop"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -863,7 +861,7 @@ def get_stop_online_trade(params:dict) -> dict:
 @api_error_handler
 @observe(name="Start_Online_Trade")
 def get_start_online_trade(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/Onlinetradestartstop"
+    url = f"{BASE_URL_CONFIG}/Onlinetradestartstop"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -882,7 +880,7 @@ def get_start_online_trade(params:dict) -> dict:
 @api_error_handler
 @observe(name="Grandfather_PnL")
 def get_grandfather_pnl(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/GrandFatherGainLossDetailsReport"
+    url = f"{BASE_URL_CONFIG}/GrandFatherGainLossDetailsReport"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -903,7 +901,7 @@ def get_grandfather_pnl(params:dict) -> dict:
 @api_error_handler
 @observe(name="Account_Modification_Status_Online")
 def get_account_modification_status_online(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/AccountStatusReq"
+    url = f"{BASE_URL_CONFIG}/AccountStatusReq"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -933,7 +931,7 @@ def get_account_modification_status_physical(params:dict = None) -> Dict:
 @api_error_handler
 @observe(name="Contract_Note")
 def get_contract_note(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/ContractNote"
+    url = f"{BASE_URL_CONFIG}/ContractNote"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -945,7 +943,7 @@ def get_contract_note(params:dict) -> dict:
         "role": params['role'],
         "from_Date": "",
         "to_Date": "",
-        "return_Type": params['return_type']
+        "return_Type":"link"
     }
     response = requests.request("POST", url, headers=headers, json=payload)
     return response.json()
@@ -954,7 +952,7 @@ def get_contract_note(params:dict) -> dict:
 @api_error_handler
 @observe(name="Disbursement_DRF_Status")
 def get_dis_drf_status(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/DPRequestStatus"
+    url = f"{BASE_URL_CONFIG}/DPRequestStatus"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -969,10 +967,12 @@ def get_dis_drf_status(params:dict) -> dict:
     response = requests.request("POST", url, headers=headers, json=payload)
     return response.json()
 
+
+
 @api_error_handler
 @observe(name="Change_Advisor_Request")
 def get_change_advisor_request(params:dict) -> dict:
-    url = f"{BASE_URL}/cbot/StoreRMChangeRequest"
+    url = f"{BASE_URL_CONFIG}/StoreRMChangeRequest"
     headers = {
         'sessionid': f"{params['session_id']}",
         'token': f"{params['token']}",
@@ -982,9 +982,10 @@ def get_change_advisor_request(params:dict) -> dict:
         "userId": params['user_id'],
         "clientId": params['client_id'],
         "role": params['role'],
-        "segment": "",
-        "type": "active",
-        "reason":""
+        "segment": params['segment'],
+        "type": params['type'],
+        "reason":params['reason']
     }
     response = requests.request("POST", url, headers=headers, json=payload)
     return response.json()
+

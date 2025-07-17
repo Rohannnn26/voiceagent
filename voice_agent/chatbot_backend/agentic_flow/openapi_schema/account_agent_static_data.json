@@ -7,19 +7,19 @@
             "content": "https://mofsl.co/pdf/ModificationFormVersion_1_8.pdf"
         },
         {
-            "name": "Bank Details Modification Proofs",
+            "name": "Bank Details Modification Proofs list",
             "type": "document_requirements",
-            "description": "Required proofs for bank details modification",
+            "description": "List of proofs for bank details modification",
             "content": [
                 "Bank Statement/Passbook (latest 3 months)",
                 "Cancelled cheque with printed name (no signature needed if original)"
             ]
         },
         {
-            "name": "Address Modification Proofs",
-            "type": "document_requirements",
-            "description": "Required proofs for address modification",
-            "content": [
+            "name": "Offline Address Modification",
+            "type": "document_link",
+            "content":"https://mofsl.co/pdf/ModificationFormVersion_1_8.pdf",
+            "documents": [
                 "Passport/Voters Identity Card",
                 "Bank Account Statement/Passbook (latest 3 months)",
                 "Latest utility bills (telephone/electricity/gas)",

@@ -1,0 +1,59 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: mofsl-bnd-ds-uat-eks-cluster
+  region: ap-south-1
+vpc:
+  id: "vpc-0bd2cd30771a179e9"
+  subnets:
+    private:
+      ap-south-1a:
+          id: "subnet-05a61db67c9aa35da"
+      ap-south-1b:
+          id: "subnet-0c1d6b81e886dc344"
+      ap-south-1c:
+          id: "subnet-062f36c1e9c3f20a0"
+  securityGroup: "sg-0728e8aea6e290e9c"
+  clusterEndpoints:
+    publicAccess: true
+    privateAccess: true
+managedNodeGroups:
+  - name: mofsl-bnd-uat-chatbot-api-nodegroup
+    amiFamily: Bottlerocket  
+    instanceType: t3a.medium
+    minSize: 1
+    maxSize: 4
+    desiredCapacity: 1
+    volumeSize: 20
+    volumeName: /dev/xvda
+    volumeEncrypted: true
+    maxPodsPerNode: 20
+    disableIMDSv1: true
+    ssh:
+      allow: false
+    labels:
+      alpha.eksctl.io/cluster-name: mofsl-bnd-ds-dev-eks-cluster
+      alpha.eksctl.io/nodegroup-name: mofsl-bnd-uat-chatbot-api-nodegroup
+      intent: apps
+      role: core
+      aws-nodepool: chatbot-api
+    tags:
+      nodegroup-role: chatbot-api
+      alpha.eksctl.io/nodegroup-name: mofsl-bnd-uat-chatbot-api-nodegroup
+      alpha.eksctl.io/nodegroup-type: managed
+      project: chatbot-api
+      environment: uat
+      businessunit: bnd
+      map-migrated: migHO1APHKECQ
+    privateNetworking: true  
+    iam:
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+    subnets:
+      - subnet-05a61db67c9aa35da
+      - subnet-0c1d6b81e886dc344
+      - subnet-062f36c1e9c3f20a0

@@ -55,7 +55,9 @@ class ReactAgent:
         self.runnable = runnable
 
     def __call__(self, state: SupervisorState, config: RunnableConfig):
-        while True:
+        MAX_RETRIES = 5
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
             log.info("react agent initiated...")
             inject_tool_message(state)
             payload = state.get("payload", {})
@@ -72,7 +74,7 @@ class ReactAgent:
             # Get required data
             fy_start_date, fy_end_date = get_indian_financial_year()
             trimmed_messages = pre_model_hook(state.get("messages", []))
-            log.info(f"Trimmed messages: {trimmed_messages}")
+            # log.info(f"Trimmed messages: {trimmed_messages}")
 
             
             inputs= { 
@@ -96,6 +98,8 @@ class ReactAgent:
                 or isinstance(result.content, list)
                 and not result.content[0].get("text")
             ):
+                retry_count += 1
+                log.info(f"Tool not invoked. Retry count: {retry_count}")
                 messages = state["messages"] + [("user", "Respond with a real output.")]
                 state = {**state, "messages": messages}
                 log.info("Tool not invoke.")
@@ -104,11 +108,18 @@ class ReactAgent:
                 break
 
         log.info("react agent completed.")
-        response = {
-            "status": result.tool_calls[0]["args"].get("status", "Success") if result.tool_calls else "Success",
-            "message": result.tool_calls[0]["args"].get("message", "") if result.tool_calls else result.content or "",
-            "action": "result"
-        }
+        if retry_count >= MAX_RETRIES:
+            response = {
+                "status": "Failed",
+                "message": "I sincerely apologize for not able to fulfill your request.",
+                "action": "result"
+            }
+        else:
+            response = {
+                "status": result.tool_calls[0]["args"].get("status", "Success") if result.tool_calls else "Success",
+                "message": result.tool_calls[0]["args"].get("message", "") if result.tool_calls else result.content or "",
+                "action": "result"
+            }
 
         return {
             "messages": result,

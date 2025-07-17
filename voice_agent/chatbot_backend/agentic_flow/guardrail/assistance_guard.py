@@ -11,7 +11,8 @@ from monitoring.logger.logger import Logger
 log = Logger()
 
 class IntentGuardTool(BaseModel):
-    """Ensure the response contains only allowed message types: greeting, thanks, or apology for not knowing."""
+    """Identifies AI's intent in response: greeting, thanks, or apology for not knowing.
+    Provides a reason for classification."""
     
     intent_type: Literal["Greeting", "ThankYou", "Apology", "Other"] = Field(
         ..., description="Classify the AI response as Greeting, ThankYou, Apology for not answering, or Other."
@@ -22,10 +23,10 @@ class IntentGuardTool(BaseModel):
 
 INTENT_GUARD_PROMPT = """<role>
 You are a strict output validator. Your job is to check whether the AI's response is strictly one of the following:
-1. A greeting (e.g., Hello, Hi, Good day).
-2. A thank you message (e.g., Thanks for reaching out, Thank you!).
-3. An apology for not being able to answer a question (e.g., I'm sorry, I don’t know that, I’m unable to help with that).
-If the message contains **anything else** — such as general knowledge, follow-up questions, or explanations — classify it as "Other".
+1. A greeting (e.g., Hello, Hi, Good day) with no addtional content.
+2. A thank you message (e.g., Thanks for reaching out, Thank you!) with no addtional content.
+3. Apology for not being able to answer a question with no addtional content (e.g., I'm sorry, I don’t know that, I’m unable to help with that).
+If the message contains anything else — such as general knowledge, follow-up questions, found any agent name of tool name, or explanations — classify it as "Other".
 </role>
 
 <instruction>

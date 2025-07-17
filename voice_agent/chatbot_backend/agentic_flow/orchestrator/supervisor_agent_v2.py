@@ -19,8 +19,10 @@ class Assistant:
         inputs= {
             "messages" : trimmed_messages    
         }
-        log.info(f"Trimmed messages: {trimmed_messages}")
-        while True:
+        # log.info(f"Trimmed messages: {trimmed_messages}")
+        MAX_RETRIES = 5
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
             log.info("Assistance started..")
             result = self.runnable.invoke(inputs)
 
@@ -29,6 +31,7 @@ class Assistant:
                 or isinstance(result.content, list)
                 and not result.content[0].get("text")
             ):
+                retry_count += 1
                 messages = state["messages"] + [("user", "Respond with a real output.")]
                 state = {**state, "messages": messages}
                 log.info("Tool not invoke.")
@@ -37,13 +40,16 @@ class Assistant:
                 break
 
         log.info("Assitance completed.")
+        
+        # message_str = "Hello! How can I assist you today?"
 
-        message_str = "Hello! How can I assist you today?"
-
-        if isinstance(result.content, list):
-            message_str = str(result.content[0].get("text", ""))
+        if retry_count >= MAX_RETRIES:
+            message_str = "I sincerely apologize for not able to fulfill your request."
         else:
-            message_str = str(result.content)
+            if isinstance(result.content, list):
+                message_str = str(result.content[0].get("text", ""))
+            else:
+                message_str = str(result.content) or "Hello! How can I assist you today?"
 
         # Default values
         assistance_response = AgentOutput(

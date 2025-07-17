@@ -1,5 +1,5 @@
 # Use official Python 3.11 slim base image
-FROM python:3.11-slim
+FROM 534442529735.dkr.ecr.ap-south-1.amazonaws.com/mofsl-python-ecr-repo:3.11-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -27,8 +27,11 @@ COPY chatbot_backend/ .
 # Ensure app is treated as a Python package
 RUN touch app/__init__.py
 
+ENV env={environment}
 # Expose FastAPI port
 EXPOSE 8000
+
+ENV env={environment}
 
 # Start FastAPI app with uvicorn (using correct app object)
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

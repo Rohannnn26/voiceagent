@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nlb-dev-chatbot-api
+  namespace: chatbot
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-name: mofsl-bnd-dev-chatbot-api-nlb
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internal
+    service.beta.kubernetes.io/aws-load-balancer-subnets: "subnet-05a61db67c9aa35da,subnet-0946712879b89162a,subnet-0d477eda553b7ad27"
+spec:
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: chatbot-api

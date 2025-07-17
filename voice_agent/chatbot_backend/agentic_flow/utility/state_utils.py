@@ -1,8 +1,7 @@
 
 from langchain_community.agent_toolkits.openapi.toolkit import RequestsToolkit
 from langchain_community.utilities.requests import TextRequestsWrapper
-from langchain_core.messages import ToolMessage
-
+from langchain_core.messages import ToolMessage,RemoveMessage
 from app.schemas.request_models import AgentOutput
 from monitoring.logger.logger import Logger
 
@@ -41,3 +40,26 @@ def inject_tool_message(state):
 
     state["messages"].append(tool_message)
     log.info(f"Tool message for {assistant_name} injected successfully")
+
+def generate_remove_messages(messages, tool_message_text):
+    """
+    Generates RemoveMessage actions for all messages AFTER the matching ToolMessage.
+
+    Args:
+        messages (list): List of messages.
+        tool_message_text (str): ToolMessage content to stop at.
+
+    Returns:
+        list: List of RemoveMessage instructions.
+    """
+    log.info("Generating RemoveMessage actions.")
+    to_remove = []
+    found = False
+    for msg in messages:
+        if found:
+            log.info(f"Removing message with id: {msg.id}")
+            to_remove.append(RemoveMessage(id=msg.id))
+        if isinstance(msg, ToolMessage) and msg.content == tool_message_text:
+            found = True
+    log.info("RemoveMessage generation completed.")
+    return to_remove

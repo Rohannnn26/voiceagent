@@ -20,7 +20,9 @@ def report_human_node(state: SupervisorState):
     ask_back_message = last_message.tool_calls[0]["args"].get("interrupt_message", "")
     
     log.info(f"Ask back content: {last_message.tool_calls[0]}")
-    ask_back_final_check(ask_back_message, "ReportAgent", tool_call_id, state["messages"])
+    cmd = ask_back_final_check(ask_back_message, "ReportAgent", tool_call_id, state["messages"])
+    if cmd is not None:
+        return cmd
     user_response = interrupt(ask_back_message)
     log.info(f"User input received: {user_response}")
     
@@ -40,7 +42,9 @@ def account_human_node(state: SupervisorState):
     ask_back_message = last_message.tool_calls[0]["args"].get("interrupt_message", "")
     
     log.info(f"Ask back content: {last_message.tool_calls[0]}")
-    ask_back_final_check(ask_back_message, "AccountAgent", tool_call_id, state["messages"])
+    cmd = ask_back_final_check(ask_back_message, "AccountAgent", tool_call_id, state["messages"])
+    if cmd is not None:
+        return cmd
     user_response = interrupt(ask_back_message)
     log.info(f"User input received: {user_response}")
     
@@ -60,7 +64,9 @@ def fund_human_node(state: SupervisorState):
     ask_back_message = last_message.tool_calls[0]["args"].get("interrupt_message", "")
     
     log.info(f"Ask back content: {last_message.tool_calls[0]}")
-    ask_back_final_check(ask_back_message, "FundAgent", tool_call_id, state["messages"])
+    cmd = ask_back_final_check(ask_back_message, "FundAgent", tool_call_id, state["messages"])
+    if cmd is not None:
+        return cmd
     user_response = interrupt(ask_back_message)
     log.info(f"User input received: {user_response}")
     
@@ -80,7 +86,9 @@ def trading_human_node(state: SupervisorState):
     ask_back_message = last_message.tool_calls[0]["args"].get("interrupt_message", "")
     
     log.info(f"Ask back content: {last_message.tool_calls[0]}")
-    ask_back_final_check(ask_back_message, "TradingAgent", tool_call_id, state["messages"])
+    cmd = ask_back_final_check(ask_back_message, "TradingAgent", tool_call_id, state["messages"])
+    if cmd is not None:
+        return cmd
     user_response = interrupt(ask_back_message)
     log.info(f"User input received: {user_response}")
     
@@ -100,7 +108,9 @@ def information_human_node(state: SupervisorState):
     ask_back_message = last_message.tool_calls[0]["args"].get("interrupt_message", "")
     
     log.info(f"Ask back content: {last_message.tool_calls[0]}")
-    ask_back_final_check(ask_back_message, "InformationCentreAgent", tool_call_id, state["messages"])
+    cmd = ask_back_final_check(ask_back_message, "InformationCentreAgent", tool_call_id, state["messages"])
+    if cmd is not None:
+        return cmd
     user_response = interrupt(ask_back_message)
     log.info(f"User input received: {user_response}")
     
@@ -120,7 +130,9 @@ def dp_human_node(state: SupervisorState):
     ask_back_message = last_message.tool_calls[0]["args"].get("interrupt_message", "")
     
     log.info(f"Ask back content: {last_message.tool_calls[0]}")
-    ask_back_final_check(ask_back_message, "DPAgent", tool_call_id, state["messages"])
+    cmd = ask_back_final_check(ask_back_message, "DPAgent", tool_call_id, state["messages"])
+    if cmd is not None:
+        return cmd
     user_response = interrupt(ask_back_message)
     log.info(f"User input received: {user_response}")
     
