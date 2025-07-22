@@ -1,1 +1,890 @@
 2025-07-17 11:10:16,727 mlscoringinference [INFO | secrets.py : get_secret : 10] --> Fetching secrets for environment: dev
+2025-07-17 11:57:33,635 mlscoringinference [INFO | secrets.py : get_secret : 10] --> Fetching secrets for environment: dev
+2025-07-17 11:57:38,260 mlscoringinference [INFO | langfuse_client.py : <module> : 19] --> Langfuse client initialized successfully
+2025-07-17 11:57:38,373 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 11:57:38,373 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 11:57:38,386 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:57:38,450 mlscoringinference [INFO | assistant_tool.py : TradingAgent : 24] --> Trading Agent Call.
+2025-07-17 11:57:38,450 mlscoringinference [INFO | assistant_tool.py : ReportAgent : 52] --> Report Agent Call.
+2025-07-17 11:57:38,450 mlscoringinference [INFO | assistant_tool.py : AccountAgent : 93] --> Account Agent Call.
+2025-07-17 11:57:38,450 mlscoringinference [INFO | assistant_tool.py : InformationCentreAgent : 138] --> Information Centre Agent Call.
+2025-07-17 11:57:38,450 mlscoringinference [INFO | assistant_tool.py : FundAgent : 169] --> Fund Agent Call.
+2025-07-17 11:57:38,450 mlscoringinference [INFO | assistant_tool.py : DPAgent : 195] --> DP Agent Call.
+2025-07-17 11:57:38,477 mlscoringinference [INFO | react_tool.py : <module> : 155] --> Initializing basic tools...
+2025-07-17 11:57:38,490 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 11:57:38,490 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 11:57:38,490 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:57:38,498 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 11:57:38,517 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 11:57:38,519 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:57:38,523 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 11:57:38,526 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 11:57:38,527 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:57:38,556 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 11:57:38,556 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 11:57:38,556 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:57:38,556 mlscoringinference [INFO | langgraph_builder.py : <module> : 80] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:57:38,556 mlscoringinference [INFO | langgraph_builder.py : <module> : 82] --> Rannnable Importing.
+2025-07-17 11:57:38,560 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for report_agent_schema Creating...
+2025-07-17 11:57:38,560 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\report_agent_schema.json
+2025-07-17 11:57:38,566 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 11:57:38,573 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for report_agent_schema created successfully.
+2025-07-17 11:57:38,573 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for account_agent_schema Creating...
+2025-07-17 11:57:38,574 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\account_agent_schema.json
+2025-07-17 11:57:38,577 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\account_agent_static_data.json
+2025-07-17 11:57:38,579 mlscoringinference [INFO | json_utils.py : update_paths_with_base_url : 94] --> 'paths' key not found in JSON; returning original data unchanged.
+2025-07-17 11:57:38,580 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 11:57:38,587 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for account_agent_schema created successfully.
+2025-07-17 11:57:38,587 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for fund_agent_schema Creating...
+2025-07-17 11:57:38,587 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\fund_agent_schema.json
+2025-07-17 11:57:38,591 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 11:57:38,595 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for fund_agent_schema created successfully.
+2025-07-17 11:57:38,595 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for trading_agent_schema Creating...
+2025-07-17 11:57:38,595 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\trading_agent_schema.json
+2025-07-17 11:57:38,599 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 11:57:38,605 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for trading_agent_schema created successfully.
+2025-07-17 11:57:38,605 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 34] --> Information React agent for information_centre_agent_schema Creating...
+2025-07-17 11:57:38,605 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\information_centre_agent_schema.json
+2025-07-17 11:57:38,605 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 38] --> API Specification loaded.
+2025-07-17 11:57:38,605 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\information_centre_agent_static_data.json
+2025-07-17 11:57:38,611 mlscoringinference [INFO | json_utils.py : update_paths_with_base_url : 94] --> 'paths' key not found in JSON; returning original data unchanged.
+2025-07-17 11:57:38,622 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 48] --> Information React agent runnable for information_centre_agent_schema created successfully.
+2025-07-17 11:57:38,622 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for combine Creating...
+2025-07-17 11:57:38,623 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\combine.json
+2025-07-17 11:57:38,625 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 11:57:38,628 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for combine created successfully.
+2025-07-17 11:57:38,629 mlscoringinference [INFO | langgraph_builder.py : <module> : 93] --> Rannnable for all agents created successfully.
+2025-07-17 11:57:38,631 mlscoringinference [INFO | chatbot_service.py : <module> : 28] --> Chatbot service initialization started.
+2025-07-17 11:57:38,631 mlscoringinference [INFO | session_store.py : __init__ : 29] --> Initializing RedisSessionStore.
+2025-07-17 11:57:38,633 mlscoringinference [INFO | session_store.py : __init__ : 33] --> RedisSessionStore initialized successfully.
+2025-07-17 11:57:38,638 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 11:57:38,638 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 11:57:38,639 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 11:57:38,639 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 11:57:38,685 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 11:57:38,687 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 11:57:38,713 mlscoringinference [INFO | chatbot_service.py : <module> : 44] --> Chatbot service initialized successfully.
+2025-07-17 11:58:45,746 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='919681e1-c24a-4afe-8ac3-8d0b183e7cc9' client_id='NAGSYA5' role='CLIENT' token='2ceb0a67-8992-4c09-a65a-9b1a4e77ebdc' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='Please provide the ledger report for my account.', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='b89e954d-c163-4115-a5ea-9dfcac741702')
+2025-07-17 11:58:45,746 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 11:58:45,746 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 11:58:45,746 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 11:58:45,746 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 11:58:45,746 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 11:58:45,783 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 11:58:45,784 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 11:58:45,803 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 11:58:45,805 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 11:58:45,805 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 11:58:45,806 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 11:58:45,807 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 11:58:45,807 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 11:58:45,808 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 11:58:45,809 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 11:58:45,810 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 8
+2025-07-17 11:58:45,810 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 168] --> Long input detected or not in deterministic, skipping classification
+2025-07-17 11:58:45,811 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 11:58:45,812 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : b89e954d-c163-4115-a5ea-9dfcac741702
+2025-07-17 11:58:45,815 mlscoringinference [INFO | main.py : communicate : 97] --> new request id: req-2685ed69-5490-4a03-aeea-61f9e47de827
+2025-07-17 11:58:45,815 mlscoringinference [INFO | main.py : communicate : 110] --> Starting new graph invocation with request_id: req-2685ed69-5490-4a03-aeea-61f9e47de827
+2025-07-17 11:58:45,817 mlscoringinference [INFO | main.py : communicate : 119] --> Invoking graph with user query: 'Please provide the ledger report for my account.'
+2025-07-17 11:58:45,824 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 16
+2025-07-17 11:58:45,850 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 11:58:48,316 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 11:58:48,316 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 11:58:48,316 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 11:58:48,316 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 24] --> Primary Router state Routed to : ReportAgent.
+2025-07-17 11:58:48,330 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 11:58:48,330 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 11:58:48,331 mlscoringinference [INFO | state_utils.py : inject_tool_message : 42] --> Tool message for ReportAgent injected successfully
+2025-07-17 11:58:48,332 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 11:58:48,332 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 127
+2025-07-17 11:58:48,333 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 11:58:55,656 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 11:58:55,662 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 11:58:55,662 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 11:58:55,662 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 11:58:55,662 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 48] --> Report Dynamic Router state has AskBackToUser Tool.
+2025-07-17 11:58:55,673 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 11:58:55,674 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 22] --> Ask back content: {'name': 'AskBackToUser', 'args': {'interrupt_message': '**To generate your ledger report, I need a few more details:**\n\n- Start date for the report (mm/dd/yyyy)\n- End date for the report (mm/dd/yyyy) \n- Exchange segment (Combine or MTF)\n- Date type (Voucher or Effective)\n- How would you like to receive the report (Link or Email)?\n\nPlease provide this information so I can process your ledger report request.'}, 'id': 'tooluse_wNXq2xzSTtWGHcEvcQgtcg', 'type': 'tool_call'}
+2025-07-17 11:58:55,674 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 11:58:55,674 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 11:58:55,675 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **To generate your ledger report, I need a few mor...
+2025-07-17 11:58:55,676 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 11:58:55,676 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 11:58:55,677 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 11:58:55,678 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 11:58:55,679 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 11:58:55,681 mlscoringinference [INFO | main.py : communicate : 121] --> Graph invocation completed successfully
+2025-07-17 11:58:55,684 mlscoringinference [INFO | main.py : communicate : 132] --> Intrupted Messages goes to User.
+2025-07-17 11:58:55,685 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-2685ed69-5490-4a03-aeea-61f9e47de827
+2025-07-17 11:58:55,685 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: 919681e1-c24a-4afe-8ac3-8d0b183e7cc9
+2025-07-17 11:58:55,685 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:04:25,093 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='b2ed70bb-e588-4663-b962-7338f15c9db2' client_id='NAGSYA5' role='CLIENT' token='36afdb03-2cb8-4d19-89ac-011978fbcabf' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text="Please provide the ledger report for the user's account.", id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='5106f287-0a1a-4e14-bbd4-6f5ad5628094')
+2025-07-17 12:04:25,093 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:04:25,093 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:04:25,093 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:04:25,093 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:04:25,093 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:04:25,194 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:04:25,194 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:04:25,224 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:04:25,226 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:04:25,226 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:04:25,227 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:04:25,228 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:04:25,228 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:04:25,228 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:04:25,229 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:04:25,230 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 9
+2025-07-17 12:04:25,230 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 168] --> Long input detected or not in deterministic, skipping classification
+2025-07-17 12:04:25,230 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:04:25,232 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : 5106f287-0a1a-4e14-bbd4-6f5ad5628094
+2025-07-17 12:04:25,233 mlscoringinference [INFO | main.py : communicate : 97] --> new request id: req-f8df9899-f516-4baf-bb81-a29ac9231083
+2025-07-17 12:04:25,234 mlscoringinference [INFO | main.py : communicate : 110] --> Starting new graph invocation with request_id: req-f8df9899-f516-4baf-bb81-a29ac9231083
+2025-07-17 12:04:25,235 mlscoringinference [INFO | main.py : communicate : 119] --> Invoking graph with user query: 'Please provide the ledger report for the user's account.'
+2025-07-17 12:04:25,332 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 18
+2025-07-17 12:04:25,332 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:04:27,332 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:04:27,334 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:04:27,334 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:04:27,334 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 24] --> Primary Router state Routed to : ReportAgent.
+2025-07-17 12:04:27,334 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:04:27,334 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:04:27,339 mlscoringinference [INFO | state_utils.py : inject_tool_message : 42] --> Tool message for ReportAgent injected successfully
+2025-07-17 12:04:27,341 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:04:27,343 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 123
+2025-07-17 12:04:27,344 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:04:35,729 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:04:35,729 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:04:35,729 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:04:35,744 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:04:35,744 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 48] --> Report Dynamic Router state has AskBackToUser Tool.
+2025-07-17 12:04:35,750 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 12:04:35,750 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 22] --> Ask back content: {'name': 'AskBackToUser', 'args': {'interrupt_message': '**To generate your ledger report, I need some additional details:**\n\n1. What start date would you like for the report period? Please provide in MM/DD/YYYY format.\n\n2. What end date would you like for the report period? Please provide in MM/DD/YYYY format.\n\n3. Would you like to filter the data by the Combine segment or the MTF segment?\n\n4. Would you like to filter by the voucher date or the effective date?\n\n5. How would you like to receive the report - via a download link or by email?'}, 'id': 'tooluse_KSNPCkoUQTKBuMFiO7HkbQ', 'type': 'tool_call'}
+2025-07-17 12:04:35,750 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 12:04:35,750 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:04:35,753 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **To generate your ledger report, I need some addi...
+2025-07-17 12:04:35,754 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:04:35,754 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:04:35,754 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:04:35,755 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 12:04:35,755 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 12:04:35,758 mlscoringinference [INFO | main.py : communicate : 121] --> Graph invocation completed successfully
+2025-07-17 12:04:35,760 mlscoringinference [INFO | main.py : communicate : 132] --> Intrupted Messages goes to User.
+2025-07-17 12:04:35,760 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-f8df9899-f516-4baf-bb81-a29ac9231083
+2025-07-17 12:04:35,761 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: b2ed70bb-e588-4663-b962-7338f15c9db2
+2025-07-17 12:04:35,761 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:07:17,619 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8' client_id='NAGSYA5' role='CLIENT' token='1faf79b9-42af-40f7-a53f-df6c119466f8' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='mujhe ledger report chaiye', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='69f7b5df-0b4e-4e3b-bd03-2420f5ac4be1')
+2025-07-17 12:07:17,621 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:07:17,622 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:07:17,622 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:07:17,623 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:07:17,623 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:07:17,662 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:07:17,663 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:07:17,683 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:07:17,684 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:07:17,684 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:07:17,684 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:07:17,687 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:07:17,688 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:07:17,689 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:07:17,691 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:07:17,692 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 4
+2025-07-17 12:07:17,693 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 168] --> Long input detected or not in deterministic, skipping classification
+2025-07-17 12:07:17,693 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:07:17,694 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : 69f7b5df-0b4e-4e3b-bd03-2420f5ac4be1
+2025-07-17 12:07:17,695 mlscoringinference [INFO | main.py : communicate : 97] --> new request id: req-fa188975-00d7-4216-9a1a-f0e18697fa55
+2025-07-17 12:07:17,695 mlscoringinference [INFO | main.py : communicate : 110] --> Starting new graph invocation with request_id: req-fa188975-00d7-4216-9a1a-f0e18697fa55
+2025-07-17 12:07:17,698 mlscoringinference [INFO | main.py : communicate : 119] --> Invoking graph with user query: 'mujhe ledger report chaiye'
+2025-07-17 12:07:17,705 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 11
+2025-07-17 12:07:17,707 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:07:19,778 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:07:19,780 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:07:19,781 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:07:19,782 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 24] --> Primary Router state Routed to : ReportAgent.
+2025-07-17 12:07:19,784 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:07:19,785 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:07:19,785 mlscoringinference [INFO | state_utils.py : inject_tool_message : 42] --> Tool message for ReportAgent injected successfully
+2025-07-17 12:07:19,786 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:07:19,786 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 117
+2025-07-17 12:07:19,787 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:07:27,585 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:07:27,585 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:07:27,587 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:07:27,587 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:07:27,587 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 48] --> Report Dynamic Router state has AskBackToUser Tool.
+2025-07-17 12:07:27,595 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 12:07:27,597 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 22] --> Ask back content: {'name': 'AskBackToUser', 'args': {'interrupt_message': '**Kripaya niche di gayi jaankari pradan karein taki main aapke liye ledger report taiyaar kar sakun:**\n\n- Client ID (Agar aapka client ID NAGSYA5 hai to kripaya ise confirm karein)\n- Shuruat ki taareekh (mm/dd/yyyy prarup mein)\n- Ant ki taareekh (mm/dd/yyyy prarup mein) \n- Exchange segment (Combine ya MTF)\n- Taareekh prakar (Voucher ya Effective)\n- Return prakar (Link ya Email)'}, 'id': 'tooluse_kuSav68vQkOPfhSS4w-Cvw', 'type': 'tool_call'}
+2025-07-17 12:07:27,597 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 12:07:27,597 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:07:27,597 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **Kripaya niche di gayi jaankari pradan karein tak...
+2025-07-17 12:07:27,597 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:07:27,597 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:07:27,598 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:07:27,598 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 12:07:27,598 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 12:07:27,601 mlscoringinference [INFO | main.py : communicate : 121] --> Graph invocation completed successfully
+2025-07-17 12:07:27,604 mlscoringinference [INFO | main.py : communicate : 132] --> Intrupted Messages goes to User.
+2025-07-17 12:07:27,605 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-fa188975-00d7-4216-9a1a-f0e18697fa55
+2025-07-17 12:07:27,605 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8
+2025-07-17 12:07:27,605 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:08:13,082 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8' client_id='NAGSYA5' role='CLIENT' token='1faf79b9-42af-40f7-a53f-df6c119466f8' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='Client ID: NAGSYA5, Start Date: previous year (01/01/2024), End Date: previous year (12/31/2024), Exchange Segment: Combine, Date Type: Voucher, Return Type: Email', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='82559b8c-fcfe-4b42-83a6-3472945bd30f')
+2025-07-17 12:08:13,082 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:08:13,082 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:08:13,082 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:08:13,082 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:08:13,082 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:08:13,128 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:08:13,129 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:08:13,141 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:08:13,141 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:08:13,141 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:08:13,141 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:08:13,154 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:08:13,155 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:08:13,156 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:08:13,157 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:08:13,158 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 136] --> Interrupt detected in the graph state, skipping ID type classification.
+2025-07-17 12:08:13,159 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:08:13,159 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : 82559b8c-fcfe-4b42-83a6-3472945bd30f
+2025-07-17 12:08:13,160 mlscoringinference [INFO | main.py : communicate : 68] --> Interupt Resume: >>
+2025-07-17 12:08:13,161 mlscoringinference [INFO | main.py : communicate : 76] --> Starting interrupt resume with request_id: 82559b8c-fcfe-4b42-83a6-3472945bd30f
+2025-07-17 12:08:13,161 mlscoringinference [INFO | main.py : communicate : 84] --> Invoking graph with interrupt resume command
+2025-07-17 12:08:13,164 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 12:08:13,165 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 22] --> Ask back content: {'name': 'AskBackToUser', 'args': {'interrupt_message': '**Kripaya niche di gayi jaankari pradan karein taki main aapke liye ledger report taiyaar kar sakun:**\n\n- Client ID (Agar aapka client ID NAGSYA5 hai to kripaya ise confirm karein)\n- Shuruat ki taareekh (mm/dd/yyyy prarup mein)\n- Ant ki taareekh (mm/dd/yyyy prarup mein) \n- Exchange segment (Combine ya MTF)\n- Taareekh prakar (Voucher ya Effective)\n- Return prakar (Link ya Email)'}, 'id': 'tooluse_kuSav68vQkOPfhSS4w-Cvw', 'type': 'tool_call'}
+2025-07-17 12:08:13,165 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 12:08:13,165 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:08:13,165 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **Kripaya niche di gayi jaankari pradan karein tak...
+2025-07-17 12:08:13,166 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:08:13,166 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:08:13,167 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:08:13,167 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 12:08:13,168 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 12:08:13,168 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 27] --> User input received: Client ID: NAGSYA5, Start Date: previous year (01/01/2024), End Date: previous year (12/31/2024), Exchange Segment: Combine, Date Type: Voucher, Return Type: Email
+2025-07-17 12:08:13,173 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:08:13,173 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:08:13,173 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:08:13,174 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:08:13,174 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 356
+2025-07-17 12:08:13,175 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:08:18,880 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:08:18,880 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:08:18,880 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:08:18,890 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:08:18,898 mlscoringinference [INFO | react_tool.py : request_post : 30] --> Request POST tool initiated...
+2025-07-17 12:08:18,898 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:08:18,901 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 70] --> System parameters mapper loaded from agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:08:18,901 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 80] --> System parameters mapper updated with base URL.
+2025-07-17 12:08:18,901 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 45] --> Payload received: {'user_id': 'NAGSYA5', 'session_id': 'e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8', 'client_id': 'NAGSYA5', 'role': 'CLIENT', 'token': '1faf79b9-42af-40f7-a53f-df6c119466f8', 'interaction': {'type': 'AGENTIC_FLOW', 'attachement': '', 'input': {'text': 'mujhe ledger report chaiye', 'id': None, 'from_date': None, 'to_date': None}, 'metadata': {'source': 'web'}, 'request_id': 'req-fa188975-00d7-4216-9a1a-f0e18697fa55'}}
+2025-07-17 12:08:18,903 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted user_id from payload: NAGSYA5
+2025-07-17 12:08:18,903 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted role from payload: CLIENT
+2025-07-17 12:08:18,904 mlscoringinference [INFO | react_tool.py : request_post : 100] --> Making POST request to http://cs.motilaloswaluat.com/gw/api/cbot/ledgerstatement with headers: {'sessionid': 'e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8', 'token': '1faf79b9-42af-40f7-a53f-df6c119466f8', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/json'} and body: {'clientId': 'NAGSYA5', 'from_Date': '01/01/2024', 'to_Date': '12/31/2024', 'exchange_Seg': 'Combine', 'date_Type': 'Voucher', 'return_Type': 'Email', 'userId': 'NAGSYA5', 'role': 'CLIENT'}
+2025-07-17 12:08:19,860 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:08:19,860 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:08:19,860 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:08:19,860 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:08:19,860 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 582
+2025-07-17 12:08:19,860 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:08:26,124 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:08:26,124 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:08:26,124 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:08:26,132 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:08:26,141 mlscoringinference [INFO | final_response_node.py : report_final_response_node : 296] --> Starting report response check...
+2025-07-17 12:08:26,142 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:08:26,142 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **Aapka ledger report 01/01/2024 se 12/31/2024 tak...
+2025-07-17 12:08:26,144 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:08:26,144 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:08:26,144 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:08:26,145 mlscoringinference [INFO | final_response_node.py : process_final_response : 223] --> Regex and ban words validation passed successfully
+2025-07-17 12:08:26,145 mlscoringinference [INFO | final_response_node.py : process_final_response : 227] --> API tool call message found - proceeding with API grounding validation
+2025-07-17 12:08:26,145 mlscoringinference [INFO | final_response_node.py : extract_message_content : 58] --> Extracted message content at position -2
+2025-07-17 12:08:26,146 mlscoringinference [INFO | api_guard.py : validate_api_response_grounding : 127] --> Validating API Response grounding ...
+2025-07-17 12:08:28,671 mlscoringinference [INFO | api_guard.py : validate_api_response_grounding : 133] --> API Response Grounding validation complete.
+2025-07-17 12:08:28,671 mlscoringinference [INFO | final_response_node.py : process_final_response : 234] --> API tool call grounding validation result: {'query_response_relevance': 'Low', 'response_chunk_alignment': 'Misaligned', 'issues': 'The response about preparing a ledger report for a certain period and sending it to the registered email ID is not relevant to the retrieved context chunk which just states that an email request has been submitted successfully. The response is misaligned and not grounded in the provided context.'}
+2025-07-17 12:08:28,672 mlscoringinference [INFO | final_response_node.py : api_pass_signal : 100] --> API response validation criteria: Query relevance: Low, Chunk alignment: Misaligned
+2025-07-17 12:08:28,672 mlscoringinference [INFO | final_response_node.py : api_pass_signal : 108] --> API response validation result: Fail
+2025-07-17 12:08:28,672 mlscoringinference [INFO | final_response_node.py : process_final_response : 240] --> API tool call grounding validation failed ..
+2025-07-17 12:08:28,677 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:08:28,677 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:08:28,677 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:08:28,677 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:08:28,677 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 843
+2025-07-17 12:08:28,680 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:08:34,836 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:08:34,836 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:08:34,836 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:08:34,840 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:08:34,845 mlscoringinference [INFO | final_response_node.py : report_final_response_node : 296] --> Starting report response check...
+2025-07-17 12:08:34,846 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:08:34,847 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **Aapke ledger report ki maang safaltaapurvak praa...
+2025-07-17 12:08:34,847 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:08:34,848 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:08:34,848 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:08:34,848 mlscoringinference [INFO | final_response_node.py : process_final_response : 223] --> Regex and ban words validation passed successfully
+2025-07-17 12:08:34,849 mlscoringinference [INFO | final_response_node.py : process_final_response : 279] --> Final response processing completed successfully
+2025-07-17 12:08:34,854 mlscoringinference [INFO | main.py : communicate : 86] --> Interrupt resume completed successfully
+2025-07-17 12:08:34,856 mlscoringinference [INFO | main.py : communicate : 134] --> Normal Messages goes to User.
+2025-07-17 12:08:34,857 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-fa188975-00d7-4216-9a1a-f0e18697fa55
+2025-07-17 12:08:34,857 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8
+2025-07-17 12:08:34,857 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:09:13,899 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8' client_id='NAGSYA5' role='CLIENT' token='1faf79b9-42af-40f7-a53f-df6c119466f8' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='mujhge meri account details chaiye', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='b45df620-afb6-4c0a-996b-66fdf895fab3')
+2025-07-17 12:09:13,899 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:09:13,901 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:09:13,901 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:09:13,901 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:09:13,903 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:09:13,947 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:09:13,947 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:09:13,967 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:09:13,969 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:09:13,969 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:09:13,969 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:09:13,970 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:09:13,971 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:09:13,971 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:09:13,972 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:09:13,973 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 5
+2025-07-17 12:09:13,973 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 168] --> Long input detected or not in deterministic, skipping classification
+2025-07-17 12:09:13,973 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:09:13,974 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : b45df620-afb6-4c0a-996b-66fdf895fab3
+2025-07-17 12:09:13,976 mlscoringinference [INFO | main.py : communicate : 97] --> new request id: req-908018d6-19b3-4d8e-bad4-c4842de0783b
+2025-07-17 12:09:13,976 mlscoringinference [INFO | main.py : communicate : 110] --> Starting new graph invocation with request_id: req-908018d6-19b3-4d8e-bad4-c4842de0783b
+2025-07-17 12:09:13,977 mlscoringinference [INFO | main.py : communicate : 119] --> Invoking graph with user query: 'mujhge meri account details chaiye'
+2025-07-17 12:09:13,981 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 1055
+2025-07-17 12:09:13,982 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:09:15,870 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:09:15,871 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:09:15,871 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:09:15,872 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 24] --> Primary Router state Routed to : AccountAgent.
+2025-07-17 12:09:15,874 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:09:15,874 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:09:15,876 mlscoringinference [INFO | state_utils.py : inject_tool_message : 42] --> Tool message for AccountAgent injected successfully
+2025-07-17 12:09:15,876 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:09:15,877 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 1164
+2025-07-17 12:09:15,877 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:09:19,628 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:09:19,628 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:09:19,628 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:09:19,628 mlscoringinference [INFO | dynamic_router.py : account_dynamic_router : 59] --> Account Dynamic Router function Activated.
+2025-07-17 12:09:19,653 mlscoringinference [INFO | react_tool.py : request_post : 30] --> Request POST tool initiated...
+2025-07-17 12:09:19,656 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:09:19,658 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 70] --> System parameters mapper loaded from agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:09:19,659 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 80] --> System parameters mapper updated with base URL.
+2025-07-17 12:09:19,660 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 45] --> Payload received: {'user_id': 'NAGSYA5', 'session_id': 'e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8', 'client_id': 'NAGSYA5', 'role': 'CLIENT', 'token': '1faf79b9-42af-40f7-a53f-df6c119466f8', 'interaction': {'type': 'AGENTIC_FLOW', 'attachement': '', 'input': {'text': 'mujhge meri account details chaiye', 'id': None, 'from_date': None, 'to_date': None}, 'metadata': {'source': 'web'}, 'request_id': 'req-908018d6-19b3-4d8e-bad4-c4842de0783b'}}
+2025-07-17 12:09:19,661 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted user_id from payload: NAGSYA5
+2025-07-17 12:09:19,661 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted role from payload: CLIENT
+2025-07-17 12:09:19,662 mlscoringinference [INFO | react_tool.py : request_post : 100] --> Making POST request to http://cs.motilaloswaluat.com/gw/api/cbot/ClientDetails with headers: {'sessionid': 'e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8', 'token': '1faf79b9-42af-40f7-a53f-df6c119466f8', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/json'} and body: {'clientId': 'NAGSYA5', 'userId': 'NAGSYA5', 'role': 'CLIENT'}
+2025-07-17 12:09:19,986 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:09:19,986 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:09:19,986 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:09:19,986 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:09:19,986 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 1301
+2025-07-17 12:09:19,986 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:09:27,064 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:09:27,064 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:09:27,064 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:09:27,072 mlscoringinference [INFO | dynamic_router.py : account_dynamic_router : 59] --> Account Dynamic Router function Activated.
+2025-07-17 12:09:27,079 mlscoringinference [INFO | react_tool.py : request_post : 30] --> Request POST tool initiated...
+2025-07-17 12:09:27,080 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:09:27,082 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 70] --> System parameters mapper loaded from agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:09:27,083 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 80] --> System parameters mapper updated with base URL.
+2025-07-17 12:09:27,083 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 45] --> Payload received: {'user_id': 'NAGSYA5', 'session_id': 'e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8', 'client_id': 'NAGSYA5', 'role': 'CLIENT', 'token': '1faf79b9-42af-40f7-a53f-df6c119466f8', 'interaction': {'type': 'AGENTIC_FLOW', 'attachement': '', 'input': {'text': 'mujhge meri account details chaiye', 'id': None, 'from_date': None, 'to_date': None}, 'metadata': {'source': 'web'}, 'request_id': 'req-908018d6-19b3-4d8e-bad4-c4842de0783b'}}
+2025-07-17 12:09:27,083 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted user_id from payload: NAGSYA5
+2025-07-17 12:09:27,083 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted role from payload: CLIENT
+2025-07-17 12:09:27,084 mlscoringinference [INFO | react_tool.py : request_post : 100] --> Making POST request to http://cs.motilaloswaluat.com/gw/api/cbot/ClientDetails with headers: {'sessionid': 'e5dd9016-10c9-4d5c-b4db-4591c0d3f5b8', 'token': '1faf79b9-42af-40f7-a53f-df6c119466f8', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/json'} and body: {'clientId': 'NAGSYA5', 'userId': 'NAGSYA5', 'role': 'CLIENT'}
+2025-07-17 12:09:27,398 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:09:27,398 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:09:27,398 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:09:27,398 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:09:27,398 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 1506
+2025-07-17 12:09:27,398 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:09:36,478 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:09:36,478 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:09:36,478 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:09:36,478 mlscoringinference [INFO | dynamic_router.py : account_dynamic_router : 59] --> Account Dynamic Router function Activated.
+2025-07-17 12:09:36,478 mlscoringinference [INFO | dynamic_router.py : account_dynamic_router : 69] --> Account Dynamic Router state has no Tool.
+2025-07-17 12:09:36,483 mlscoringinference [INFO | leave_node.py : leave_node : 16] --> Executing leave_node function - popping dialog stack
+2025-07-17 12:09:36,487 mlscoringinference [INFO | leave_node.py : leave_node : 21] --> Found tool call with id: tooluse_J7kQO_11QlyMVJi79Q_U7g
+2025-07-17 12:09:36,490 mlscoringinference [INFO | leave_node.py : leave_node : 36] --> Created tool message response for resuming dialog
+2025-07-17 12:09:36,490 mlscoringinference [INFO | leave_node.py : leave_node : 40] --> Leaving node and returning to main assistant
+2025-07-17 12:09:36,493 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 1849
+2025-07-17 12:09:36,494 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:09:41,994 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:09:41,994 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:09:42,010 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:09:42,010 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:09:42,019 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:09:42,020 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_BN_vR2JOS2qMr2JR-OJkfQ
+2025-07-17 12:09:42,021 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:09:42,026 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 2093
+2025-07-17 12:09:42,028 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:09:47,354 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:09:47,354 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:09:47,354 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:09:47,357 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:09:47,358 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:09:47,358 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_QzIFQcSQQHWsDOKCC2nKRw
+2025-07-17 12:09:47,358 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:09:47,366 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 2287
+2025-07-17 12:09:47,371 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:09:51,630 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:09:51,633 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:09:51,633 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:09:51,633 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:09:51,644 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:09:51,645 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_bCDWm4UARLarjAwLQqcHEw
+2025-07-17 12:09:51,646 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:09:51,650 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 2467
+2025-07-17 12:09:51,651 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:09:59,736 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:09:59,737 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:09:59,740 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:09:59,742 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:09:59,747 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:09:59,749 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_kh1Ifzs4ROycmNBPSKuSiA
+2025-07-17 12:09:59,750 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:09:59,754 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 2662
+2025-07-17 12:09:59,758 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:10:04,540 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:10:04,540 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:10:04,540 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:10:04,540 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:10:04,549 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:10:04,550 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_G46zp-jMQDSKuvmH5bzvlg
+2025-07-17 12:10:04,550 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:10:04,556 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 2833
+2025-07-17 12:10:04,566 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:10:08,629 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:10:08,629 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:10:08,629 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:10:08,629 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:10:08,629 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:10:08,629 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_jeSzF9efR1eRjdtTbkEpYQ
+2025-07-17 12:10:08,629 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:10:08,641 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 3021
+2025-07-17 12:10:08,646 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:10:12,622 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:10:12,622 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:10:12,622 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:10:12,622 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:10:12,622 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:10:12,622 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_h0BG-I-uRoaddpcSG0L79A
+2025-07-17 12:10:12,622 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:10:12,634 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 3210
+2025-07-17 12:10:12,639 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:10:16,413 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:10:16,413 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:10:16,416 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:10:16,416 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:10:16,423 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:10:16,425 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_N2-51sjCRluhASjjVLeZlQ
+2025-07-17 12:10:16,426 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:10:16,433 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 3405
+2025-07-17 12:10:16,435 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:10:20,107 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:10:20,107 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:10:20,110 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:10:20,110 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 27] --> Detected Fake Tool call, routing to fake_tool_node.
+2025-07-17 12:10:20,110 mlscoringinference [INFO | tool_node.py : fake_tool_node : 35] --> Executing fake_tool_node function - simulating tool call
+2025-07-17 12:10:20,110 mlscoringinference [INFO | tool_node.py : fake_tool_node : 43] --> Found fake tool call with id: tooluse_HdaMVqKQTv-Y5CWAwyg3xg
+2025-07-17 12:10:20,118 mlscoringinference [INFO | tool_node.py : fake_tool_node : 53] --> Fake tool node executed, returning simulated messages
+2025-07-17 12:10:20,136 mlscoringinference [INFO | main.py : communicate : 154] --> Snapshot Data in except part : 38
+2025-07-17 12:10:20,137 mlscoringinference [INFO | main.py : communicate : 156] --> Last message in except state: content='You have access to following tools only: ReportAgent, AccountAgent, InformationCentreAgent, FundAgent, TradingAgent, DPAgent.' id='c3fd1d4f-35fe-43e7-b9e0-3da8ba7f44a3' tool_call_id='tooluse_HdaMVqKQTv-Y5CWAwyg3xg', type: <class 'langchain_core.messages.tool.ToolMessage'>
+2025-07-17 12:10:20,137 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 55] --> Generating RemoveMessage actions.
+2025-07-17 12:10:20,137 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 45697ef2-af0c-424f-a74f-f69d925f4b18
+2025-07-17 12:10:20,138 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--28da789b-119a-488e-9ff2-aef2bbf8c635-0
+2025-07-17 12:10:20,138 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: e6f601dd-c3da-4d17-a1a6-5c0d9a1dafa5
+2025-07-17 12:10:20,138 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--c9cd42a9-bf03-4280-bad4-5508535019c9-0
+2025-07-17 12:10:20,138 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 0d4d2d94-a549-44f6-9a60-b67971b2995a
+2025-07-17 12:10:20,138 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--bf370c39-9d0f-4ca4-9ac7-6e948b6af322-0
+2025-07-17 12:10:20,140 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 97e01e27-d99d-4c55-b34c-0df4ec496a61
+2025-07-17 12:10:20,140 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--d766a545-add7-41a1-b14f-5d6fe44ed33d-0
+2025-07-17 12:10:20,140 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: f8586d26-b14b-42ba-a7c3-dca895a4ad8c
+2025-07-17 12:10:20,141 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--09bcd3a9-d3f1-490d-b1f3-f6a4544144c2-0
+2025-07-17 12:10:20,141 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 4825835c-34b1-4d0a-83f4-5a49990924f2
+2025-07-17 12:10:20,141 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--a917b373-c142-4128-aa48-e8cdac3e48db-0
+2025-07-17 12:10:20,142 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 1aeec442-9a83-4663-ab44-a778dd821f79
+2025-07-17 12:10:20,142 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--d6e8c4ac-310a-484e-acd7-90c7476c75bc-0
+2025-07-17 12:10:20,142 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 0af0dd36-1511-48a6-8cfc-d5b35118dfe7
+2025-07-17 12:10:20,143 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--1d0e70c5-330c-4f90-a90c-47496004105c-0
+2025-07-17 12:10:20,143 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: f9e5a448-d422-427e-aa41-50926ff196b8
+2025-07-17 12:10:20,144 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--c5749cb8-de3d-4187-96c4-145092167706-0
+2025-07-17 12:10:20,144 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: d3c6b409-18a8-4f2d-83f2-43ba5307c47a
+2025-07-17 12:10:20,144 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--b5cf359b-02fd-46b1-974e-2e7c74a1d8d1-0
+2025-07-17 12:10:20,145 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 736d3e87-6c79-4b5e-8450-4a16b4988961
+2025-07-17 12:10:20,146 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--1c98c412-eb1a-4649-8782-ea4df94392b6-0
+2025-07-17 12:10:20,146 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: 5bda59ac-4d7f-48e8-ab39-15fd2e01bcb4
+2025-07-17 12:10:20,146 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--a35ab7b5-4ad1-4114-a30a-935018b73bf3-0
+2025-07-17 12:10:20,147 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: f9da85ca-e094-4e26-8b2a-4b5b704c7516
+2025-07-17 12:10:20,147 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: run--0b07937e-0200-456d-b8b8-851897d9f5a3-0
+2025-07-17 12:10:20,147 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 60] --> Removing message with id: c3fd1d4f-35fe-43e7-b9e0-3da8ba7f44a3
+2025-07-17 12:10:20,148 mlscoringinference [INFO | state_utils.py : generate_remove_messages : 64] --> RemoveMessage generation completed.
+2025-07-17 12:10:20,148 mlscoringinference [INFO | main.py : communicate : 166] --> Messages to remove: 27
+2025-07-17 12:10:20,150 mlscoringinference [INFO | main.py : communicate : 172] --> Snapshot Data in recover part : 11
+2025-07-17 12:10:20,151 mlscoringinference [INFO | main.py : communicate : 174] --> Last message in recover state: content='This query response has been completed.' id='fe07e17d-70d2-4645-88a1-0d4561927844' tool_call_id='tooluse_6aJHMJUAT5qWCvlHZdJcJQ', type: <class 'langchain_core.messages.tool.ToolMessage'>
+2025-07-17 12:10:20,151 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:13:24,116 mlscoringinference [INFO | secrets.py : get_secret : 10] --> Fetching secrets for environment: dev
+2025-07-17 12:13:27,018 mlscoringinference [INFO | langfuse_client.py : <module> : 19] --> Langfuse client initialized successfully
+2025-07-17 12:13:27,066 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:13:27,066 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:13:27,070 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:27,092 mlscoringinference [INFO | assistant_tool.py : TradingAgent : 24] --> Trading Agent Call.
+2025-07-17 12:13:27,094 mlscoringinference [INFO | assistant_tool.py : ReportAgent : 52] --> Report Agent Call.
+2025-07-17 12:13:27,095 mlscoringinference [INFO | assistant_tool.py : AccountAgent : 93] --> Account Agent Call.
+2025-07-17 12:13:27,095 mlscoringinference [INFO | assistant_tool.py : InformationCentreAgent : 138] --> Information Centre Agent Call.
+2025-07-17 12:13:27,096 mlscoringinference [INFO | assistant_tool.py : FundAgent : 169] --> Fund Agent Call.
+2025-07-17 12:13:27,097 mlscoringinference [INFO | assistant_tool.py : DPAgent : 195] --> DP Agent Call.
+2025-07-17 12:13:27,108 mlscoringinference [INFO | react_tool.py : <module> : 155] --> Initializing basic tools...
+2025-07-17 12:13:27,114 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:13:27,115 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:13:27,115 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:27,119 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:13:27,119 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:13:27,120 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:27,123 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:13:27,123 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:13:27,124 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:27,134 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:13:27,135 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:13:27,135 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:27,135 mlscoringinference [INFO | langgraph_builder.py : <module> : 80] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:27,136 mlscoringinference [INFO | langgraph_builder.py : <module> : 82] --> Rannnable Importing.
+2025-07-17 12:13:27,138 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for report_agent_schema Creating...
+2025-07-17 12:13:27,139 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\report_agent_schema.json
+2025-07-17 12:13:27,142 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 12:13:27,145 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for report_agent_schema created successfully.
+2025-07-17 12:13:27,146 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for account_agent_schema Creating...
+2025-07-17 12:13:27,146 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\account_agent_schema.json
+2025-07-17 12:13:27,148 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\account_agent_static_data.json
+2025-07-17 12:13:27,148 mlscoringinference [INFO | json_utils.py : update_paths_with_base_url : 94] --> 'paths' key not found in JSON; returning original data unchanged.
+2025-07-17 12:13:27,149 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 12:13:27,151 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for account_agent_schema created successfully.
+2025-07-17 12:13:27,152 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for fund_agent_schema Creating...
+2025-07-17 12:13:27,152 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\fund_agent_schema.json
+2025-07-17 12:13:27,154 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 12:13:27,157 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for fund_agent_schema created successfully.
+2025-07-17 12:13:27,158 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for trading_agent_schema Creating...
+2025-07-17 12:13:27,158 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\trading_agent_schema.json
+2025-07-17 12:13:27,159 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 12:13:27,162 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for trading_agent_schema created successfully.
+2025-07-17 12:13:27,162 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 34] --> Information React agent for information_centre_agent_schema Creating...
+2025-07-17 12:13:27,163 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\information_centre_agent_schema.json
+2025-07-17 12:13:27,164 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 38] --> API Specification loaded.
+2025-07-17 12:13:27,165 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\information_centre_agent_static_data.json
+2025-07-17 12:13:27,165 mlscoringinference [INFO | json_utils.py : update_paths_with_base_url : 94] --> 'paths' key not found in JSON; returning original data unchanged.
+2025-07-17 12:13:27,171 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 48] --> Information React agent runnable for information_centre_agent_schema created successfully.
+2025-07-17 12:13:27,172 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for combine Creating...
+2025-07-17 12:13:27,172 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\combine.json
+2025-07-17 12:13:27,174 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 12:13:27,177 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for combine created successfully.
+2025-07-17 12:13:27,177 mlscoringinference [INFO | langgraph_builder.py : <module> : 93] --> Rannnable for all agents created successfully.
+2025-07-17 12:13:27,180 mlscoringinference [INFO | chatbot_service.py : <module> : 28] --> Chatbot service initialization started.
+2025-07-17 12:13:27,180 mlscoringinference [INFO | session_store.py : __init__ : 29] --> Initializing RedisSessionStore.
+2025-07-17 12:13:27,180 mlscoringinference [INFO | session_store.py : __init__ : 33] --> RedisSessionStore initialized successfully.
+2025-07-17 12:13:27,182 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:13:27,182 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:13:27,182 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:13:27,183 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:13:27,221 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:13:27,222 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:13:27,242 mlscoringinference [INFO | chatbot_service.py : <module> : 44] --> Chatbot service initialized successfully.
+2025-07-17 12:13:45,114 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='abaf6cfa-fe7e-4c96-8f1d-475121b2be7a' client_id='NAGSYA5' role='CLIENT' token='1e86a628-f50b-4456-ab49-85136a1ee3ff' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='ledger report', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='77d5ddc8-30be-46ff-88b3-8e58eb9d5667')
+2025-07-17 12:13:45,114 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:13:45,114 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:13:45,114 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:13:45,114 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:13:45,114 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:13:45,152 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:13:45,154 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:13:45,173 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:13:45,174 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:13:45,175 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:13:45,175 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:13:45,177 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:13:45,177 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:13:45,178 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:13:45,179 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:13:45,179 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 2
+2025-07-17 12:13:45,180 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 143] --> Short input detected in agentic flow
+2025-07-17 12:13:45,181 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 145] --> Invoking flow router runnable for short input in agentic flow
+2025-07-17 12:13:46,547 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 147] --> Result from flow router: content=[{'type': 'tool_use', 'name': 'IDTypeClassifierTool', 'input': {'id_type': ['ledger_report']}, 'id': 'tooluse_yP-sJ1tETdyTDEVXXdJYlg'}] additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '11049dd9-1b83-4bba-b49e-875c074f406a', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 17 Jul 2025 06:43:46 GMT', 'content-type': 'application/json', 'content-length': '299', 'connection': 'keep-alive', 'x-amzn-requestid': '11049dd9-1b83-4bba-b49e-875c074f406a'}, 'RetryAttempts': 0}, 'stopReason': 'tool_use', 'metrics': {'latencyMs': [886]}, 'model_name': 'anthropic.claude-3-sonnet-20240229-v1:0'} id='run--7bcf3cd9-16e8-4eff-8e8e-0bd8c2135d01-0' tool_calls=[{'name': 'IDTypeClassifierTool', 'args': {'id_type': ['ledger_report']}, 'id': 'tooluse_yP-sJ1tETdyTDEVXXdJYlg', 'type': 'tool_call'}] usage_metadata={'input_tokens': 989, 'output_tokens': 63, 'total_tokens': 1052, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+2025-07-17 12:13:46,547 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 157] --> Returning matched choices: [{'id': 'ledger_report', 'text': 'Ledger Report'}]
+2025-07-17 12:13:46,552 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:13:46,552 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 76] --> Returning options response from classify_id_type.{'action': 'option', 'response_text': 'Did you mean one of these options?', 'available_choices': [{'id': 'ledger_report', 'text': 'Ledger Report'}]}
+2025-07-17 12:15:36,709 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='60fae9b9-f69d-488d-b4c9-82809f3e6dee' client_id='NAGSYA5' role='CLIENT' token='95688678-51f5-45df-967d-97230e131bd3' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='I need the ledger report.', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='fe5bd552-1bf4-4d5e-b700-3911f4e39845')
+2025-07-17 12:15:36,710 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:15:36,712 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:15:36,713 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:15:36,713 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:15:36,713 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:15:36,752 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:15:36,753 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:15:36,839 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:15:36,840 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:15:36,840 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:15:36,841 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:15:36,841 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:15:36,842 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:15:36,842 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:15:36,843 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:15:36,844 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 5
+2025-07-17 12:15:36,844 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 168] --> Long input detected or not in deterministic, skipping classification
+2025-07-17 12:15:36,844 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:15:36,845 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : fe5bd552-1bf4-4d5e-b700-3911f4e39845
+2025-07-17 12:15:36,847 mlscoringinference [INFO | main.py : communicate : 97] --> new request id: req-7661436c-b034-4b60-b25c-851e7408f2d7
+2025-07-17 12:15:36,848 mlscoringinference [INFO | main.py : communicate : 110] --> Starting new graph invocation with request_id: req-7661436c-b034-4b60-b25c-851e7408f2d7
+2025-07-17 12:15:36,848 mlscoringinference [INFO | main.py : communicate : 119] --> Invoking graph with user query: 'I need the ledger report.'
+2025-07-17 12:15:36,852 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 11
+2025-07-17 12:15:36,866 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 12:15:39,334 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 12:15:39,334 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 12:15:39,334 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 12:15:39,334 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 24] --> Primary Router state Routed to : ReportAgent.
+2025-07-17 12:15:39,343 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:15:39,347 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:15:39,348 mlscoringinference [INFO | state_utils.py : inject_tool_message : 42] --> Tool message for ReportAgent injected successfully
+2025-07-17 12:15:39,349 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:15:39,349 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 116
+2025-07-17 12:15:39,350 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:15:45,880 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:15:45,883 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:15:45,883 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:15:45,883 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:15:45,883 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 48] --> Report Dynamic Router state has AskBackToUser Tool.
+2025-07-17 12:15:45,883 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 12:15:45,888 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 22] --> Ask back content: {'name': 'AskBackToUser', 'args': {'interrupt_message': '**To generate the ledger report, I need the following details:**\n\n- Client ID (if not NAGSYA5)\n- Start date (mm/dd/yyyy format) \n- End date (mm/dd/yyyy format)\n- Exchange segment (Combine or MTF)\n- Date type (Voucher or Effective)\n- Report delivery method (Link or Email)\n\nPlease provide the missing information.'}, 'id': 'tooluse_4jsOBR21S7CRj1EASQfNfg', 'type': 'tool_call'}
+2025-07-17 12:15:45,888 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 12:15:45,888 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:15:45,889 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **To generate the ledger report, I need the follow...
+2025-07-17 12:15:45,891 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:15:45,892 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:15:45,893 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:15:45,894 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 12:15:45,895 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 12:15:45,896 mlscoringinference [INFO | main.py : communicate : 121] --> Graph invocation completed successfully
+2025-07-17 12:15:45,898 mlscoringinference [INFO | main.py : communicate : 132] --> Intrupted Messages goes to User.
+2025-07-17 12:15:45,899 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-7661436c-b034-4b60-b25c-851e7408f2d7
+2025-07-17 12:15:45,899 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: 60fae9b9-f69d-488d-b4c9-82809f3e6dee
+2025-07-17 12:15:45,899 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:16:17,428 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='60fae9b9-f69d-488d-b4c9-82809f3e6dee' client_id='NAGSYA5' role='CLIENT' token='95688678-51f5-45df-967d-97230e131bd3' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='Generate a ledger report for the client ID NAGSYA5 with a date range covering the last 2 years using default settings.', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='192fb30a-71fb-4108-bc93-56eadf4984e0')
+2025-07-17 12:16:17,429 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:16:17,430 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:16:17,431 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:16:17,432 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:16:17,433 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:16:17,489 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:16:17,490 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:16:17,509 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:16:17,511 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:16:17,511 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:16:17,511 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:16:17,512 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:16:17,513 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:16:17,513 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:16:17,514 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:16:17,516 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 136] --> Interrupt detected in the graph state, skipping ID type classification.
+2025-07-17 12:16:17,516 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:16:17,516 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : 192fb30a-71fb-4108-bc93-56eadf4984e0
+2025-07-17 12:16:17,519 mlscoringinference [INFO | main.py : communicate : 68] --> Interupt Resume: >>
+2025-07-17 12:16:17,519 mlscoringinference [INFO | main.py : communicate : 76] --> Starting interrupt resume with request_id: 192fb30a-71fb-4108-bc93-56eadf4984e0
+2025-07-17 12:16:17,520 mlscoringinference [INFO | main.py : communicate : 84] --> Invoking graph with interrupt resume command
+2025-07-17 12:16:17,523 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 12:16:17,523 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 22] --> Ask back content: {'name': 'AskBackToUser', 'args': {'interrupt_message': '**To generate the ledger report, I need the following details:**\n\n- Client ID (if not NAGSYA5)\n- Start date (mm/dd/yyyy format) \n- End date (mm/dd/yyyy format)\n- Exchange segment (Combine or MTF)\n- Date type (Voucher or Effective)\n- Report delivery method (Link or Email)\n\nPlease provide the missing information.'}, 'id': 'tooluse_4jsOBR21S7CRj1EASQfNfg', 'type': 'tool_call'}
+2025-07-17 12:16:17,524 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 12:16:17,524 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:16:17,524 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: **To generate the ledger report, I need the follow...
+2025-07-17 12:16:17,526 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:16:17,526 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:16:17,526 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:16:17,526 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 12:16:17,527 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 12:16:17,527 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 27] --> User input received: Generate a ledger report for the client ID NAGSYA5 with a date range covering the last 2 years using default settings.
+2025-07-17 12:16:17,529 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:16:17,530 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:16:17,530 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:16:17,531 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:16:17,531 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 323
+2025-07-17 12:16:17,531 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:16:24,869 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:16:24,869 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:16:24,869 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:16:24,869 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:16:24,873 mlscoringinference [INFO | react_tool.py : request_post : 30] --> Request POST tool initiated...
+2025-07-17 12:16:24,873 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:16:24,878 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 70] --> System parameters mapper loaded from agentic_flow\openapi_schema\system_params_mapper.json
+2025-07-17 12:16:24,880 mlscoringinference [INFO | json_utils.py : update_system_param_mapper : 80] --> System parameters mapper updated with base URL.
+2025-07-17 12:16:24,881 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 45] --> Payload received: {'user_id': 'NAGSYA5', 'session_id': '60fae9b9-f69d-488d-b4c9-82809f3e6dee', 'client_id': 'NAGSYA5', 'role': 'CLIENT', 'token': '95688678-51f5-45df-967d-97230e131bd3', 'interaction': {'type': 'AGENTIC_FLOW', 'attachement': '', 'input': {'text': 'I need the ledger report.', 'id': None, 'from_date': None, 'to_date': None}, 'metadata': {'source': 'web'}, 'request_id': 'req-7661436c-b034-4b60-b25c-851e7408f2d7'}}
+2025-07-17 12:16:24,882 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted user_id from payload: NAGSYA5
+2025-07-17 12:16:24,882 mlscoringinference [INFO | react_tool.py : _get_post_tool_data : 58] --> Extracted role from payload: CLIENT
+2025-07-17 12:16:24,883 mlscoringinference [INFO | react_tool.py : request_post : 100] --> Making POST request to http://cs.motilaloswaluat.com/gw/api/cbot/ledgerstatement with headers: {'sessionid': '60fae9b9-f69d-488d-b4c9-82809f3e6dee', 'token': '95688678-51f5-45df-967d-97230e131bd3', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/json'} and body: {'clientId': 'NAGSYA5', 'from_Date': '04/01/2023', 'to_Date': '03/31/2025', 'exchange_Seg': 'Combine', 'date_Type': 'Voucher', 'return_Type': 'Link', 'userId': 'NAGSYA5', 'role': 'CLIENT'}
+2025-07-17 12:16:25,855 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 12:16:25,855 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 12:16:25,855 mlscoringinference [INFO | state_utils.py : inject_tool_message : 25] --> No tool_calls found in the latest AIMessage. Skipping injection.
+2025-07-17 12:16:25,855 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 12:16:25,855 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 518
+2025-07-17 12:16:25,855 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 12:16:31,184 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 12:16:31,195 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 12:16:31,208 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 12:16:31,225 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 12:16:31,238 mlscoringinference [INFO | final_response_node.py : report_final_response_node : 296] --> Starting report response check...
+2025-07-17 12:16:31,244 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 12:16:31,256 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 59] --> Checking message for forbidden patterns: Here is the download link for the ledger report fo...
+2025-07-17 12:16:31,260 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 12:16:31,262 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 12:16:31,262 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 12:16:31,264 mlscoringinference [INFO | final_response_node.py : process_final_response : 223] --> Regex and ban words validation passed successfully
+2025-07-17 12:16:31,264 mlscoringinference [INFO | final_response_node.py : process_final_response : 227] --> API tool call message found - proceeding with API grounding validation
+2025-07-17 12:16:31,268 mlscoringinference [INFO | final_response_node.py : extract_message_content : 58] --> Extracted message content at position -2
+2025-07-17 12:16:31,268 mlscoringinference [INFO | api_guard.py : validate_api_response_grounding : 127] --> Validating API Response grounding ...
+2025-07-17 12:16:33,528 mlscoringinference [INFO | api_guard.py : validate_api_response_grounding : 133] --> API Response Grounding validation complete.
+2025-07-17 12:16:33,528 mlscoringinference [INFO | final_response_node.py : process_final_response : 234] --> API tool call grounding validation result: {'query_response_relevance': 'High', 'response_chunk_alignment': 'Aligned', 'issues': 'The response directly provides the requested download link for the ledger report, which is fully aligned with the retrieved knowledge chunk containing the same link.'}
+2025-07-17 12:16:33,528 mlscoringinference [INFO | final_response_node.py : api_pass_signal : 100] --> API response validation criteria: Query relevance: High, Chunk alignment: Aligned
+2025-07-17 12:16:33,528 mlscoringinference [INFO | final_response_node.py : api_pass_signal : 108] --> API response validation result: Pass
+2025-07-17 12:16:33,528 mlscoringinference [INFO | final_response_node.py : process_final_response : 245] --> API grounding validation passed successfully
+2025-07-17 12:16:33,528 mlscoringinference [INFO | final_response_node.py : process_final_response : 279] --> Final response processing completed successfully
+2025-07-17 12:16:33,528 mlscoringinference [INFO | main.py : communicate : 86] --> Interrupt resume completed successfully
+2025-07-17 12:16:33,540 mlscoringinference [INFO | main.py : communicate : 134] --> Normal Messages goes to User.
+2025-07-17 12:16:33,543 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-7661436c-b034-4b60-b25c-851e7408f2d7
+2025-07-17 12:16:33,544 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: 60fae9b9-f69d-488d-b4c9-82809f3e6dee
+2025-07-17 12:16:33,545 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.
+2025-07-17 12:33:17,105 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 60] --> Received chatbot payload: user_id='NAGSYA5' session_id='ac01c720-f997-4a89-a420-469813c95879' client_id='NAGSYA5' role='CLIENT' token='60135896-563b-418b-b8e8-0e91c00d2def' interaction=InteractionV2(type='AGENTIC_FLOW', attachement='', input=InputData(text='ledger report', id=None, from_date=None, to_date=None), metadata=Metadata(source='web'), request_id='23b9c0c8-f096-40e4-9070-90cbbe7726cc')
+2025-07-17 12:33:17,108 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 12:33:17,108 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 12:33:17,112 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 12:33:17,113 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 12:33:17,113 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 12:33:17,158 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 12:33:17,159 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 12:33:17,180 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 12:33:17,181 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 12:33:17,181 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 12:33:17,182 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 12:33:17,183 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 12:33:17,185 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 12:33:17,186 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 12:33:17,187 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 12:33:17,188 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 2
+2025-07-17 12:33:17,189 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 143] --> Short input detected in agentic flow
+2025-07-17 12:33:17,189 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 145] --> Invoking flow router runnable for short input in agentic flow
+2025-07-17 12:33:18,496 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 147] --> Result from flow router: content=[{'type': 'tool_use', 'name': 'IDTypeClassifierTool', 'input': {'id_type': ['ledger_report']}, 'id': 'tooluse_Te6v67v7S9ma2hmPgIyZ_w'}] additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': 'a5d4cc86-4d67-45d1-b8f9-dda0dccc0b68', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 17 Jul 2025 07:03:18 GMT', 'content-type': 'application/json', 'content-length': '300', 'connection': 'keep-alive', 'x-amzn-requestid': 'a5d4cc86-4d67-45d1-b8f9-dda0dccc0b68'}, 'RetryAttempts': 0}, 'stopReason': 'tool_use', 'metrics': {'latencyMs': [1235]}, 'model_name': 'anthropic.claude-3-sonnet-20240229-v1:0'} id='run--c92190b2-e5b2-4302-a8b0-29d408f00eb5-0' tool_calls=[{'name': 'IDTypeClassifierTool', 'args': {'id_type': ['ledger_report']}, 'id': 'tooluse_Te6v67v7S9ma2hmPgIyZ_w', 'type': 'tool_call'}] usage_metadata={'input_tokens': 989, 'output_tokens': 63, 'total_tokens': 1052, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+2025-07-17 12:33:18,496 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 157] --> Returning matched choices: [{'id': 'ledger_report', 'text': 'Ledger Report'}]
+2025-07-17 12:33:18,496 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 12:33:18,496 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 76] --> Returning options response from classify_id_type.{'action': 'option', 'response_text': 'Did you mean one of these options?', 'available_choices': [{'id': 'ledger_report', 'text': 'Ledger Report'}]}
+2025-07-17 14:17:13,208 mlscoringinference [INFO | secrets.py : get_secret : 10] --> Fetching secrets for environment: dev
+2025-07-17 14:17:17,455 mlscoringinference [INFO | langfuse_client.py : <module> : 19] --> Langfuse client initialized successfully
+2025-07-17 14:17:17,536 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 14:17:17,536 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 14:17:17,541 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:17:17,594 mlscoringinference [INFO | assistant_tool.py : TradingAgent : 24] --> Trading Agent Call.
+2025-07-17 14:17:17,594 mlscoringinference [INFO | assistant_tool.py : ReportAgent : 52] --> Report Agent Call.
+2025-07-17 14:17:17,596 mlscoringinference [INFO | assistant_tool.py : AccountAgent : 93] --> Account Agent Call.
+2025-07-17 14:17:17,597 mlscoringinference [INFO | assistant_tool.py : InformationCentreAgent : 138] --> Information Centre Agent Call.
+2025-07-17 14:17:17,598 mlscoringinference [INFO | assistant_tool.py : FundAgent : 169] --> Fund Agent Call.
+2025-07-17 14:17:17,600 mlscoringinference [INFO | assistant_tool.py : DPAgent : 195] --> DP Agent Call.
+2025-07-17 14:17:17,622 mlscoringinference [INFO | react_tool.py : <module> : 155] --> Initializing basic tools...
+2025-07-17 14:17:17,629 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 14:17:17,629 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 14:17:17,629 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:17:17,639 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 14:17:17,640 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 14:17:17,640 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:17:17,644 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 14:17:17,645 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 14:17:17,645 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:17:17,669 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 14:17:17,671 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 14:17:17,672 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:17:17,672 mlscoringinference [INFO | langgraph_builder.py : <module> : 80] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:17:17,672 mlscoringinference [INFO | langgraph_builder.py : <module> : 82] --> Rannnable Importing.
+2025-07-17 14:17:17,674 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for report_agent_schema Creating...
+2025-07-17 14:17:17,674 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\report_agent_schema.json
+2025-07-17 14:17:17,679 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 14:17:17,686 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for report_agent_schema created successfully.
+2025-07-17 14:17:17,686 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for account_agent_schema Creating...
+2025-07-17 14:17:17,688 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\account_agent_schema.json
+2025-07-17 14:17:17,692 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\account_agent_static_data.json
+2025-07-17 14:17:17,694 mlscoringinference [INFO | json_utils.py : update_paths_with_base_url : 94] --> 'paths' key not found in JSON; returning original data unchanged.
+2025-07-17 14:17:17,695 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 14:17:17,698 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for account_agent_schema created successfully.
+2025-07-17 14:17:17,699 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for fund_agent_schema Creating...
+2025-07-17 14:17:17,699 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\fund_agent_schema.json
+2025-07-17 14:17:17,706 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 14:17:17,709 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for fund_agent_schema created successfully.
+2025-07-17 14:17:17,710 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for trading_agent_schema Creating...
+2025-07-17 14:17:17,711 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\trading_agent_schema.json
+2025-07-17 14:17:17,712 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 14:17:17,716 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for trading_agent_schema created successfully.
+2025-07-17 14:17:17,717 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 34] --> Information React agent for information_centre_agent_schema Creating...
+2025-07-17 14:17:17,718 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\information_centre_agent_schema.json
+2025-07-17 14:17:17,722 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 38] --> API Specification loaded.
+2025-07-17 14:17:17,722 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\information_centre_agent_static_data.json
+2025-07-17 14:17:17,723 mlscoringinference [INFO | json_utils.py : update_paths_with_base_url : 94] --> 'paths' key not found in JSON; returning original data unchanged.
+2025-07-17 14:17:17,731 mlscoringinference [INFO | information_center_agent.py : get_information_runnable_react : 48] --> Information React agent runnable for information_centre_agent_schema created successfully.
+2025-07-17 14:17:17,732 mlscoringinference [INFO | react_agent.py : get_runnable_react : 36] --> React agent for combine Creating...
+2025-07-17 14:17:17,732 mlscoringinference [INFO | json_utils.py : load_json_file : 54] --> Loading JSON file from path: C:\Users\rohangupta\Documents\new-voice-agent-chatbot_wrapper\voice_agent\chatbot_backend\agentic_flow\openapi_schema\combine.json
+2025-07-17 14:17:17,736 mlscoringinference [INFO | react_agent.py : get_runnable_react : 44] --> API Specification loaded.
+2025-07-17 14:17:17,744 mlscoringinference [INFO | react_agent.py : get_runnable_react : 50] --> React agent runnable for combine created successfully.
+2025-07-17 14:17:17,745 mlscoringinference [INFO | langgraph_builder.py : <module> : 93] --> Rannnable for all agents created successfully.
+2025-07-17 14:17:17,749 mlscoringinference [INFO | chatbot_service.py : <module> : 28] --> Chatbot service initialization started.
+2025-07-17 14:17:17,750 mlscoringinference [INFO | session_store.py : __init__ : 29] --> Initializing RedisSessionStore.
+2025-07-17 14:17:17,753 mlscoringinference [INFO | session_store.py : __init__ : 33] --> RedisSessionStore initialized successfully.
+2025-07-17 14:17:17,756 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 14:17:17,757 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 14:17:17,757 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 14:17:17,758 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 14:17:17,819 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 14:17:17,822 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 14:17:17,853 mlscoringinference [INFO | chatbot_service.py : <module> : 44] --> Chatbot service initialized successfully.
+2025-07-17 14:23:55,929 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 61] --> Starting to classify payload ID type.
+2025-07-17 14:23:55,929 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 103] --> Graph State define Initiated.
+2025-07-17 14:23:55,930 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 105] --> Graph State define Successfull.
+2025-07-17 14:23:55,931 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 108] --> Defining nodes in the graph.
+2025-07-17 14:23:55,932 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 115] --> Registering agents and tools in the graph.
+2025-07-17 14:23:55,981 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 177] --> Adding edges to the graph.
+2025-07-17 14:23:55,982 mlscoringinference [INFO | langgraph_builder.py : create_langgraph_supervisor : 227] --> LangGraph Supervisor created successfully.
+2025-07-17 14:23:56,001 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 21] --> Reading JSON file to extract id_types.
+2025-07-17 14:23:56,002 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 25] --> Loaded JSON content.
+2025-07-17 14:23:56,003 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 37] --> Added default 'home' button to id_types.
+2025-07-17 14:23:56,003 mlscoringinference [INFO | simple_flow_router.py : extract_id_types_from_json : 39] --> Extracted id_types: [{'id': 'ledger_report', 'text': 'Ledger Report'}, {'id': 'home', 'text': 'home'}, {'id': 'profit_and_loss_statement', 'text': 'Profit and loss statement'}, {'id': 'my_details', 'text': 'My details'}, {'id': 'dp_statement', 'text': 'DP Statement'}, {'id': 'brokerage_report', 'text': 'Brokerage Report'}, {'id': 'itr_statement', 'text': 'ITR Statement'}, {'id': 'available_margin', 'text': 'Available Margin'}, {'id': 'my_dashboard', 'text': 'My Dashboard'}, {'id': 'tds_certificate', 'text': 'TDS Certificate'}, {'id': 'stt_ctt_certificate', 'text': 'STT/CTT Certificate'}, {'id': 'markets_research_client', 'text': 'Market Research'}, {'id': 'emodification', 'text': 'E-modification'}, {'id': 'upcoming_buyback', 'text': 'Upcoming Buyback'}, {'id': 'mf_status', 'text': 'Mutual Fund Status'}, {'id': 'fund_payout_status', 'text': 'Fund Payout Status'}, {'id': 'margin_shortage', 'text': 'Margin Shortage Penalty'}, {'id': 'rta_statement', 'text': 'RTA Statement'}, {'id': 'dormant_status', 'text': 'Dormant Reactivation & Status'}, {'id': 'fund_transfer_status', 'text': 'Funds Transfer Status'}, {'id': 'stop_online_trade', 'text': 'Stop Online Trading'}, {'id': 'start_online_trade', 'text': 'Start Online Trading'}, {'id': 'grandfather_pnl', 'text': 'Grandfather Profit and Loss statement'}, {'id': 'sauda_details', 'text': 'Sauda Detail'}, {'id': 'ipo', 'text': 'IPO'}, {'id': 'digi_cmr', 'text': 'DIGI CMR Report'}, {'id': 'contract_note', 'text': 'Contract Note'}, {'id': 'dis_drf_status', 'text': 'DIS/DRF Status'}, {'id': 'segment_addition', 'text': 'Segment Addition'}, {'id': 'advisor_request', 'text': 'Advisor Request'}]
+2025-07-17 14:23:56,004 mlscoringinference [INFO | llm_models.py : get_llm_model : 30] --> Using default model ID: anthropic.claude-3-sonnet-20240229-v1:0
+2025-07-17 14:23:56,005 mlscoringinference [INFO | llm_models.py : get_llm_model : 34] --> Initializing ChatBedrockConverse model
+2025-07-17 14:23:56,006 mlscoringinference [INFO | llm_models.py : get_llm_model : 43] --> ChatBedrockConverse model initialized successfully
+2025-07-17 14:23:56,007 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 120] --> Starting ID type classification...
+2025-07-17 14:23:56,009 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 141] --> length of input - 4
+2025-07-17 14:23:56,009 mlscoringinference [INFO | simple_flow_router.py : classify_id_type : 168] --> Long input detected or not in deterministic, skipping classification
+2025-07-17 14:23:56,010 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 73] --> Finished classifying payload ID type.
+2025-07-17 14:23:56,010 mlscoringinference [INFO | main.py : communicate : 34] --> Payload request id is : e6b9f12a-e232-42a3-94ac-2d953da20732
+2025-07-17 14:23:56,012 mlscoringinference [INFO | main.py : communicate : 97] --> new request id: req-25e2fd76-e5cf-48df-91f0-ee3281c6b21a
+2025-07-17 14:23:56,013 mlscoringinference [INFO | main.py : communicate : 110] --> Starting new graph invocation with request_id: req-25e2fd76-e5cf-48df-91f0-ee3281c6b21a
+2025-07-17 14:23:56,027 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 10
+2025-07-17 14:23:56,056 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 26] --> Assistance started..
+2025-07-17 14:23:58,806 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 39] --> Assistance Break.
+2025-07-17 14:23:58,809 mlscoringinference [INFO | supervisor_agent_v2.py : __call__ : 42] --> Assitance completed.
+2025-07-17 14:23:58,812 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 15] --> Primary Router function Activated.
+2025-07-17 14:23:58,812 mlscoringinference [INFO | dynamic_router.py : route_primary_assistant : 24] --> Primary Router state Routed to : ReportAgent.
+2025-07-17 14:23:58,815 mlscoringinference [INFO | react_agent.py : __call__ : 61] --> react agent initiated...
+2025-07-17 14:23:58,818 mlscoringinference [INFO | state_utils.py : inject_tool_message : 21] --> Tool message injection Initiated.
+2025-07-17 14:23:58,818 mlscoringinference [INFO | state_utils.py : inject_tool_message : 42] --> Tool message for ReportAgent injected successfully
+2025-07-17 14:23:58,819 mlscoringinference [INFO | react_agent.py : __call__ : 68] --> Client ID from payload: NAGSYA5
+2025-07-17 14:23:58,820 mlscoringinference [INFO | llm_models.py : pre_model_hook : 47] --> max tokens till now: 115
+2025-07-17 14:23:58,820 mlscoringinference [INFO | react_agent.py : __call__ : 90] --> Invoking React agent with inputs...
+2025-07-17 14:24:08,458 mlscoringinference [INFO | react_agent.py : __call__ : 92] --> React agent invoked successfully.
+2025-07-17 14:24:08,459 mlscoringinference [INFO | react_agent.py : __call__ : 107] --> Assistance Break.
+2025-07-17 14:24:08,459 mlscoringinference [INFO | react_agent.py : __call__ : 110] --> react agent completed.
+2025-07-17 14:24:08,460 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 34] --> Report Dynamic Router function Activated.
+2025-07-17 14:24:08,461 mlscoringinference [INFO | dynamic_router.py : report_dynamic_router : 48] --> Report Dynamic Router state has AskBackToUser Tool.
+2025-07-17 14:24:08,464 mlscoringinference [INFO | human_in_loop_node.py : report_human_node : 15] --> Report Human Node Activated.
+2025-07-17 14:24:08,483 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 17] --> Starting Ask Back final check...
+2025-07-17 14:24:08,483 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 56] --> Starting Regex output guard...
+2025-07-17 14:24:08,498 mlscoringinference [INFO | api_guard.py : get_regex_output_guard : 66] --> Regex guard check completed - no forbidden patterns detected
+2025-07-17 14:24:08,499 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 74] --> Starting Banned words guard...
+2025-07-17 14:24:08,500 mlscoringinference [INFO | api_guard.py : get_ban_words_guard : 83] --> Banned words guard check completed - no banned words detected.
+2025-07-17 14:24:08,500 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 33] --> Regex and ban words validation passed successfully
+2025-07-17 14:24:08,501 mlscoringinference [INFO | ask_back_guard.py : ask_back_final_check : 35] --> Ask Back final check completed - valid response received
+2025-07-17 14:24:08,505 mlscoringinference [INFO | main.py : communicate : 121] --> Graph invocation completed successfully
+2025-07-17 14:24:08,509 mlscoringinference [INFO | main.py : communicate : 132] --> Intrupted Messages goes to User.
+2025-07-17 14:24:08,509 mlscoringinference [INFO | main.py : communicate : 138] --> Request id is : req-25e2fd76-e5cf-48df-91f0-ee3281c6b21a
+2025-07-17 14:24:08,510 mlscoringinference [INFO | main.py : communicate : 148] --> Response generated successfully for session_id: 8209112a-505b-42d8-aef7-83b5b7bf695d
+2025-07-17 14:24:08,510 mlscoringinference [INFO | chatbot_service.py : get_chatbot_response : 119] --> Handled via agentic (LangGraph) flow.

@@ -1,4 +1,4 @@
-from realtime_client_new import RealtimeClient
+from realtime_client import RealtimeClient
 from instructions import INSTRUCTIONS
 
 import asyncio
@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 async def main():
-    client = RealtimeClient(instructions=INSTRUCTIONS, voice="ash")
+    client = RealtimeClient(instructions=INSTRUCTIONS, voice="sage")
     try:
         await client.run()
     except Exception as e:
