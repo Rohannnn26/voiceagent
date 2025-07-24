@@ -13,7 +13,7 @@ a: Send audio message
 """
 
 class RealtimeClient:
-    def __init__(self, instructions, voice="fable"):
+    def __init__(self, instructions, voice="verse"):
         # WebSocket Configuration
         resource = os.getenv('AZURE_RTOPENAI_RESOURCE')
         deployment = os.getenv('AZURE_RTOPENAI_DEPLOYMENT')
@@ -30,14 +30,13 @@ class RealtimeClient:
         self.ssl_context.check_hostname = False
         self.ssl_context.verify_mode = ssl.CERT_NONE
         
-        self.audio_buffer = b''
         self.instructions = instructions
         self.voice = voice
 
         self.VAD_turn_detection = True
         self.VAD_config = {
             "type": "server_vad",
-            "threshold": 0.8,  # Increased from 0.5 to 0.8 - requires louder speech to activate
+            "threshold": 0.9,  # Increased from 0.5 to 0.8 - requires louder speech to activate
             "prefix_padding_ms": 300,
             "silence_duration_ms": 1000  # Increased from 600 to 800ms - requires longer silence to stop
         }
@@ -52,7 +51,7 @@ class RealtimeClient:
             "input_audio_transcription": {
                 "model": "whisper-1"
             },
-            "temperature": 1,
+            "temperature": 0.6,
             "tools": FUNCTION_SCHEMAS,
             "tool_choice": "auto"
         }
@@ -120,15 +119,14 @@ class RealtimeClient:
         # ── Agent Audio Events ──
         elif event_type == "response.audio.delta":
             audio_data = base64.b64decode(event["delta"])
-            self.audio_buffer += audio_data
+            # Stream audio immediately instead of buffering
+            self.audio_handler.add_streaming_audio(audio_data)
+            logger.debug(f"🔊 Streaming audio chunk: {len(audio_data)} bytes")
 
         elif event_type == "response.audio.done":
-            if self.audio_buffer:
-                logger.info(f"🔊 AGENT AUDIO PLAYED: {len(self.audio_buffer)} bytes")
-                self.audio_handler.play_audio(self.audio_buffer)
-                self.audio_buffer = b''
-            else:
-                logger.warning("No audio data to play")
+            # Mark that no more audio chunks will come
+            self.audio_handler.mark_audio_response_complete()
+            logger.info("🔊 Audio response complete - letting remaining chunks finish playing")
 
         elif event_type == "response.done":
             outputs = event["response"]["output"]
@@ -183,7 +181,9 @@ class RealtimeClient:
                 await self.send_event({"type": "response.create"})
 
         elif event_type == "input_audio_buffer.speech_started":
-            logger.debug("Speech started")
+            logger.debug("Speech started - stopping any ongoing audio playback")
+            # Stop any ongoing audio playback when user starts speaking
+            self.audio_handler.stop_streaming_playback()
 
         elif event_type == "input_audio_buffer.speech_stopped":
             logger.debug("Speech stopped")
@@ -277,6 +277,7 @@ class RealtimeClient:
             await self.cleanup()
 
     async def cleanup(self):
+        self.audio_handler.stop_streaming_playback()  # Stop any streaming
         self.audio_handler.cleanup()
         if self.ws:
             await self.ws.close()
@@ -291,7 +292,7 @@ class RealtimeClient:
                 "role": "assistant",
                 "content": [{"type": "text", "text": message}]
             }
-        })
+        })  
         await self.send_event({"type": "response.create"})
 
     async def _execute_backend_tool_async(self, call_id: str, args: dict):

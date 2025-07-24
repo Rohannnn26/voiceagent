@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 async def main():
-    client = RealtimeClient(instructions=INSTRUCTIONS, voice="sage")
+    client = RealtimeClient(instructions=INSTRUCTIONS, voice="verse")
     try:
         await client.run()
     except Exception as e:
